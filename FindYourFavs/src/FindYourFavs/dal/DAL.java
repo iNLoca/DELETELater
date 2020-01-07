@@ -29,4 +29,43 @@ public class DAL {
         ds.setPortNumber(1433);
     }
 
+    
+    public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
+
+        try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO Movies (name,personalRating,IMDBRating,fileLink,lastView) values (?,?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, name);
+            pstmt.setInt(2, personalRating);
+            pstmt.setInt(3, IMDBRating);
+            pstmt.setString(4, fileLink);
+            pstmt.setInt(5, lastView);
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void addCategory(int id, String name) {
+
+        try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO Category (name)(?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, name);       
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
 }

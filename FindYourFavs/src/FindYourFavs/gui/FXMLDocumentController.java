@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anything;
+package FindYourFavs.gui;
 
+import FindYourFavs.be.Category;
+import FindYourFavs.be.Movie;
+import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,6 +21,9 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
+    Movie movie = new Movie();
+    Category category = new Category();
+    
     @FXML
     private Label label;
     
@@ -30,6 +36,14 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
     
+  /*private void removeMovie(ActionEvent event) {
+        movie = 
+    }
+    
+    private void removeCategory(ActionEvent event) {
+        category = 
+    }
+   */ 
 }
