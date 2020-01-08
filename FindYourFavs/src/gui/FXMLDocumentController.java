@@ -5,6 +5,7 @@
  */
 package gui;
 
+import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,6 +22,8 @@ import javafx.scene.control.MenuButton;
  * @author mac
  */
 public class FXMLDocumentController implements Initializable {
+    
+    Manager manager = new Manager();
 
     @FXML
     private Label label;

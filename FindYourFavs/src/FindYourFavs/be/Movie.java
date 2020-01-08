@@ -79,4 +79,11 @@ public class Movie {
         this.fileLink=fileLink;
         this.lastView=lastView;
     }
+    public Movie (String name, int personalRating, int IMDBRating){
+        
+        this.name=name;
+        this.personalRating=personalRating;
+        this.IMDBRating=IMDBRating;
+
+    }
 }
