@@ -3,29 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package FindYourFavs.gui.controller;
 
-import FindYourFavs.bll.Manager;
+import FindYourFavs.be.Movie;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author mac
  */
-public class FXMLDocumentController implements Initializable {
-    
-    Manager manager = new Manager();
+public class MoviePlayerController implements Initializable {
 
     @FXML
     private Label label;
@@ -44,11 +41,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button editrating;
     @FXML
-    private TableColumn<?, ?> movietittle;
+    private TableView<Movie> tableview;
     @FXML
-    private TableColumn<?, ?> usrrating;
+    private TableColumn<Movie, String> movietittle;
     @FXML
-    private TableColumn<?, ?> imdbrating;
+    private TableColumn<Movie, Integer> usrrating;
+    @FXML
+    private TableColumn<Movie, Integer> imdbrating;
 
     /**
      * Initializes the controller class.
@@ -56,8 +55,6 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-       
     }    
 
     @FXML

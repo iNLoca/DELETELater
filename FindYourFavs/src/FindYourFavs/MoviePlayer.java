@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FindYourFavs.gui;
+package FindYourFavs;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +15,11 @@ import javafx.stage.Stage;
  *
  * @author mac
  */
-public class MovieCollection extends Application {
+public class MoviePlayer extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("gui.view.MovieCollection.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gui/view/MoviePlayer.fxml"));
         
         Scene scene = new Scene(root);
         
