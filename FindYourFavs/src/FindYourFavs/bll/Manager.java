@@ -11,19 +11,19 @@ import FindYourFavs.dal.DAL;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Manager {
-    DAL dal = new DAL(); 
-    static List<Category> categoryList  = new ArrayList();
-   public static List<Movie> movieList  = new ArrayList();
-    
-   
-    
-    public void addMovie (int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView){
+
+    DAL dal = new DAL();
+    static List<Category> categoryList = new ArrayList();
+    public static List<Movie> movieList = new ArrayList();
+
+    public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
         dal.addMovie(id, name, personalRating, IMDBRating, fileLink, lastView);
     }
-    
-    public void addCategory(int id, String name){
+
+    public void addCategory(int id, String name) {
         dal.addCategory(id, name);
     }
+    
+   
 }

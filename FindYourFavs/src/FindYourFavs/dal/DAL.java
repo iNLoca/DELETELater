@@ -13,8 +13,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,7 +30,7 @@ public class DAL {
         ds.setPortNumber(1433);
     }
 
-    public void retrieveMovies() throws SQLException{
+    public void getAllMovies() throws SQLException{
         try ( Connection con = ds.getConnection()) {
             String sql = "  SELECT * FROM Movies (name,personalRating,IMDBRating)";
             
@@ -45,7 +43,7 @@ public class DAL {
                 int personalRating  = rs.getInt("personalRating");
                 int IMDBRating    = rs.getInt("IMDBRating");
                 Movie movie = new Movie(name,personalRating,IMDBRating);
-                man.movieList.add(movie);
+                Manager.movieList.add(movie);
         }}
         catch (SQLServerException sqlse)
         {
