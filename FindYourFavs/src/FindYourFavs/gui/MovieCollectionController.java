@@ -38,12 +38,5 @@ public class MovieCollectionController implements Initializable {
         // TODO
     }
     
-  /*private void removeMovie(ActionEvent event) {
-        movie = 
-    }
-    
-    private void removeCategory(ActionEvent event) {
-        category = 
-    }
-   */ 
+
 }
