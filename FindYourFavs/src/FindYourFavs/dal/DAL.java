@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class DAL {
 
     private SQLServerDataSource ds;
-    private Manager man= new Manager();
+    //private Manager man= new Manager();
 
     public DAL() {
         ds = new SQLServerDataSource();

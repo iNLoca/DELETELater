@@ -5,7 +5,7 @@
     function launchApplication(jnlpfile) {
         dtjava.launch(            {
                 url : 'FindYourFavs.jnlp',
-                jnlp_content : 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48am5scCBzcGVjPSIxLjAiIHhtbG5zOmpmeD0iaHR0cDovL2phdmFmeC5jb20iIGhyZWY9IkZpbmRZb3VyRmF2cy5qbmxwIj4NCiAgICA8aW5mb3JtYXRpb24+DQogICAgICAgIDx0aXRsZT5GaW5kWW91ckZhdnM8L3RpdGxlPg0KICAgICAgICA8dmVuZG9yPm1hYzwvdmVuZG9yPg0KICAgICAgICA8ZGVzY3JpcHRpb24+bnVsbDwvZGVzY3JpcHRpb24+DQogICAgICAgIDxvZmZsaW5lLWFsbG93ZWQvPg0KICAgIDwvaW5mb3JtYXRpb24+DQogICAgPHVwZGF0ZSBjaGVjaz0iYWx3YXlzIi8+DQogICAgPHJlc291cmNlcz4NCiAgICAgICAgPGoyc2UgdmVyc2lvbj0iOS4wLjQrIiBocmVmPSJodHRwOi8vamF2YS5zdW4uY29tL3Byb2R1Y3RzL2F1dG9kbC9qMnNlIi8+DQogICAgICAgIDxqYXIgaHJlZj0iRmluZFlvdXJGYXZzLmphciIgc2l6ZT0iOTY2MDMiIGRvd25sb2FkPSJlYWdlciIvPg0KICAgICAgICA8amFyIGhyZWY9ImxpYlxtc3NxbC1qZGJjLTYuNC4wLmpyZTkuamFyIiBzaXplPSIxMTIzMDgwIiBkb3dubG9hZD0iZWFnZXIiLz4NCiAgICA8L3Jlc291cmNlcz4NCiAgICA8amZ4OmphdmFmeC1kZXNjIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBtYWluLWNsYXNzPSJGaW5kWW91ckZhdnMuZ3VpLk1vdmllQ29sbGVjdGlvbiIgbmFtZT0iTW92aWVDb2xsZWN0aW9uIi8+DQo8L2pubHA+DQoNCg=='
+                jnlp_content : 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48am5scCBzcGVjPSIxLjAiIHhtbG5zOmpmeD0iaHR0cDovL2phdmFmeC5jb20iIGhyZWY9IkZpbmRZb3VyRmF2cy5qbmxwIj4NCiAgICA8aW5mb3JtYXRpb24+DQogICAgICAgIDx0aXRsZT5GaW5kWW91ckZhdnM8L3RpdGxlPg0KICAgICAgICA8dmVuZG9yPm1hYzwvdmVuZG9yPg0KICAgICAgICA8ZGVzY3JpcHRpb24+bnVsbDwvZGVzY3JpcHRpb24+DQogICAgICAgIDxvZmZsaW5lLWFsbG93ZWQvPg0KICAgIDwvaW5mb3JtYXRpb24+DQogICAgPHVwZGF0ZSBjaGVjaz0iYWx3YXlzIi8+DQogICAgPHJlc291cmNlcz4NCiAgICAgICAgPGoyc2UgdmVyc2lvbj0iOS4wLjQrIiBocmVmPSJodHRwOi8vamF2YS5zdW4uY29tL3Byb2R1Y3RzL2F1dG9kbC9qMnNlIi8+DQogICAgICAgIDxqYXIgaHJlZj0iRmluZFlvdXJGYXZzLmphciIgc2l6ZT0iMTIxMTY4IiBkb3dubG9hZD0iZWFnZXIiLz4NCiAgICAgICAgPGphciBocmVmPSJsaWJcbXNzcWwtamRiYy02LjQuMC5qcmU5LmphciIgc2l6ZT0iMTEyMzA4MCIgZG93bmxvYWQ9ImVhZ2VyIi8+DQogICAgPC9yZXNvdXJjZXM+DQogICAgPGpmeDpqYXZhZngtZGVzYyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgbWFpbi1jbGFzcz0iRmluZFlvdXJGYXZzLmd1aS5tb2RlbC5Nb3ZpZUNvbGxlY3Rpb24iIG5hbWU9Ik1vdmllQ29sbGVjdGlvbiIvPg0KPC9qbmxwPg0KDQo='
             },
             {
                 javafx : '9.0.4+'
@@ -15,15 +15,15 @@
         return false;
     }
 </script><script>
-    function javafxEmbedFindYourFavs.gui() {
+    function javafxEmbedFindYourFavs.gui.model() {
         dtjava.embed(
             {
-                id : 'FindYourFavs.gui',
+                id : 'FindYourFavs.gui.model',
                 url : 'FindYourFavs.jnlp',
                 placeholder : 'javafx-app-placeholder',
                 width : '800',
                 height : '600',
-                jnlp_content : 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48am5scCBzcGVjPSIxLjAiIHhtbG5zOmpmeD0iaHR0cDovL2phdmFmeC5jb20iIGhyZWY9IkZpbmRZb3VyRmF2cy5qbmxwIj4NCiAgICA8aW5mb3JtYXRpb24+DQogICAgICAgIDx0aXRsZT5GaW5kWW91ckZhdnM8L3RpdGxlPg0KICAgICAgICA8dmVuZG9yPm1hYzwvdmVuZG9yPg0KICAgICAgICA8ZGVzY3JpcHRpb24+bnVsbDwvZGVzY3JpcHRpb24+DQogICAgICAgIDxvZmZsaW5lLWFsbG93ZWQvPg0KICAgIDwvaW5mb3JtYXRpb24+DQogICAgPHVwZGF0ZSBjaGVjaz0iYWx3YXlzIi8+DQogICAgPHJlc291cmNlcz4NCiAgICAgICAgPGoyc2UgdmVyc2lvbj0iOS4wLjQrIiBocmVmPSJodHRwOi8vamF2YS5zdW4uY29tL3Byb2R1Y3RzL2F1dG9kbC9qMnNlIi8+DQogICAgICAgIDxqYXIgaHJlZj0iRmluZFlvdXJGYXZzLmphciIgc2l6ZT0iOTY2MDMiIGRvd25sb2FkPSJlYWdlciIvPg0KICAgICAgICA8amFyIGhyZWY9ImxpYlxtc3NxbC1qZGJjLTYuNC4wLmpyZTkuamFyIiBzaXplPSIxMTIzMDgwIiBkb3dubG9hZD0iZWFnZXIiLz4NCiAgICA8L3Jlc291cmNlcz4NCiAgICA8amZ4OmphdmFmeC1kZXNjIHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBtYWluLWNsYXNzPSJGaW5kWW91ckZhdnMuZ3VpLk1vdmllQ29sbGVjdGlvbiIgbmFtZT0iTW92aWVDb2xsZWN0aW9uIi8+DQo8L2pubHA+DQoNCg=='
+                jnlp_content : 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48am5scCBzcGVjPSIxLjAiIHhtbG5zOmpmeD0iaHR0cDovL2phdmFmeC5jb20iIGhyZWY9IkZpbmRZb3VyRmF2cy5qbmxwIj4NCiAgICA8aW5mb3JtYXRpb24+DQogICAgICAgIDx0aXRsZT5GaW5kWW91ckZhdnM8L3RpdGxlPg0KICAgICAgICA8dmVuZG9yPm1hYzwvdmVuZG9yPg0KICAgICAgICA8ZGVzY3JpcHRpb24+bnVsbDwvZGVzY3JpcHRpb24+DQogICAgICAgIDxvZmZsaW5lLWFsbG93ZWQvPg0KICAgIDwvaW5mb3JtYXRpb24+DQogICAgPHVwZGF0ZSBjaGVjaz0iYWx3YXlzIi8+DQogICAgPHJlc291cmNlcz4NCiAgICAgICAgPGoyc2UgdmVyc2lvbj0iOS4wLjQrIiBocmVmPSJodHRwOi8vamF2YS5zdW4uY29tL3Byb2R1Y3RzL2F1dG9kbC9qMnNlIi8+DQogICAgICAgIDxqYXIgaHJlZj0iRmluZFlvdXJGYXZzLmphciIgc2l6ZT0iMTIxMTY4IiBkb3dubG9hZD0iZWFnZXIiLz4NCiAgICAgICAgPGphciBocmVmPSJsaWJcbXNzcWwtamRiYy02LjQuMC5qcmU5LmphciIgc2l6ZT0iMTEyMzA4MCIgZG93bmxvYWQ9ImVhZ2VyIi8+DQogICAgPC9yZXNvdXJjZXM+DQogICAgPGpmeDpqYXZhZngtZGVzYyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgbWFpbi1jbGFzcz0iRmluZFlvdXJGYXZzLmd1aS5tb2RlbC5Nb3ZpZUNvbGxlY3Rpb24iIG5hbWU9Ik1vdmllQ29sbGVjdGlvbiIvPg0KPC9qbmxwPg0KDQo='
             },
             {
                 javafx : '9.0.4+'
@@ -33,7 +33,7 @@
     }
     
             <!-- Embed FX application into web page once page is loaded -->
-    dtjava.addOnloadCallback(javafxEmbedFindYourFavs.gui);
+    dtjava.addOnloadCallback(javafxEmbedFindYourFavs.gui.model);
 </script>
     </head>
     <body>
