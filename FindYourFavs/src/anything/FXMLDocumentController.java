@@ -75,6 +75,46 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void clickEditRating(ActionEvent event) {
     }
+
+    @FXML
+    private void clickActionCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickAnimationCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickComedyCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickCrimeCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickDramaCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickFilmNoir(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickHorror(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickThriller(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickWar(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickWestern(ActionEvent event) {
+    }
     
     
 }
