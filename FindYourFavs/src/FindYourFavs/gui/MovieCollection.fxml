@@ -21,16 +21,16 @@
             <Font name="Myanmar MN" size="13.0" />
          </font>
       </Label>
-      <MenuButton layoutX="14.0" layoutY="76.0" mnemonicParsing="false" text="Categories">
+      <MenuButton fx:id="categories" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" text="Categories">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
       <ListView layoutX="14.0" layoutY="103.0" prefHeight="315.0" prefWidth="614.0" />
-      <Button layoutX="435.0" layoutY="418.0" mnemonicParsing="false" text="Add Movie" />
-      <Button layoutX="525.0" layoutY="418.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="103.0" text="Delete Movie" />
-      <Button layoutX="126.0" layoutY="76.0" mnemonicParsing="false" text="Add Category" />
-      <Button layoutX="236.0" layoutY="76.0" mnemonicParsing="false" text="Delete Cateogry" />
+      <Button fx:id="addmovie" layoutX="435.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickaddmovie" text="Add Movie" />
+      <Button fx:id="deletemovie" layoutX="525.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickdeletemovie" prefHeight="27.0" prefWidth="103.0" text="Delete Movie" />
+      <Button fx:id="addcategory" layoutX="126.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickaddcategory" text="Add Category" />
+      <Button fx:id="deletecategory" layoutX="236.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickdeletecategory" text="Delete Cateogry" />
     </children>
 </AnchorPane>
