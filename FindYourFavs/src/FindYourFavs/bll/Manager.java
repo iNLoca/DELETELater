@@ -13,11 +13,11 @@ import java.util.List;
 
 
 public class Manager {
-    
+    DAL dal = new DAL(); 
     static List<Category> categoryList  = new ArrayList();
     static List<Movie> movieList  = new ArrayList();
     
-    DAL dal = new DAL();
+   
     
     public void addMovie (int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView){
         dal.addMovie(id, name, personalRating, IMDBRating, fileLink, lastView);
