@@ -67,5 +67,21 @@ public class DAL {
         }
 
     }
+      public void addPersonalRating(int id,int rating) {
+
+        try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO Movies (personalrating) values (?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setInt(1, rating);       
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     
 }
