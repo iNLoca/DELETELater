@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -32,5 +33,8 @@
       <Button fx:id="deletemovie" layoutX="525.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickdeletemovie" prefHeight="27.0" prefWidth="103.0" text="Delete Movie" />
       <Button fx:id="addcategory" layoutX="126.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickaddcategory" text="Add Category" />
       <Button fx:id="deletecategory" layoutX="236.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickdeletecategory" text="Delete Cateogry" />
+      <Button fx:id="addrating" layoutX="74.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickAddRating" text="Add Rating" />
+      <Button fx:id="editrating" layoutX="161.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickEditRating" text="Edit Rating" />
+      <ImageView fitHeight="28.0" fitWidth="58.0" layoutX="14.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
