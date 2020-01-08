@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package anything;
+package gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +27,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private MenuButton categories;
     @FXML
+    private ListView<?> listview;
+    @FXML
     private Button addmovie;
     @FXML
     private Button deletemovie;
@@ -34,8 +36,6 @@ public class FXMLDocumentController implements Initializable {
     private Button addcategory;
     @FXML
     private Button deletecategory;
-    @FXML
-    private ListView<?> listview;
     @FXML
     private Button addrating;
     @FXML
@@ -48,30 +48,6 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void clickaddmovie(ActionEvent event) {
-    }
-
-    @FXML //Remove movie from category
-    private void clickdeletemovie(ActionEvent event) {
-    }
-
-    @FXML
-    private void clickaddcategory(ActionEvent event) {
-    }
-
-    @FXML
-    private void clickdeletecategory(ActionEvent event) {
-    }
-
-    @FXML
-    private void clickAddRating(ActionEvent event) {
-    }
-
-    @FXML
-    private void clickEditRating(ActionEvent event) {
-    }
 
     @FXML
     private void clickActionCategory(ActionEvent event) {
@@ -112,6 +88,29 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void clickWestern(ActionEvent event) {
     }
-    
+
+    @FXML
+    private void clickaddmovie(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickdeletemovie(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickaddcategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickdeletecategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickAddRating(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickEditRating(ActionEvent event) {
+    }
     
 }

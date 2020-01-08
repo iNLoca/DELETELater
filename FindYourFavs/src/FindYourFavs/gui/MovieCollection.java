@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  *
  * @author mac
  */
-public class Controller extends Application {
+public class MovieCollection extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
