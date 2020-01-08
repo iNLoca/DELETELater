@@ -19,7 +19,7 @@ import javafx.scene.control.Label;
  *
  * @author mac
  */
-public class FXMLDocumentController implements Initializable {
+public class MovieCollectionController implements Initializable {
     
     Movie movie = new Movie();
     Category category = new Category();
