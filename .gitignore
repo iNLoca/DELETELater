@@ -27,3 +27,4 @@ hs_err_pid*
 /FindYourFavs/build/
 /FindYourFavs/dist/
 FindYourFavs/build/built-jar.properties
+*.properties
