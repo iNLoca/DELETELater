@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package FindYourFavs.dal;
+import FindYourFavs.be.Movie;
+import FindYourFavs.bll.Manager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
@@ -19,6 +21,7 @@ import java.util.logging.Logger;
 public class DAL {
 
     private SQLServerDataSource ds;
+    private Manager man= new Manager();
 
     public DAL() {
         ds = new SQLServerDataSource();
@@ -29,6 +32,31 @@ public class DAL {
         ds.setPortNumber(1433);
     }
 
+    public void retrieveMovies() throws SQLException{
+        try ( Connection con = ds.getConnection()) {
+            String sql = "  SELECT * FROM Movies (name,personalRating,IMDBRating)";
+            
+
+         
+       Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                String name        = rs.getString("name");
+                int personalRating  = rs.getInt("personalRating");
+                int IMDBRating    = rs.getInt("IMDBRating");
+                Movie movie = new Movie(name,personalRating,IMDBRating);
+                man.movieList.add(movie);
+        }}
+        catch (SQLServerException sqlse)
+        {
+            
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    
+    }
+    
     
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
 

@@ -15,7 +15,7 @@ import java.util.List;
 public class Manager {
     DAL dal = new DAL(); 
     static List<Category> categoryList  = new ArrayList();
-    static List<Movie> movieList  = new ArrayList();
+   public static List<Movie> movieList  = new ArrayList();
     
    
     
