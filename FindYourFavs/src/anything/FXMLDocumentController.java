@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 
 /**
@@ -33,6 +34,12 @@ public class FXMLDocumentController implements Initializable {
     private Button addcategory;
     @FXML
     private Button deletecategory;
+    @FXML
+    private ListView<?> listview;
+    @FXML
+    private Button addrating;
+    @FXML
+    private Button editrating;
 
     /**
      * Initializes the controller class.
@@ -56,6 +63,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void clickdeletecategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickAddRating(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickEditRating(ActionEvent event) {
     }
     
 }

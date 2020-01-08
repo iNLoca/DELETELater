@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="635.0" style="-fx-background-color: #7D79BF#7D79BF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="anything.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Label layoutX="228.0" layoutY="14.0" prefHeight="28.0" prefWidth="146.0" text="FindYourFaves">
+         <font>
+            <Font name="Avenir Next Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="216.0" layoutY="42.0" prefHeight="17.0" prefWidth="171.0" text="&quot;It's the same just different&quot;">
+         <font>
+            <Font name="Myanmar MN" size="13.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="categories" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" text="Categories">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <ListView fx:id="listview" layoutX="14.0" layoutY="103.0" prefHeight="315.0" prefWidth="614.0" />
+      <Button fx:id="addmovie" layoutX="435.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickaddmovie" text="Add Movie" />
+      <Button fx:id="deletemovie" layoutX="525.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickdeletemovie" prefHeight="27.0" prefWidth="103.0" text="Delete Movie" />
+      <Button fx:id="addcategory" layoutX="126.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickaddcategory" text="Add Category" />
+      <Button fx:id="deletecategory" layoutX="236.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickdeletecategory" text="Delete Cateogry" />
+      <Button fx:id="addrating" layoutX="74.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickAddRating" text="Add Rating" />
+      <Button fx:id="editrating" layoutX="161.0" layoutY="418.0" mnemonicParsing="false" onAction="#clickEditRating" text="Edit Rating" />
+      <ImageView fitHeight="28.0" fitWidth="58.0" layoutX="14.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>
