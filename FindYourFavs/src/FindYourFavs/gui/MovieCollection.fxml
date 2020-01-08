@@ -25,8 +25,16 @@
       </Label>
       <MenuButton fx:id="categories" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Categories" textFill="#7d79bf">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem fx:id="action" mnemonicParsing="false" onAction="#clickActionCategory" text="Action" />
+          <MenuItem fx:id="Animation" mnemonicParsing="false" onAction="#clickAnimationCategory" text="Animation" />
+            <MenuItem fx:id="comedy" mnemonicParsing="false" onAction="#clickComedyCategory" text="Comedy" />
+            <MenuItem fx:id="crime" mnemonicParsing="false" onAction="#clickCrimeCategory" text="Crime" />
+            <MenuItem fx:id="drama" mnemonicParsing="false" onAction="#clickDramaCategory" text="Drama" />
+            <MenuItem fx:id="filmnoir" mnemonicParsing="false" onAction="#clickFilmNoir" text="Film-noir" />
+            <MenuItem fx:id="horror" mnemonicParsing="false" onAction="#clickHorror" text="Horror" />
+            <MenuItem fx:id="thriller" mnemonicParsing="false" onAction="#clickThriller" text="Thriller" />
+            <MenuItem fx:id="war" mnemonicParsing="false" onAction="#clickWar" text="War" />
+            <MenuItem fx:id="western" mnemonicParsing="false" onAction="#clickWestern" text="Western" />
         </items>
       </MenuButton>
       <ListView fx:id="listview" layoutX="14.0" layoutY="103.0" prefHeight="315.0" prefWidth="614.0" />
