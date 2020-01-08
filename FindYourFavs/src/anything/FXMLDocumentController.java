@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 
 /**
  * FXML Controller class
@@ -40,6 +41,26 @@ public class FXMLDocumentController implements Initializable {
     private Button addrating;
     @FXML
     private Button editrating;
+    @FXML
+    private MenuItem action;
+    @FXML
+    private MenuItem Animation;
+    @FXML
+    private MenuItem comedy;
+    @FXML
+    private MenuItem crime;
+    @FXML
+    private MenuItem drama;
+    @FXML
+    private MenuItem filmnoir;
+    @FXML
+    private MenuItem horror;
+    @FXML
+    private MenuItem thriller;
+    @FXML
+    private MenuItem war;
+    @FXML
+    private MenuItem western;
 
     /**
      * Initializes the controller class.
@@ -71,6 +92,46 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void clickEditRating(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickActionCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickAnimationCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickComedyCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickCrimeCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickDramaCategory(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickFilmNoir(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickHorror(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickThriller(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickWar(ActionEvent event) {
+    }
+
+    @FXML
+    private void clickWestern(ActionEvent event) {
     }
     
     
