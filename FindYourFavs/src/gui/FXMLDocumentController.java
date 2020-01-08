@@ -5,13 +5,16 @@
  */
 package gui;
 
+import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 
@@ -21,6 +24,8 @@ import javafx.scene.control.TableColumn;
  * @author mac
  */
 public class FXMLDocumentController implements Initializable {
+    
+    Manager manager = new Manager();
 
     @FXML
     private Label label;
@@ -51,6 +56,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+       
     }    
 
     @FXML
