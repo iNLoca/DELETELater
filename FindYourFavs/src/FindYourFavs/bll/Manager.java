@@ -5,10 +5,17 @@
  */
 package FindYourFavs.bll;
 
+import FindYourFavs.be.Category;
+import FindYourFavs.be.Movie;
 import FindYourFavs.dal.DAL;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Manager {
+    
+    static List<Category> categoryList  = new ArrayList();
+    static List<Movie> movieList  = new ArrayList();
     
     DAL dal = new DAL();
     

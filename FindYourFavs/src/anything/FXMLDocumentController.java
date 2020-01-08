@@ -53,7 +53,7 @@ public class FXMLDocumentController implements Initializable {
     private void clickaddmovie(ActionEvent event) {
     }
 
-    @FXML
+    @FXML //Remove movie from category
     private void clickdeletemovie(ActionEvent event) {
     }
 
@@ -72,5 +72,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void clickEditRating(ActionEvent event) {
     }
+    
     
 }
