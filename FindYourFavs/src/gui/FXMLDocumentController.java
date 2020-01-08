@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
 
 /**
  * FXML Controller class
@@ -31,8 +32,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private MenuButton categories;
     @FXML
-    private ListView<?> listview;
-    @FXML
     private Button addmovie;
     @FXML
     private Button deletemovie;
@@ -44,6 +43,12 @@ public class FXMLDocumentController implements Initializable {
     private Button addrating;
     @FXML
     private Button editrating;
+    @FXML
+    private TableColumn<?, ?> movietittle;
+    @FXML
+    private TableColumn<?, ?> usrrating;
+    @FXML
+    private TableColumn<?, ?> imdbrating;
 
     /**
      * Initializes the controller class.
@@ -52,7 +57,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        listview =  = FXCollections.observableArrayList(Manager.
+       
     }    
 
     @FXML
