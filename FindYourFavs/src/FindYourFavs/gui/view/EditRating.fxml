@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="249.0" prefWidth="263.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="FindYourFavs.gui.controller.EditRatingController">
+<AnchorPane id="AnchorPane" fx:id="EditRating" prefHeight="212.0" prefWidth="334.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="FindYourFavs.gui.controller.EditRatingController">
    <children>
-      <Label layoutX="80.0" layoutY="14.0" prefHeight="29.0" prefWidth="103.0" text="Edit Rating">
+      <Label layoutX="115.0" layoutY="22.0" prefHeight="29.0" prefWidth="103.0" text="Edit Rating">
          <font>
             <Font name="Songti SC Black" size="20.0" />
          </font>
@@ -20,9 +22,32 @@
       </Label>
       <Label layoutX="14.0" layoutY="137.0" text="New Rating:">
          <font>
-            <Font size="15.0" />
+            <Font name="Songti SC Black" size="15.0" />
          </font>
       </Label>
-      <ImageView fitHeight="29.0" fitWidth="148.0" layoutX="51.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="29.0" fitWidth="97.0" layoutX="115.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/5424082-evaluation-five-star-rating-favorite-like-recommend-icon-of-fivestar-png-256_256_preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="115.0" fitWidth="51.0" layoutX="268.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/kisspng-computer-icons-editing-document-clip-art-delete-button-5abcee21295447.0329325215223311691693.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="editbtn" layoutX="206.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickEditRatingbtn" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: #000000;" text="Edit" textFill="#7d79bf">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelratingbtn" layoutX="273.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickCancelRatingbtn" prefHeight="29.0" prefWidth="39.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF #7D79BF#7D79BF #7D79BF#7D79BF;">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/cancel-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

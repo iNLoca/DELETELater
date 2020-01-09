@@ -6,8 +6,15 @@
 package FindYourFavs.gui.controller;
 
 import java.net.URL;
+import java.util.EventObject;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -16,6 +23,13 @@ import javafx.fxml.Initializable;
  */
 public class EditRatingController implements Initializable {
 
+    @FXML
+    private AnchorPane EditRating;
+    @FXML
+    private Button editbtn;
+    @FXML
+    private Button cancelratingbtn;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +37,19 @@ public class EditRatingController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void clickEditRatingbtn(ActionEvent event) {
+        
+        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void clickCancelRatingbtn(ActionEvent event) {
+        
+        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        stage.close();
+    }
     
 }
