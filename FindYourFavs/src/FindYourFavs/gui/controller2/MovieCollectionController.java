@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -58,7 +59,11 @@ public class MovieCollectionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
+        movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
+        usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
+        imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
         tableview.setItems(movieLst);
+       
     }    
 
     @FXML
