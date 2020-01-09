@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class DAL {
 
     private SQLServerDataSource ds;
-    private Manager man= new Manager();
+  
 
     public DAL() {
         ds = new SQLServerDataSource();
@@ -34,7 +34,7 @@ public class DAL {
 
     public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
-            String sql = "  SELECT * FROM Movies (name,personalRating,IMDBRating)";
+            String sql = "  SELECT name,personalRating,IMDBRating FROM Movies ";
              List<Movie> movieLst = new ArrayList();
 
          
@@ -52,7 +52,7 @@ public class DAL {
         
         catch (SQLServerException sqlse)
         {
-            
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
         } 
         catch (SQLException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
