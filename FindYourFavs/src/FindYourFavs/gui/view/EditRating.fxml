@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="249.0" prefWidth="263.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="FindYourFavs.gui.controller.EditRatingController">
+   <children>
+      <Label layoutX="80.0" layoutY="14.0" prefHeight="29.0" prefWidth="103.0" text="Edit Rating">
+         <font>
+            <Font name="Songti SC Black" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="94.0" text="Current Rating:">
+         <font>
+            <Font name="Songti SC Black" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="137.0" text="New Rating:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="29.0" fitWidth="148.0" layoutX="51.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
