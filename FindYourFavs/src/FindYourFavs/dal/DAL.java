@@ -13,13 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DAL {
 
     private SQLServerDataSource ds;
-    //private Manager man= new Manager();
+    private Manager man= new Manager();
 
     public DAL() {
         ds = new SQLServerDataSource();
@@ -30,10 +32,10 @@ public class DAL {
         ds.setPortNumber(1433);
     }
 
-    public void getAllMovies() throws SQLException{
+    public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
             String sql = "  SELECT * FROM Movies (name,personalRating,IMDBRating)";
-            
+             List<Movie> movieLst = new ArrayList();
 
          
        Statement stmt = con.createStatement();
@@ -43,8 +45,11 @@ public class DAL {
                 int personalRating  = rs.getInt("personalRating");
                 int IMDBRating    = rs.getInt("IMDBRating");
                 Movie movie = new Movie(name,personalRating,IMDBRating);
-                Manager.movieList.add(movie);
-        }}
+                movieLst.add(movie);
+        }
+            return movieLst;
+        }
+        
         catch (SQLServerException sqlse)
         {
             
@@ -52,7 +57,7 @@ public class DAL {
         catch (SQLException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    
+    return null;
     }
     
     

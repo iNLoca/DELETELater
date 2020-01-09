@@ -19,7 +19,7 @@ public class Movie {
     private int lastView;
 
     public Movie() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public int getId() {
@@ -85,5 +85,10 @@ public class Movie {
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" + "name=" + name + ", personalRating=" + personalRating + ", IMDBRating=" + IMDBRating + '}';
     }
 }

@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FindYourFavs.gui.controller;
+package gui.controller;
 
 import FindYourFavs.be.Movie;
+import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,12 +20,10 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-/**
- * FXML Controller class
- *
- * @author mac
- */
-public class MoviePlayerController implements Initializable {
+
+public class MovieCollectionController implements Initializable {
+    
+    Manager manager = new Manager();
 
     @FXML
     private Label label;
@@ -43,18 +44,19 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private TableView<Movie> tableview;
     @FXML
-    private TableColumn<Movie, String> movietittle;
+    private TableColumn<?, ?> movietittle;
     @FXML
-    private TableColumn<Movie, Integer> usrrating;
+    private TableColumn<?, ?> usrrating;
     @FXML
-    private TableColumn<Movie, Integer> imdbrating;
+    private TableColumn<?, ?> imdbrating;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ObservableList<Movie> observableMovies = FXCollections.observableArrayList(manager.getAllMovies());
+        tableview.setItems(observableMovies);
     }    
 
     @FXML
@@ -99,6 +101,7 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickaddmovie(ActionEvent event) {
+        //manager.addMovie(0, name, 0, 0, fileLink, 0);
     }
 
     @FXML

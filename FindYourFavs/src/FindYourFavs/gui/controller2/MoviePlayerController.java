@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FindYourFavs.gui.controller;
+package FindYourFavs.gui.controller2;
 
 import FindYourFavs.be.Movie;
 import java.net.URL;
@@ -22,14 +22,12 @@ import javafx.scene.control.TableView;
  *
  * @author mac
  */
-public class MovieCollectionController implements Initializable {
+public class MoviePlayerController implements Initializable {
 
     @FXML
     private Label label;
     @FXML
     private MenuButton categories;
-    @FXML
-    private TableView<Movie>tableview;
     @FXML
     private Button addmovie;
     @FXML
@@ -42,6 +40,8 @@ public class MovieCollectionController implements Initializable {
     private Button addrating;
     @FXML
     private Button editrating;
+    @FXML
+    private TableView<Movie> tableview;
     @FXML
     private TableColumn<Movie, String> movietittle;
     @FXML

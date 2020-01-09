@@ -12,10 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Manager {
+    
+    
 
     DAL dal = new DAL();
-    static List<Category> categoryList = new ArrayList();
-    public static List<Movie> movieList = new ArrayList();
+    public List<Category> categoryList = new ArrayList();
+    public List<Movie> movieList = new ArrayList();
+//    movieList= dal.getAllMovies();
 
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
         dal.addMovie(id, name, personalRating, IMDBRating, fileLink, lastView);
@@ -24,6 +27,11 @@ public class Manager {
     public void addCategory(int id, String name) {
         dal.addCategory(id, name);
     }
+   public List<Movie> getAllMovies(){
+         movieList = dal.getAllMovies();
+        return movieList;
+   }
+   
     
    
 }
