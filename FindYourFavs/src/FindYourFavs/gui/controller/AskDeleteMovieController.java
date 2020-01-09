@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FindYourFavs.gui.controller2;
+package FindYourFavs.gui.controller;
 
 import java.net.URL;
 import java.util.EventObject;
@@ -21,14 +21,14 @@ import javafx.stage.Stage;
  *
  * @author mac
  */
-public class AskDeleteCategoryController implements Initializable {
+public class AskDeleteMovieController implements Initializable {
 
     @FXML
-    private Button deletebtn;
+    private Button deletemoviebtn;
     @FXML
-    private Button cancelbtn;
+    private Button cancelmoviebtn;
     @FXML
-    private AnchorPane askdeletecategory;
+    private AnchorPane askdeletemovie;
 
     /**
      * Initializes the controller class.
@@ -39,12 +39,15 @@ public class AskDeleteCategoryController implements Initializable {
     }    
 
     @FXML
-    private void clickDeleteCategorybtn(ActionEvent event) {
+    private void clickDeleteMoviebtn(ActionEvent event) {
+       
         
+        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    private void clickCancelCategorybtn(ActionEvent event) {
+    private void clickCancelMoviebtn(ActionEvent event) {
         
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
         stage.close();

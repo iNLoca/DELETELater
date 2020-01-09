@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FindYourFavs.gui.controller2;
+package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
@@ -119,7 +119,16 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
-    private void clickdeletemovie(ActionEvent event) {
+    private void clickdeletemovie(ActionEvent event) throws IOException {
+       
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
+        Parent root = loader.load();
+        AskDeleteMovieController ctrl = loader.getController();
+        
+         Scene scene = new Scene(root);
+         Stage stage = new Stage();
+         stage.setScene(scene);
+         stage.show();
     }
 
     @FXML
