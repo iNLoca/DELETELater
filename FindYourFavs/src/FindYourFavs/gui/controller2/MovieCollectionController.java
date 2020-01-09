@@ -6,8 +6,11 @@
 package FindYourFavs.gui.controller2;
 
 import FindYourFavs.be.Movie;
+import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +26,7 @@ import javafx.scene.control.TableView;
  * @author mac
  */
 public class MovieCollectionController implements Initializable {
-
+    Manager manager= new Manager();
     @FXML
     private Label label;
     @FXML
@@ -54,7 +57,8 @@ public class MovieCollectionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
+        tableview.setItems(movieLst);
     }    
 
     @FXML
