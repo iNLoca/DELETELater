@@ -7,11 +7,16 @@ package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Category;
 import java.net.URL;
+import java.util.EventObject;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -24,6 +29,10 @@ public class AskAddCategoryController implements Initializable {
     private AnchorPane addcategory;
     @FXML
     private ChoiceBox<?> choicebox;
+    @FXML
+    private Button cancelcatbtn;
+    @FXML
+    private Button addcatbtn;
 
     /**
      * Initializes the controller class.
@@ -46,5 +55,17 @@ public class AskAddCategoryController implements Initializable {
       */
         
     }    
+
+    @FXML
+    private void clickCancelCategorybtn(ActionEvent event) {
+        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void clickAddCategorybtn(ActionEvent event) {
+        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        stage.close();
+    }
     
 }

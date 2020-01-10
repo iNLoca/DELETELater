@@ -122,7 +122,16 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
-    private void clickaddmovie(ActionEvent event) {
+    private void clickaddmovie(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddMovie.fxml"));
+        Parent root = loader.load();
+        AskAddMovieController ctrl = loader.getController();
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage ();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -167,8 +176,9 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickAddRating(ActionEvent event) throws IOException {
-        FXMLLoader load = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AddRating.fxml"));
-        Parent root = load.load();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AddRating.fxml"));
+        Parent root = loader.load();
+        AddRatingController ctrler = loader.getController();
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

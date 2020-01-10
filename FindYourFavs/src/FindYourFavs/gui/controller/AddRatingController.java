@@ -44,6 +44,8 @@ public class AddRatingController implements Initializable {
 
     @FXML
     private void clickAddRatingbtn(ActionEvent event) {
+        
+        
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
