@@ -11,15 +11,12 @@ import FindYourFavs.dal.DAL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Manager {
-    
-    
+public class Manager {  
 
     DAL dal = new DAL();
     public List<Category> categoryList = new ArrayList();
     public List<Movie> movieList = new ArrayList();
     public List<Movie> ratings = new ArrayList();
-//    movieList= dal.getAllMovies();
 
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
         dal.addMovie(id, name, personalRating, IMDBRating, fileLink, lastView);
@@ -28,16 +25,16 @@ public class Manager {
     public void addCategory(int id, String name) {
         dal.addCategory(id, name);
     }
-   public List<Movie> getAllMovies(){
-         movieList = dal.getAllMovies();
+
+    public List<Movie> getAllMovies() {
+        movieList = dal.getAllMovies();
         return movieList;
-   }
-   public List<Movie> getPersonalRating(){
-        ratings = dal.getPersonalRating();
-        return ratings;
-   }
-   
-   
+    }
     
+    public void deleteMovieById(Movie movie){
+        dal.deleteMovieById(movie);
+    }
+
+
    
 }

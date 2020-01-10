@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package FindYourFavs.dal;
+
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
@@ -21,7 +22,6 @@ import java.util.logging.Logger;
 public class DAL {
 
     private SQLServerDataSource ds;
-  
 
     public DAL() {
         ds = new SQLServerDataSource();
@@ -35,32 +35,26 @@ public class DAL {
     public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
             String sql = "  SELECT name,personalRating,IMDBRating FROM Movies ";
-             List<Movie> movieLst = new ArrayList();
+            List<Movie> movieLst = new ArrayList();
 
-         
-       Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()){
-                String name        = rs.getString("name");
-                int personalRating  = rs.getInt("personalRating");
-                int IMDBRating    = rs.getInt("IMDBRating");
-                Movie movie = new Movie(name,personalRating,IMDBRating);
+            while (rs.next()) {
+                String name = rs.getString("name");
+                int personalRating = rs.getInt("personalRating");
+                int IMDBRating = rs.getInt("IMDBRating");
+                Movie movie = new Movie(name, personalRating, IMDBRating);
                 movieLst.add(movie);
-        }
+            }
             return movieLst;
-        }
-        
-        catch (SQLServerException sqlse)
-        {
+        } catch (SQLServerException sqlse) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
-        } 
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    return null;
+        }
+        return null;
     }
-    
-    
+
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
 
         try ( Connection con = ds.getConnection()) {
@@ -81,14 +75,14 @@ public class DAL {
         }
 
     }
-    
+
     public void addCategory(int id, String name) {
 
         try ( Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Category (name)(?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
-            pstmt.setString(1, name);       
+            pstmt.setString(1, name);
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
@@ -98,13 +92,14 @@ public class DAL {
         }
 
     }
-      public void addPersonalRating(int id,int rating) {
+
+    public void addPersonalRating(int id, int rating) {
 
         try ( Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Movies (personalrating) values (?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
-            pstmt.setInt(1, rating);       
+            pstmt.setInt(1, rating);
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
@@ -112,38 +107,20 @@ public class DAL {
         } catch (SQLException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-      public List<Movie> getPersonalRating(){
-       try ( Connection con = ds.getConnection()) {
-            String sql = "  SELECT personalRating FROM Movies ";
-             List<Movie> movieLst = new ArrayList();
 
-         
-       Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()){
-               
-                int personalRating  = rs.getInt("personalRating");
-                
-                Movie movie = new Movie(personalRating);
-                movieLst.add(movie);
-        }
-            return movieLst;
-        }
-        
-        catch (SQLServerException sqlse)
-        {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
-        } 
-        catch (SQLException ex) {
+    public void deleteMovieById(Movie movie) {
+        try ( Connection con = ds.getConnection()) {
+            String sql = "DELETE FROM Movies WHERE id=?";
+            PreparedStatement p = con.prepareStatement(sql);
+
+            p.setInt(1, movie.getId());
+            p.executeUpdate();
+
+        } catch (SQLServerException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    return null;
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
-      
-      
-      }
-    
-        
+}

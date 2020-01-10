@@ -31,18 +31,17 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
- * @author mac
  */
 public class MoviePlayerController implements Initializable {
-    Manager manager= new Manager();
-    
+
+    Manager manager = new Manager();
+
     @FXML
     private Label label;
     @FXML
     private MenuButton categories;
     @FXML
-    private TableView<Movie>tableview;
+    private TableView<Movie> tableview;
     @FXML
     private Button addmovie;
     @FXML
@@ -61,58 +60,65 @@ public class MoviePlayerController implements Initializable {
     private TableColumn<Movie, Integer> usrrating;
     @FXML
     private TableColumn<Movie, Integer> imdbrating;
+    @FXML
+    private Label lblChosenCategory;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
-        movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
-        usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
-        imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
-        tableview.setItems(movieLst);
-       
-    }    
+        refresh();
+    }
 
     @FXML
     private void clickActionCategory(ActionEvent event) {
+        lblChosenCategory.setText("Action");
     }
 
     @FXML
     private void clickAnimationCategory(ActionEvent event) {
+        lblChosenCategory.setText("Animation");
     }
 
     @FXML
     private void clickComedyCategory(ActionEvent event) {
+        lblChosenCategory.setText("Comedy");
     }
 
     @FXML
     private void clickCrimeCategory(ActionEvent event) {
+        lblChosenCategory.setText("Crime");
     }
 
     @FXML
     private void clickDramaCategory(ActionEvent event) {
+        lblChosenCategory.setText("Drama");
     }
 
     @FXML
     private void clickFilmNoir(ActionEvent event) {
+        lblChosenCategory.setText("Film-Noir");
     }
 
     @FXML
     private void clickHorror(ActionEvent event) {
+        lblChosenCategory.setText("Horror");
     }
 
     @FXML
     private void clickThriller(ActionEvent event) {
+        lblChosenCategory.setText("Thriller");
     }
 
     @FXML
     private void clickWar(ActionEvent event) {
+        lblChosenCategory.setText("War");
     }
 
     @FXML
     private void clickWestern(ActionEvent event) {
+        lblChosenCategory.setText("Western");
     }
 
     @FXML
@@ -121,15 +127,15 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickdeletemovie(ActionEvent event) throws IOException {
-       
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
         Parent root = loader.load();
         AskDeleteMovieController ctrl = loader.getController();
-        
-         Scene scene = new Scene(root);
-         Stage stage = new Stage();
-         stage.setScene(scene);
-         stage.show();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -138,18 +144,15 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickdeletecategory(ActionEvent event) throws IOException {
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
         AskDeleteCategoryController ctrl = loader.getController();
-        
-         Scene scene = new Scene(root);
-         Stage stage = new Stage();
-         stage.setScene(scene);
-         stage.show();
-        
-        
-        
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -158,24 +161,33 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickEditRating(ActionEvent event) throws IOException {
-        
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/EditRating.fxml"));
         Parent root = loader.load();
         EditRatingController ctrl = loader.getController();
-        
-         Scene scene = new Scene(root);
-         Stage stage = new Stage();
-         stage.setScene(scene);
-         stage.show();
-         
-    }
-    public int getSelectedPersonalRating(){
-    int rtng;
-    
-    rtng = 3;//tableview.getSelectionModel().getSelectedItem().getId();   
-    return rtng;
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
-    
+    public int getSelectedPersonalRating() {
+        int rtng;
+
+        rtng = 3;//tableview.getSelectionModel().getSelectedItem().getId();   
+        return rtng;
+    }
+
+    private void deleteMovie() {
+        manager.deleteMovieById(tableview.getSelectionModel().getSelectedItem());
+    }
+
+    private void refresh() {
+        ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
+        movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
+        usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
+        imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
+        tableview.setItems(movieLst);
+    }
 }
