@@ -216,5 +216,6 @@ public class MoviePlayerController implements Initializable {
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
         tableview.setItems(movieLst);
+       
     }
 }

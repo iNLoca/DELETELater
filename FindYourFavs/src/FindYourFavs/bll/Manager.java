@@ -31,6 +31,11 @@ public class Manager {
         return movieList;
     }
     
+    public List<Category> getAllCategories() {
+        categoryList = dal.getAllCategories();
+        return categoryList;
+    }    
+    
     public void deleteMovieById(Movie movie){
         dal.deleteMovieById(movie);
     }

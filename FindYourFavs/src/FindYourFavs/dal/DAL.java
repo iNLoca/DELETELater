@@ -5,6 +5,7 @@
  */
 package FindYourFavs.dal;
 
+import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
@@ -34,7 +35,7 @@ public class DAL {
 
     public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
-            String sql = "  SELECT name,personalRating,IMDBRating FROM Movies ";
+            String sql = "SELECT name,personalRating,IMDBRating FROM Movies";
             List<Movie> movieLst = new ArrayList();
 
             Statement stmt = con.createStatement();
@@ -54,6 +55,29 @@ public class DAL {
         }
         return null;
     }
+    
+    public List<Category> getAllCategories() {
+        try ( Connection con = ds.getConnection()) {
+            String sql = "SELECT id, name FROM Category";
+            List<Category> categoryLst = new ArrayList();
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                Category category = new Category (id, name);
+                categoryLst.add(category);
+            }
+            return categoryLst;
+        } catch (SQLServerException sqlse) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
 
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
 
