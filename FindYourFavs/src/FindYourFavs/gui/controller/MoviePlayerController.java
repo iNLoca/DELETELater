@@ -156,7 +156,14 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
-    private void clickAddRating(ActionEvent event) {
+    private void clickAddRating(ActionEvent event) throws IOException {
+        FXMLLoader load = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AddRating.fxml"));
+        Parent root = load.load();
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

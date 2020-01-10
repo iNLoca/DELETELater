@@ -66,16 +66,18 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="addrating" layoutX="99.0" layoutY="425.0" mnemonicParsing="false" onAction="#clickAddRating" prefHeight="27.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;" />
+      <Button fx:id="addrating" layoutX="99.0" layoutY="425.0" mnemonicParsing="false" onAction="#clickAddRating" prefHeight="27.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Button fx:id="editrating" layoutX="135.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickEditRating" style="-fx-background-color: #000000;" text="Edit Rating" textFill="#7d79bf" />
       <ImageView fitHeight="28.0" fitWidth="95.0" layoutX="14.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../icons/01-512.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="20.0" layoutX="107.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../icons/add.png" />
          </image>
       </ImageView>
       <TableView fx:id="tableview" layoutX="14.0" layoutY="104.0" prefHeight="319.0" prefWidth="605.0">
