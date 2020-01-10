@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AddRating" prefHeight="211.0" prefWidth="334.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.AddRatingController">
+<AnchorPane id="AnchorPane" fx:id="AddRating" prefHeight="211.0" prefWidth="334.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF; -fx-border-color: #000000 #000000; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.AddRatingController">
    <children>
       <Label layoutX="115.0" layoutY="22.0" prefHeight="29.0" prefWidth="103.0" text="Add Rating">
          <font>

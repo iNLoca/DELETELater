@@ -139,7 +139,17 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
-    private void clickaddcategory(ActionEvent event) {
+    private void clickaddcategory(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddCategory.fxml"));
+        Parent root = loader.load();
+        AskAddCategoryController ctrl = loader.getController();
+        
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
