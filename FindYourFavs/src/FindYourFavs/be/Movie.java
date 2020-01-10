@@ -22,6 +22,10 @@ public class Movie {
         
     }
 
+    public Movie(int personalRating) {
+      this.personalRating=personalRating;
+    }
+
     public int getId() {
         return id;
     }

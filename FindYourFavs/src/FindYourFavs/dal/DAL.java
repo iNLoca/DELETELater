@@ -114,5 +114,36 @@ public class DAL {
         }
 
     }
+      public List<Movie> getPersonalRating(){
+       try ( Connection con = ds.getConnection()) {
+            String sql = "  SELECT personalRating FROM Movies ";
+             List<Movie> movieLst = new ArrayList();
+
+         
+       Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+               
+                int personalRating  = rs.getInt("personalRating");
+                
+                Movie movie = new Movie(personalRating);
+                movieLst.add(movie);
+        }
+            return movieLst;
+        }
+        
+        catch (SQLServerException sqlse)
+        {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    return null;
+    }
     
-}
+      
+      
+      }
+    
+        

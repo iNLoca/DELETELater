@@ -18,6 +18,7 @@ public class Manager {
     DAL dal = new DAL();
     public List<Category> categoryList = new ArrayList();
     public List<Movie> movieList = new ArrayList();
+    public List<Movie> ratings = new ArrayList();
 //    movieList= dal.getAllMovies();
 
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
@@ -31,6 +32,11 @@ public class Manager {
          movieList = dal.getAllMovies();
         return movieList;
    }
+   public List<Movie> getPersonalRating(){
+        ratings = dal.getPersonalRating();
+        return ratings;
+   }
+   
    
     
    

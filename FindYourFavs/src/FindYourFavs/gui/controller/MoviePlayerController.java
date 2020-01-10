@@ -36,6 +36,7 @@ import javafx.stage.Stage;
  */
 public class MoviePlayerController implements Initializable {
     Manager manager= new Manager();
+    
     @FXML
     private Label label;
     @FXML
@@ -158,6 +159,7 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private void clickEditRating(ActionEvent event) throws IOException {
         
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/EditRating.fxml"));
         Parent root = loader.load();
         EditRatingController ctrl = loader.getController();
@@ -166,6 +168,13 @@ public class MoviePlayerController implements Initializable {
          Stage stage = new Stage();
          stage.setScene(scene);
          stage.show();
+         
+    }
+    public int getSelectedPersonalRating(){
+    int rtng;
+    
+    rtng = 3;//tableview.getSelectionModel().getSelectedItem().getId();   
+    return rtng;
     }
 
     
