@@ -36,8 +36,8 @@ public class Manager {
         return categoryList;
     }    
     
-    public void deleteMovieById(Movie movie){
-        dal.deleteMovieById(movie.getId());
+    public void deleteMovieById(int id){
+        dal.deleteMovieById(id);
     }
 
 
