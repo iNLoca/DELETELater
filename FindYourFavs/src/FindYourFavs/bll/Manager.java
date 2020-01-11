@@ -43,6 +43,14 @@ public class Manager {
     public void deleteCategoryById(int id){
         dal.deleteCategoryById(id);
     }
+    
+    public void createCategory(){
+        
+    }
+
+    public void addCategory(String name) {
+        dal.addCategory(name);
+    }
 
 
    

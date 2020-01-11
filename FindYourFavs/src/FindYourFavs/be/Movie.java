@@ -26,6 +26,13 @@ public class Movie {
       this.personalRating=personalRating;
     }
 
+    public Movie(int id, String name, int personalRating, int IMDBRating) {
+        this.id=id;
+        this.name=name;
+        this.personalRating=personalRating;
+        this.IMDBRating=IMDBRating;
+    }
+
     public int getId() {
         return id;
     }
