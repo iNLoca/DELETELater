@@ -5,6 +5,7 @@
  */
 package FindYourFavs.gui.controller;
 
+import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import java.io.IOException;
@@ -39,8 +40,6 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Label label;
     @FXML
-    private MenuButton categories;
-    @FXML
     private TableView<Movie> tableview;
     @FXML
     private Button addmovie;
@@ -62,6 +61,11 @@ public class MoviePlayerController implements Initializable {
     private TableColumn<Movie, Integer> imdbrating;
     @FXML
     private Label lblChosenCategory;
+    @FXML
+    private TableView<Category> categoriesView;
+    @FXML
+    private TableColumn<Category, String> categoriesColumn;
+
 
     /**
      * Initializes the controller class.
@@ -71,55 +75,7 @@ public class MoviePlayerController implements Initializable {
         refresh();
     }
 
-    @FXML
-    private void clickActionCategory(ActionEvent event) {
-        lblChosenCategory.setText("Action");
-    }
-
-    @FXML
-    private void clickAnimationCategory(ActionEvent event) {
-        lblChosenCategory.setText("Animation");
-    }
-
-    @FXML
-    private void clickComedyCategory(ActionEvent event) {
-        lblChosenCategory.setText("Comedy");
-    }
-
-    @FXML
-    private void clickCrimeCategory(ActionEvent event) {
-        lblChosenCategory.setText("Crime");
-    }
-
-    @FXML
-    private void clickDramaCategory(ActionEvent event) {
-        lblChosenCategory.setText("Drama");
-    }
-
-    @FXML
-    private void clickFilmNoir(ActionEvent event) {
-        lblChosenCategory.setText("Film-Noir");
-    }
-
-    @FXML
-    private void clickHorror(ActionEvent event) {
-        lblChosenCategory.setText("Horror");
-    }
-
-    @FXML
-    private void clickThriller(ActionEvent event) {
-        lblChosenCategory.setText("Thriller");
-    }
-
-    @FXML
-    private void clickWar(ActionEvent event) {
-        lblChosenCategory.setText("War");
-    }
-
-    @FXML
-    private void clickWestern(ActionEvent event) {
-        lblChosenCategory.setText("Western");
-    }
+    
 
     @FXML
     private void clickaddmovie(ActionEvent event) throws IOException {
@@ -216,6 +172,10 @@ public class MoviePlayerController implements Initializable {
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
         tableview.setItems(movieLst);
+        
+        ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
+       categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        categoriesView.setItems(categoryLst);
        
     }
 }
