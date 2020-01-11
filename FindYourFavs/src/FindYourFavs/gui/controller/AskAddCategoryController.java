@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -28,32 +29,18 @@ public class AskAddCategoryController implements Initializable {
     @FXML
     private AnchorPane addcategory;
     @FXML
-    private ChoiceBox<?> choicebox;
-    @FXML
     private Button cancelcatbtn;
     @FXML
     private Button addcatbtn;
+    @FXML
+    private TextField addcategoryfield;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       /*
-        // Create ChoiceBox
-        ChoiceBox<String>choiceBox = new ChoiceBox<>();
-        
-        //getItems returns the ObservableList object which u can add items to. 
-        choiceBox.getItems().add("Action");
-        choiceBox.getItems().add("Animation");
-        choiceBox.getItems().addAll("Bat","Box","lol");
-        
-        //Set value 
-        choiceBox.setValue("Action");
-        choiceBox.setValue("Animation");
-        
-      */
-        
+     
     }    
 
     @FXML
