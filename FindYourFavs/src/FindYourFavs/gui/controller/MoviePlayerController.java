@@ -37,6 +37,7 @@ import javafx.stage.Stage;
 public class MoviePlayerController implements Initializable {
 
     Manager manager = new Manager();
+    Category category;
 
     @FXML
     private Label label;
@@ -67,36 +68,30 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private TableColumn<Category, String> categoriesColumn;
 
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         refresh();
+        categoriesView.getSelectionModel().selectedItemProperty().addListener((observable, oldSelected, newSelected) -> {
+            if (newSelected != null) {
+                lblChosenCategory.setText(newSelected.getName());
+            }
+            refresh();
+        });
     }
-
     
+    private void displaySelectedCategory(ActionEvent event) {
+        
+    }
 
     @FXML
     private void clickaddmovie(ActionEvent event) throws IOException {
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddMovie.fxml"));
         Parent root = loader.load();
         AskAddMovieController ctrl = loader.getController();
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage ();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    private void clickdeletemovie(ActionEvent event) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
-        Parent root = loader.load();
-        AskDeleteMovieController ctrl = loader.getController();
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -105,13 +100,26 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+    private void clickdeletemovie(ActionEvent event) throws IOException {
+        /*
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
+        Parent root = loader.load();
+        AskDeleteMovieController ctrl = loader.getController();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();*/
+        deleteMovie();
+    }
+
+    @FXML
     private void clickaddcategory(ActionEvent event) throws IOException {
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddCategory.fxml"));
         Parent root = loader.load();
         AskAddCategoryController ctrl = loader.getController();
-        
-        
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -120,7 +128,7 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickdeletecategory(ActionEvent event) throws IOException {
-
+/*
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
         AskDeleteCategoryController ctrl = loader.getController();
@@ -128,7 +136,8 @@ public class MoviePlayerController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
+        deleteCategory();
     }
 
     @FXML
@@ -136,7 +145,7 @@ public class MoviePlayerController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AddRating.fxml"));
         Parent root = loader.load();
         AddRatingController ctrler = loader.getController();
-        
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -164,7 +173,15 @@ public class MoviePlayerController implements Initializable {
     }
 
     private void deleteMovie() {
-        manager.deleteMovieById(tableview.getSelectionModel().getSelectedItem());
+
+        //deletes a movie but only from the view
+        tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
+
+    }
+    
+    private void deleteCategory(){
+        //deletes a category but only from the view
+        categoriesView.getItems().remove(categoriesView.getSelectionModel().getSelectedItem());
     }
 
     private void refresh() {
@@ -173,10 +190,9 @@ public class MoviePlayerController implements Initializable {
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
         tableview.setItems(movieLst);
-        
+
         ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
-       categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        categoriesView.setItems(categoryLst);
-       
+        categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        categoriesView.setItems(categoryLst);     
     }
 }

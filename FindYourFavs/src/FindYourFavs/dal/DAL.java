@@ -133,12 +133,12 @@ public class DAL {
         }
     }
 
-    public void deleteMovieById(Movie movie) {
+    public void deleteMovieById(int id) {
         try ( Connection con = ds.getConnection()) {
             String sql = "DELETE FROM Movies WHERE id=?";
             PreparedStatement p = con.prepareStatement(sql);
 
-            p.setInt(1, movie.getId());
+            p.setInt(1, id);
             p.executeUpdate();
 
         } catch (SQLServerException ex) {

@@ -37,7 +37,7 @@ public class Manager {
     }    
     
     public void deleteMovieById(Movie movie){
-        dal.deleteMovieById(movie);
+        dal.deleteMovieById(movie.getId());
     }
 
 
