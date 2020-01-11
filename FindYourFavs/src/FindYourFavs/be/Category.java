@@ -34,4 +34,12 @@ public class Category {
         this.id=id;
         this.name=name;
     }
+    
+//    public boolean equals (Object o) {
+//        Category c = (Category) o;
+//        if (c.getName() == this.name) {
+//            return true;
+//        }
+//        return false;
+//    }
 }

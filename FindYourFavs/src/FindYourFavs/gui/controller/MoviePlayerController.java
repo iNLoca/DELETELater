@@ -75,7 +75,7 @@ public class MoviePlayerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         refresh();
-        displayChosenCategory();
+       
      /*   categoriesView.getSelectionModel().selectedItemProperty().addListener((observable, oldSelected, newSelected) -> {
             if (newSelected != null) {
                 lblChosenCategory.setText(newSelected.getName());
@@ -172,7 +172,6 @@ public class MoviePlayerController implements Initializable {
     }
 
     private void deleteMovie() {
-
         //deletes a movie but only from the view
         tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
         
@@ -184,12 +183,15 @@ public class MoviePlayerController implements Initializable {
     private void deleteCategory(){
         //deletes a category but only from the view
         categoriesView.getItems().remove(categoriesView.getSelectionModel().getSelectedItem());
+        
+        //deletes a category from the database       
+        manager.deleteCategoryById(categoriesView.getSelectionModel().getSelectedItem().getId());
     }
     
     private void displayChosenCategory(){
-        if ((categoriesView.getSelectionModel().getSelectedItem()) != null){
+   /*     if ((categoriesView.getSelectionModel().getSelectedItem()) != null){
             lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
-        }
+        }*/
     }
 
     private void refresh() {

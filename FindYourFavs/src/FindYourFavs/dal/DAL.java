@@ -35,12 +35,13 @@ public class DAL {
 
     public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
-            String sql = "SELECT name,personalRating,IMDBRating FROM Movies";
+            String sql = "SELECT id,name,personalRating,IMDBRating FROM Movies";
             List<Movie> movieLst = new ArrayList();
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
+                int id = rs.getInt("id");
                 String name = rs.getString("name");
                 int personalRating = rs.getInt("personalRating");
                 int IMDBRating = rs.getInt("IMDBRating");
@@ -136,6 +137,21 @@ public class DAL {
     public void deleteMovieById(int id) {
         try ( Connection con = ds.getConnection()) {
             String sql = "DELETE FROM Movies WHERE id=?";
+            PreparedStatement p = con.prepareStatement(sql);
+
+            p.setInt(1, id);
+            p.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void deleteCategoryById(int id) {
+        try ( Connection con = ds.getConnection()) {
+            String sql = "DELETE FROM Category WHERE id=?";
             PreparedStatement p = con.prepareStatement(sql);
 
             p.setInt(1, id);
