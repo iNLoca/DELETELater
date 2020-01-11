@@ -4,6 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,11 +19,17 @@
          <font>
             <Font name="Avenir Next Bold" size="19.0" />
          </font>
+         <effect>
+            <InnerShadow />
+         </effect>
       </Label>
       <Label layoutX="233.0" layoutY="42.0" prefHeight="17.0" prefWidth="171.0" text="&quot;It's the same just different&quot;">
          <font>
             <Font name="Myanmar MN" size="13.0" />
          </font>
+         <effect>
+            <Glow />
+         </effect>
       </Label>
       <Button fx:id="addmovie" layoutX="547.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickaddmovie" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
@@ -28,6 +37,9 @@
                <image>
                   <Image url="@../../../icons/add.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic></Button>
       <Button fx:id="deletemovie" layoutX="584.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickdeletemovie" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
@@ -36,6 +48,9 @@
                <image>
                   <Image url="@../../../icons/trash.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic>
       </Button>
@@ -45,6 +60,9 @@
                <image>
                   <Image url="@../../../icons/add.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic>
       </Button>
@@ -54,6 +72,9 @@
                <image>
                   <Image url="@../../../icons/trash.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic>
       </Button>
@@ -63,33 +84,51 @@
                <image>
                   <Image url="@../../../icons/add.png" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="editrating" layoutX="123.0" layoutY="426.0" mnemonicParsing="false" onAction="#clickEditRating" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #000000;" text="Edit Rating" textFill="#7d79bf" />
+      <Button fx:id="editrating" layoutX="123.0" layoutY="426.0" mnemonicParsing="false" onAction="#clickEditRating" prefHeight="24.0" prefWidth="91.0" style="-fx-background-color: #000000;" text="Edit Rating" textFill="#7d79bf">
+         <effect>
+            <DropShadow />
+         </effect></Button>
       <ImageView fitHeight="29.0" fitWidth="75.0" layoutX="14.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../icons/01-512.png" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
-      <TableView fx:id="tableview" layoutX="211.0" layoutY="105.0" prefHeight="321.0" prefWidth="394.0">
+      <TableView fx:id="tableview" layoutX="211.0" layoutY="105.0" prefHeight="321.0" prefWidth="400.0">
         <columns>
-          <TableColumn fx:id="movietittle" prefWidth="207.0" style="-fx-border-color: #000000; -fx-background-color: #aa99ea#aa99ea;" text="Movies" />
-          <TableColumn fx:id="usrrating" minWidth="0.0" prefWidth="91.0" style="-fx-border-color: #000000; -fx-background-color: #aa99ea#aa99ea;" text="User Rating" />
-            <TableColumn fx:id="imdbrating" prefWidth="94.0" style="-fx-border-color: #000000; -fx-background-color: #aa99ea#aa99ea;" text="IMDB Rating" />
+          <TableColumn fx:id="movietittle" prefWidth="207.0" text="Movies" />
+          <TableColumn fx:id="usrrating" minWidth="0.0" prefWidth="91.0" text="User Rating" />
+            <TableColumn fx:id="imdbrating" prefWidth="94.0" text="IMDB Rating" />
         </columns>
+         <effect>
+            <InnerShadow />
+         </effect>
       </TableView>
       <Label layoutX="395.0" layoutY="80.0" text="Chosen category:">
          <font>
             <Font name="Songti SC Black" size="16.0" />
-         </font></Label>
+         </font>
+         <effect>
+            <DropShadow color="#591bab" />
+         </effect></Label>
       <Label fx:id="lblChosenCategory" layoutX="511.0" layoutY="80.0" prefHeight="24.0" prefWidth="91.0">
          <font>
             <Font name="Songti SC Black" size="16.0" />
          </font></Label>
       <TableView fx:id="categoriesView" layoutX="14.0" layoutY="105.0" prefHeight="321.0" prefWidth="146.0">
         <columns>
-          <TableColumn fx:id="categoriesColumn" prefWidth="145.0" style="-fx-border-color: #000000; -fx-background-color: #aa99ea;" text="Categories" />
+          <TableColumn fx:id="categoriesColumn" prefWidth="145.0" text="Categories" />
         </columns>
+         <effect>
+            <InnerShadow />
+         </effect>
       </TableView>
     </children>
 </AnchorPane>
