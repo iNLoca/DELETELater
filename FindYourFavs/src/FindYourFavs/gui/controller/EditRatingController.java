@@ -25,45 +25,53 @@ import javafx.stage.Stage;
  * @author mac
  */
 public class EditRatingController implements Initializable {
-       private MoviePlayerController mpc = new MoviePlayerController();
-       private String PrintedRating;
-int rat;
+
+    Manager manager = new Manager();
+    private MoviePlayerController mpc = new MoviePlayerController();
+    private String PrintedRating;
+    int rat;
     @FXML
     private AnchorPane EditRating;
     @FXML
     private Button editbtn;
     @FXML
     private Button cancelratingbtn;
-    
+
     @FXML
     private TextField newRatingBox;
-    
-    Manager manager = new Manager();
+
     @FXML
     private Label CurrRat;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        PrintedRating =Integer.toString(mpc.getSelectedPersonalRating());
-        CurrRat.setText(PrintedRating);
-    }    
+       
+
+        //   PrintedRating =Integer.toString(mpc.getSelectedPersonalRating());
+        //  CurrRat.setText(PrintedRating);
+    }
 
     @FXML
     private void clickEditRatingbtn(ActionEvent event) {
         
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
+         getNewUsrRating();
         stage.close();
     }
 
     @FXML
     private void clickCancelRatingbtn(ActionEvent event) {
-        
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
-    
+
+    private void getNewUsrRating() {
+        manager.addNewUsrRating(mpc.returnNameOfMovie(), newRatingBox.getText());
+    }
+
 }

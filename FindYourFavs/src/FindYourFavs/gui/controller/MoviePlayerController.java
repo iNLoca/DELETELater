@@ -192,6 +192,10 @@ public class MoviePlayerController implements Initializable {
             lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
         }*/
     }
+    
+    public String returnNameOfMovie(){
+        return tableview.getSelectionModel().getSelectedItem().getName();
+    }
 
     private void refresh() {
         

@@ -178,4 +178,20 @@ public class DAL {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void addNewUsrRating(String nameOfMovie, String newUsrRating) {
+         try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO Movies (nameOfMovie) personalRating values (?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, newUsrRating);
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }
