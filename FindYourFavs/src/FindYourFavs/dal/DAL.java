@@ -197,4 +197,32 @@ public class DAL {
         }
         
     }
+    
+    public List<Movie>AlertData(){
+    
+         try ( Connection con = ds.getConnection()) {
+            String sql = "SELECT name,personalRating,lastview FROM Movies WHERE lastview>2000";
+            List<Movie> movieLst = new ArrayList();
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                
+                String name = rs.getString("name");
+                int personalRating = rs.getInt("personalRating");
+                int lastview = rs.getInt("lastview");
+                
+                Movie movie = new Movie(name, personalRating,lastview);
+                movieLst.add(movie);
+            }
+            return movieLst;
+        } catch (SQLServerException sqlse) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    
+    
+    }
 }

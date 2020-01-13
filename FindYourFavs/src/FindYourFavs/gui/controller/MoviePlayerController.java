@@ -73,6 +73,10 @@ public class MoviePlayerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        
+        Alert();
+
         /*
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("REMINDER");
@@ -80,6 +84,7 @@ public class MoviePlayerController implements Initializable {
         alert.setContentText("The current movie has last been viewed 2 years ago and has a user rating of lesss than 6 stars. Remember to delete it. ");
         alert.showAndWait();
 */
+
         refresh();
 
     }
@@ -164,6 +169,28 @@ public class MoviePlayerController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    public void Alert(){
+    
+     manager.AlertData();
+        
+       /*
+        String message; 
+        
+        message = "Remember to delete old movies.";
+        
+        message+= "message";
+      */       
+       
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("REMINDER");
+        alert.setHeaderText(null);
+        alert.setContentText("Remember to delete old movies! The following movies are with user rating less than 5 stars and last viewd 2 years ago. "+ manager.AlertData().toString());
+        
+        
+        alert.showAndWait();
+    
+    }
 
     public int get() {
         int rtng = tableview.getSelectionModel().getSelectedItem().getPersonalRating();
@@ -206,3 +233,4 @@ public class MoviePlayerController implements Initializable {
         displayChosenCategory();
     }
 }
+

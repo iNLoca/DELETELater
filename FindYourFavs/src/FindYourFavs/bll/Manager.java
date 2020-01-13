@@ -55,6 +55,11 @@ public class Manager {
     public void addMovie(String name, int personalrating, int imdbrating, int lastview){
         dal.addMovie(name, personalrating, imdbrating, lastview);
     }
+    
+    public List<Movie>AlertData(){
+       return dal.AlertData();
+    }
+    
 
 
    
