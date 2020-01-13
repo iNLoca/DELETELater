@@ -55,6 +55,11 @@ public class Manager {
     public void addNewUsrRating(String nameOfMovie, String newUsrRating){
         dal.addNewUsrRating(nameOfMovie, newUsrRating);
     }
+    
+    public List<Movie>AlertData(){
+       return dal.AlertData();
+    }
+    
 
 
    
