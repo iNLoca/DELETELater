@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -30,7 +31,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-
 /**
  * FXML Controller class
  */
@@ -38,7 +38,7 @@ public class MoviePlayerController implements Initializable {
 
     Manager manager = new Manager();
     Category category;
-   
+
     @FXML
     private Label label;
     @FXML
@@ -73,16 +73,16 @@ public class MoviePlayerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("REMINDER");
+        alert.setHeaderText(null);
+        alert.setContentText("The current movie has last been viewed 2 years ago and has a user rating of lesss than 6 stars. Remember to delete it. ");
+        alert.showAndWait();
+
         refresh();
-       
-     /*   categoriesView.getSelectionModel().selectedItemProperty().addListener((observable, oldSelected, newSelected) -> {
-            if (newSelected != null) {
-                lblChosenCategory.setText(newSelected.getName());
-            }
-            refresh();
-        });*/
+
     }
-    
 
     @FXML
     private void clickaddmovie(ActionEvent event) throws IOException {
@@ -122,12 +122,12 @@ public class MoviePlayerController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        
+
     }
 
     @FXML
     private void clickdeletecategory(ActionEvent event) throws IOException {
-/*
+        /*
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
         AskDeleteCategoryController ctrl = loader.getController();
@@ -166,44 +166,34 @@ public class MoviePlayerController implements Initializable {
     }
 
     public int get() {
-       // int rtng;
-
-        //rtng = 3;//
         int rtng = tableview.getSelectionModel().getSelectedItem().getPersonalRating();
         return rtng;
     }
 
+    //deletes a movie from the database       
     private void deleteMovie() {
-        //deletes a movie but only from the view
-        //tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
-        
-        //deletes a movie from the database       
         manager.deleteMovieById(tableview.getSelectionModel().getSelectedItem().getId());
-
     }
-    
-    private void deleteCategory(){
-        //deletes a category but only from the view
-        categoriesView.getItems().remove(categoriesView.getSelectionModel().getSelectedItem());
-        
-        //deletes a category from the database       
+
+    //deletes a category from the database
+    private void deleteCategory() {
         manager.deleteCategoryById(categoriesView.getSelectionModel().getSelectedItem().getId());
     }
-    
-    private void displayChosenCategory(){
-   /*     if ((categoriesView.getSelectionModel().getSelectedItem()) != null){
-            lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
-    }*/
+
+    private void displayChosenCategory() {
+
     }
-    
-    public String returnNameOfMovie(){
+
+    public String returnNameOfMovie() {
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
+
     public Movie returnMovie(){
         return tableview.getSelectionModel().getSelectedItem();
     }
+
     public void refresh() {
-        
+
         ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
@@ -212,6 +202,6 @@ public class MoviePlayerController implements Initializable {
 
         ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        categoriesView.setItems(categoryLst);                    
-                           }
+        categoriesView.setItems(categoryLst);
+    }
 }
