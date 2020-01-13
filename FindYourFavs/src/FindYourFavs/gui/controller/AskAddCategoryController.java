@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 public class AskAddCategoryController implements Initializable {
     
     Manager manager = new Manager();
-
+    MoviePlayerController mpc;
     @FXML
     private AnchorPane addcategory;
     @FXML
@@ -55,7 +55,10 @@ public class AskAddCategoryController implements Initializable {
     private void clickAddCategorybtn(ActionEvent event) {
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();        
         manager.addCategory(addcategoryfield.getText());
+        mpc.refresh();
         stage.close();
     }
-    
+    public void setMoviePlayerController(MoviePlayerController mpc){
+    this.mpc=mpc;
+    }
 }

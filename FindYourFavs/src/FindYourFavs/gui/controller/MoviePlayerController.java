@@ -116,11 +116,13 @@ public class MoviePlayerController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddCategory.fxml"));
         Parent root = loader.load();
         AskAddCategoryController ctrl = loader.getController();
+        ctrl.setMoviePlayerController(this);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+        
     }
 
     @FXML
@@ -155,6 +157,7 @@ public class MoviePlayerController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/EditRating.fxml"));
         Parent root = loader.load();
         EditRatingController ctrl = loader.getController();
+        ctrl.setMovie(tableview.getSelectionModel().getSelectedItem());
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -162,17 +165,17 @@ public class MoviePlayerController implements Initializable {
         stage.show();
     }
 
-    public int getSelectedPersonalRating() {
+    public int get() {
        // int rtng;
 
         //rtng = 3;//
-        int rtng = tableview.getSelectionModel().getSelectedItem().getId();   
+        int rtng = tableview.getSelectionModel().getSelectedItem().getPersonalRating();
         return rtng;
     }
 
     private void deleteMovie() {
         //deletes a movie but only from the view
-        tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
+        //tableview.getItems().remove(tableview.getSelectionModel().getSelectedItem());
         
         //deletes a movie from the database       
         manager.deleteMovieById(tableview.getSelectionModel().getSelectedItem().getId());
@@ -196,7 +199,7 @@ public class MoviePlayerController implements Initializable {
     public String returnNameOfMovie(){
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
-    private void refresh() {
+    public void refresh() {
         
         ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));

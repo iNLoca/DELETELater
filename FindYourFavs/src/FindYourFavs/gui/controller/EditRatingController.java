@@ -5,6 +5,7 @@
  */
 package FindYourFavs.gui.controller;
 
+import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.EventObject;
@@ -27,7 +28,7 @@ import javafx.stage.Stage;
 public class EditRatingController implements Initializable {
 
     Manager manager = new Manager();
-    private MoviePlayerController mpc = new MoviePlayerController();
+  MoviePlayerController mpc;
     private String PrintedRating;
     int rat;
     @FXML
@@ -42,6 +43,7 @@ public class EditRatingController implements Initializable {
 
     @FXML
     private Label CurrRat;
+    private Movie movie;
 
     /**
      * Initializes the controller class.
@@ -49,8 +51,7 @@ public class EditRatingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
-        //   PrintedRating =Integer.toString(mpc.getSelectedPersonalRating());
-        //  CurrRat.setText(PrintedRating);
+           
     }
 
     @FXML
@@ -58,7 +59,7 @@ public class EditRatingController implements Initializable {
         
 
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-         getNewUsrRating();
+         //getNewUsrRating();
         stage.close();
     }
 
@@ -71,6 +72,14 @@ public class EditRatingController implements Initializable {
     
     private void getNewUsrRating() {
         manager.addNewUsrRating(mpc.returnNameOfMovie(), newRatingBox.getText());
+    }
+
+
+
+    public void setMovie(Movie m) {
+        this.movie=m;
+        PrintedRating =Integer.toString(movie.getPersonalRating());
+          CurrRat.setText(PrintedRating);
     }
 
 }
