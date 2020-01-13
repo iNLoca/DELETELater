@@ -185,7 +185,7 @@ public class MoviePlayerController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("REMINDER");
         alert.setHeaderText(null);
-        alert.setContentText("Remember to delete old movies! The following movies are with user rating less than 5 stars and last viewed 2 years ago."
+        alert.setContentText("Remember to delete old movies! The following movies are with user rating less than 6 stars and last viewed more than 2 years ago:"
                 + manager.AlertData().toString());
         
         

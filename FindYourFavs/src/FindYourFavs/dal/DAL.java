@@ -201,7 +201,7 @@ public class DAL {
     public List<Movie>AlertData(){
     
          try ( Connection con = ds.getConnection()) {
-            String sql = "SELECT name,personalRating,lastview FROM Movies WHERE lastview>2000";
+            String sql = "SELECT name,personalRating,lastview FROM Movies WHERE personalRating<6 AND lastview<2018";
             List<Movie> movieLst = new ArrayList();
 
             Statement stmt = con.createStatement();

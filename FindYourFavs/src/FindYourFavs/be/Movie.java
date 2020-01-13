@@ -95,11 +95,13 @@ public class Movie {
         this.name=name;
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
+        
 
     }
 
     @Override
     public String toString() {
-        return "Movie{" + "name=" + name + ", personalRating=" + personalRating + ", IMDBRating=" + IMDBRating + '}';
+        return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + IMDBRating;
+        //for some reason IMDBRating shows the year aka lastViewed data.
     }
 }
