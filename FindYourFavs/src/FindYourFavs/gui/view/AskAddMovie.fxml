@@ -34,11 +34,11 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <TextField layoutX="118.0" layoutY="76.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="tittle" layoutX="118.0" layoutY="76.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField layoutX="116.0" layoutY="211.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="usrrating" layoutX="116.0" layoutY="211.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
@@ -46,11 +46,11 @@
          <effect>
             <DropShadow />
          </effect></ChoiceBox>
-      <TextField layoutX="116.0" layoutY="165.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="imdbrating" layoutX="116.0" layoutY="165.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField layoutX="116.0" layoutY="257.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="lastviewd" layoutX="116.0" layoutY="257.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
