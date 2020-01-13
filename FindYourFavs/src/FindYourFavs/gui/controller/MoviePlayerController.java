@@ -191,13 +191,12 @@ public class MoviePlayerController implements Initializable {
     private void displayChosenCategory(){
    /*     if ((categoriesView.getSelectionModel().getSelectedItem()) != null){
             lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
-        }*/
+    }*/
     }
     
     public String returnNameOfMovie(){
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
-
     private void refresh() {
         
         ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
@@ -208,10 +207,6 @@ public class MoviePlayerController implements Initializable {
 
         ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        categoriesView.setItems(categoryLst);     
-        
-        
-        
-        
-    }
+        categoriesView.setItems(categoryLst);                    
+                           }
 }
