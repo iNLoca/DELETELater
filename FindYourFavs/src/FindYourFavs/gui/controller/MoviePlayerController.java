@@ -165,9 +165,10 @@ public class MoviePlayerController implements Initializable {
     }
 
     public int getSelectedPersonalRating() {
-        int rtng;
+       // int rtng;
 
-        rtng = 3;//tableview.getSelectionModel().getSelectedItem().getId();   
+        //rtng = 3;//
+        int rtng = tableview.getSelectionModel().getSelectedItem().getId();   
         return rtng;
     }
 
