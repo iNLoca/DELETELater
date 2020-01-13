@@ -8,6 +8,7 @@ package FindYourFavs.gui.controller;
 import FindYourFavs.be.Category;
 import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
+import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -40,6 +42,14 @@ public class AskAddMovieController implements Initializable {
     private ChoiceBox<String> choiceboxcat;
     @FXML
     private JFXTextField addfilelink;
+    @FXML
+    private TextField tittle;
+    @FXML
+    private TextField usrrating;
+    @FXML
+    private TextField imdbrating;
+    @FXML
+    private TextField lastviewd;
 
     /**
      * Initializes the controller class.
@@ -78,11 +88,9 @@ public class AskAddMovieController implements Initializable {
 
     @FXML
     private void clickAddMoviebtn(ActionEvent event) {
-        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-        
-        
-        manager.
-        mpc.refresh();
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();         
+        manager.addMovie(tittle.getText(), parseInt(usrrating.getText()), parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
+    //    mpc.refresh();
         stage.close();
     }
 
