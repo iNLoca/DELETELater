@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Manager {  
+    public static Manager myManager = new Manager(); 
 
     DAL dal = new DAL();
     public List<Category> categoryList = new ArrayList();
@@ -58,6 +59,10 @@ public class Manager {
     
     public List<Movie>AlertData(){
        return dal.AlertData();
+    }
+
+    public void addNewUsrRating(int idOfMovie, String text) {
+         dal.addNewUsrRating(idOfMovie,text);
     }
     
 

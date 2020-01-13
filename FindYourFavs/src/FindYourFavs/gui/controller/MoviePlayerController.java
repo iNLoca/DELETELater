@@ -162,6 +162,7 @@ public class MoviePlayerController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/EditRating.fxml"));
         Parent root = loader.load();
         EditRatingController ctrl = loader.getController();
+        ctrl.setMoviePlayerController(this);
         ctrl.setMovie(tableview.getSelectionModel().getSelectedItem());
 
         Scene scene = new Scene(root);
@@ -219,6 +220,9 @@ public class MoviePlayerController implements Initializable {
 
     public String returnNameOfMovie() {
         return tableview.getSelectionModel().getSelectedItem().getName();
+    }
+    public Movie returnMovie(){
+        return tableview.getSelectionModel().getSelectedItem();
     }
 
     public void refresh() {

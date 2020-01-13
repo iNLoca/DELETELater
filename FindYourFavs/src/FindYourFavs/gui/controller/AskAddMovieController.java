@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 public class AskAddMovieController implements Initializable {
     Manager manager = new Manager();
         MoviePlayerController mpc;
+        int userrating;
 
     @FXML
     private Button cancelmovie;
@@ -88,8 +89,20 @@ public class AskAddMovieController implements Initializable {
 
     @FXML
     private void clickAddMoviebtn(ActionEvent event) {
-        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();         
-        manager.addMovie(tittle.getText(), parseInt(usrrating.getText()), parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
+        
+        
+        //
+        
+        if(usrrating.getText().isEmpty()){
+            userrating=0;
+        }
+        else{
+        userrating = parseInt(usrrating.getText()) ;
+        }
+        
+        
+        manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
         mpc.refresh();
         stage.close();
     }
