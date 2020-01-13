@@ -111,14 +111,14 @@
             <InnerShadow />
          </effect>
       </TableView>
-      <Label layoutX="395.0" layoutY="80.0" text="Chosen category:">
+      <Label layoutX="214.0" layoutY="80.0" text="Chosen category:">
          <font>
             <Font name="Songti SC Black" size="16.0" />
          </font>
          <effect>
             <DropShadow color="#591bab" />
          </effect></Label>
-      <Label fx:id="lblChosenCategory" layoutX="511.0" layoutY="80.0" prefHeight="24.0" prefWidth="91.0">
+      <Label fx:id="lblChosenCategory" layoutX="366.0" layoutY="80.0" prefHeight="25.0" prefWidth="215.0">
          <font>
             <Font name="Songti SC Black" size="16.0" />
          </font></Label>

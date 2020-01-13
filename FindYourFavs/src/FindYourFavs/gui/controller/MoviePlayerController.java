@@ -73,13 +73,13 @@ public class MoviePlayerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        /*
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("REMINDER");
         alert.setHeaderText(null);
         alert.setContentText("The current movie has last been viewed 2 years ago and has a user rating of lesss than 6 stars. Remember to delete it. ");
         alert.showAndWait();
-
+*/
         refresh();
 
     }
@@ -181,7 +181,11 @@ public class MoviePlayerController implements Initializable {
     }
 
     private void displayChosenCategory() {
-
+        if (categoriesView.getSelectionModel().getSelectedItem() == null) {
+            lblChosenCategory.setText("No category chosen yet");
+        } else {
+            lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
+        }
     }
 
     public String returnNameOfMovie() {
@@ -199,5 +203,6 @@ public class MoviePlayerController implements Initializable {
         ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         categoriesView.setItems(categoryLst);
+        displayChosenCategory();
     }
 }
