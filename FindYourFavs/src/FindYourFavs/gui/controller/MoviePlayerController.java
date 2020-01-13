@@ -87,7 +87,6 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickaddmovie(ActionEvent event) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddMovie.fxml"));
         Parent root = loader.load();
         AskAddMovieController ctrl = loader.getController();
@@ -110,11 +109,11 @@ public class MoviePlayerController implements Initializable {
         stage.setScene(scene);
         stage.show();*/
         deleteMovie();
+        refresh();
     }
 
     @FXML
     private void clickaddcategory(ActionEvent event) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddCategory.fxml"));
         Parent root = loader.load();
         AskAddCategoryController ctrl = loader.getController();
@@ -137,6 +136,7 @@ public class MoviePlayerController implements Initializable {
         stage.setScene(scene);
         stage.show();*/
         deleteCategory();
+        refresh();
     }
 
     @FXML
@@ -153,7 +153,6 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickEditRating(ActionEvent event) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/EditRating.fxml"));
         Parent root = loader.load();
         EditRatingController ctrl = loader.getController();
@@ -193,6 +192,10 @@ public class MoviePlayerController implements Initializable {
    /*     if ((categoriesView.getSelectionModel().getSelectedItem()) != null){
             lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
         }*/
+    }
+    
+    public String returnNameOfMovie(){
+        return tableview.getSelectionModel().getSelectedItem().getName();
     }
 
     private void refresh() {

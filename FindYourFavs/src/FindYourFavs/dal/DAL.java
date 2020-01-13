@@ -45,7 +45,7 @@ public class DAL {
                 String name = rs.getString("name");
                 int personalRating = rs.getInt("personalRating");
                 int IMDBRating = rs.getInt("IMDBRating");
-                Movie movie = new Movie(name, personalRating, IMDBRating);
+                Movie movie = new Movie(id, name, personalRating, IMDBRating);
                 movieLst.add(movie);
             }
             return movieLst;
@@ -162,5 +162,36 @@ public class DAL {
         } catch (SQLException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void addCategory(String name) {
+       try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO Category (name) values (?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, name);
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void addNewUsrRating(String nameOfMovie, String newUsrRating) {
+         try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO Movies (nameOfMovie) personalRating values (?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, newUsrRating);
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }

@@ -6,6 +6,7 @@
 package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Category;
+import FindYourFavs.bll.Manager;
 import java.net.URL;
 import java.util.EventObject;
 import java.util.ResourceBundle;
@@ -25,6 +26,8 @@ import javafx.stage.Stage;
  * @author mac
  */
 public class AskAddCategoryController implements Initializable {
+    
+    Manager manager = new Manager();
 
     @FXML
     private AnchorPane addcategory;
@@ -39,8 +42,7 @@ public class AskAddCategoryController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-     
+    public void initialize(URL url, ResourceBundle rb) {    
     }    
 
     @FXML
@@ -51,7 +53,8 @@ public class AskAddCategoryController implements Initializable {
 
     @FXML
     private void clickAddCategorybtn(ActionEvent event) {
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();        
+        manager.addCategory(addcategoryfield.getText());
         stage.close();
     }
     

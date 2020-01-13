@@ -79,15 +79,12 @@ public class AskAddMovieController implements Initializable {
 
     @FXML
     private void clickAddMoviebtn(ActionEvent event) {
-        
-        
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    private void clickCancelMovieButton(ActionEvent event) {
-        
+    private void clickCancelMovieButton(ActionEvent event) {        
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
