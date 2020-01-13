@@ -38,8 +38,7 @@ public class MoviePlayerController implements Initializable {
 
     Manager manager = new Manager();
     Category category;
-    
-
+   
     @FXML
     private Label label;
     @FXML

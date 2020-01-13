@@ -49,7 +49,6 @@ public class EditRatingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
-
         //   PrintedRating =Integer.toString(mpc.getSelectedPersonalRating());
         //  CurrRat.setText(PrintedRating);
     }
@@ -69,7 +68,7 @@ public class EditRatingController implements Initializable {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
-
+    
     private void getNewUsrRating() {
         manager.addNewUsrRating(mpc.returnNameOfMovie(), newRatingBox.getText());
     }
