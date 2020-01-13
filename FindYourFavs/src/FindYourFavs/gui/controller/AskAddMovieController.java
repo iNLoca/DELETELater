@@ -6,6 +6,7 @@
 package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Category;
+import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.EventObject;
@@ -26,6 +27,8 @@ import javafx.stage.Stage;
  * @author mac
  */
 public class AskAddMovieController implements Initializable {
+    Manager manager = new Manager();
+        MoviePlayerController mpc;
 
     @FXML
     private Button cancelmovie;
@@ -43,8 +46,9 @@ public class AskAddMovieController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         
-       
+
         //getItems returns the ObservableList object which u can add items to. 
         choiceboxcat.getItems().add("Categories");
         choiceboxcat.getItems().add("Action");
@@ -57,9 +61,7 @@ public class AskAddMovieController implements Initializable {
         choiceboxcat.getItems().add("Thriller");
         choiceboxcat.getItems().add("War");
         choiceboxcat.getItems().add("Western");
-        
-        
-        
+
         //Set value 
         choiceboxcat.setValue("Categories");
         choiceboxcat.setValue("Action");
@@ -71,30 +73,28 @@ public class AskAddMovieController implements Initializable {
         choiceboxcat.setValue("Thriller");
         choiceboxcat.setValue("War");
         choiceboxcat.setValue("Western");
-        
-        
-        
-      
-    }    
+
+    }
 
     @FXML
     private void clickAddMoviebtn(ActionEvent event) {
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
+        
+        
+        manager.
+        mpc.refresh();
         stage.close();
     }
 
     @FXML
-    private void clickCancelMovieButton(ActionEvent event) {        
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+    private void clickCancelMovieButton(ActionEvent event) {
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
 
     @FXML
     private void clickshowCategories(MouseEvent event) {
-        //choiceboxcat.getAccessibleText();
-        
-        
-        
+        //choiceboxcat.getAccessibleText();   
     }
-    
+
 }

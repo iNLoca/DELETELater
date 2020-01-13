@@ -52,8 +52,8 @@ public class Manager {
         dal.addCategory(name);
     }
     
-    public void addNewUsrRating(String nameOfMovie, String newUsrRating){
-        dal.addNewUsrRating(nameOfMovie, newUsrRating);
+    public void addMovie(String name, String personalrating, String imdbrating, int lastview, String fiellink){
+        dal.addMovie(name, personalrating, imdbrating, lastview, fiellink);
     }
     
     public List<Movie>AlertData(){

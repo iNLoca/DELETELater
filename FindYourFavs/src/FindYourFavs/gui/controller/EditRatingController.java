@@ -71,7 +71,7 @@ public class EditRatingController implements Initializable {
     }
     
     private void getNewUsrRating() {
-        manager.addNewUsrRating(mpc.returnNameOfMovie(), newRatingBox.getText());
+   
     }
 
 
