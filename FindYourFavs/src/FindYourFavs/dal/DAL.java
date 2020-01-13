@@ -225,4 +225,20 @@ public class DAL {
     
     
     }
+    public void addNewUsrRating(int idOfMovie, String newUsrRating) {
+         try ( Connection con = ds.getConnection()) {
+            String sql = "UPDATE Movies SET personalrating = ? WHERE id = ? ";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, newUsrRating);
+            pstmt.setInt(2,idOfMovie);
+            pstmt.executeUpdate();
+
+       } catch (SQLServerException sqlse) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+}
 }
