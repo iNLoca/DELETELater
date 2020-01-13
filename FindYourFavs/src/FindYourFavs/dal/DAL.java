@@ -181,10 +181,11 @@ public class DAL {
 
     public void addNewUsrRating(String nameOfMovie, String newUsrRating) {
          try ( Connection con = ds.getConnection()) {
-            String sql = "INSERT INTO Movies (nameOfMovie) personalRating values (?)";
+            String sql = "UPDATE Movies SET personalrating = ? WHERE name = ? ";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
             pstmt.setString(1, newUsrRating);
+            pstmt.setString(2,nameOfMovie);
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {

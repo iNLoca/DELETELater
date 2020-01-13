@@ -11,7 +11,12 @@ import FindYourFavs.dal.DAL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Francesco
+ */
 public class Manager {  
+    public static Manager myManager = new Manager(); 
 
     DAL dal = new DAL();
     public List<Category> categoryList = new ArrayList();

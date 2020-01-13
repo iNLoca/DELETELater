@@ -199,6 +199,9 @@ public class MoviePlayerController implements Initializable {
     public String returnNameOfMovie(){
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
+    public Movie returnMovie(){
+        return tableview.getSelectionModel().getSelectedItem();
+    }
     public void refresh() {
         
         ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());

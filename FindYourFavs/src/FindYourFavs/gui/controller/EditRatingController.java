@@ -27,7 +27,7 @@ import javafx.stage.Stage;
  */
 public class EditRatingController implements Initializable {
 
-    Manager manager = new Manager();
+    Manager manager;
   MoviePlayerController mpc;
     private String PrintedRating;
     int rat;
@@ -50,8 +50,7 @@ public class EditRatingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-           
+               
     }
 
     @FXML
@@ -59,8 +58,11 @@ public class EditRatingController implements Initializable {
         
 
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-         //getNewUsrRating();
+       // setMovie(mpc.returnMovie());
+        Manager.myManager.addNewUsrRating(movie.getName(), newRatingBox.getText());
+        
         stage.close();
+        mpc.refresh();
     }
 
     @FXML
@@ -70,16 +72,10 @@ public class EditRatingController implements Initializable {
         stage.close();
     }
     
-    private void getNewUsrRating() {
-        manager.addNewUsrRating(mpc.returnNameOfMovie(), newRatingBox.getText());
-    }
-
-
-
-    public void setMovie(Movie m) {
-        this.movie=m;
+    public void setMovie(Movie movie) {
+        this.movie=movie;
         PrintedRating =Integer.toString(movie.getPersonalRating());
-          CurrRat.setText(PrintedRating);
+          CurrRat.setText(PrintedRating);     
     }
-
+  
 }
