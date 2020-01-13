@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -73,6 +74,15 @@ public class MoviePlayerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("REMINDER");
+        alert.setHeaderText(null);
+        alert.setContentText("The current movie has last been viewed 2 years ago and has a user rating of lesss than 6 stars. Remember to delete it. ");
+        
+        
+        alert.showAndWait();
+        
         refresh();
        
      /*   categoriesView.getSelectionModel().selectedItemProperty().addListener((observable, oldSelected, newSelected) -> {
