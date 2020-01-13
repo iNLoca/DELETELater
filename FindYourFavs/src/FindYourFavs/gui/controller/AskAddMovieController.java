@@ -90,7 +90,7 @@ public class AskAddMovieController implements Initializable {
     private void clickAddMoviebtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();         
         manager.addMovie(tittle.getText(), parseInt(usrrating.getText()), parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
-    //    mpc.refresh();
+        mpc.refresh();
         stage.close();
     }
 
@@ -103,6 +103,10 @@ public class AskAddMovieController implements Initializable {
     @FXML
     private void clickshowCategories(MouseEvent event) {
         //choiceboxcat.getAccessibleText();   
+    }
+    
+     public void setMoviePlayerController(MoviePlayerController mpc){
+    this.mpc=mpc;
     }
 
 }
