@@ -22,6 +22,8 @@ import javafx.stage.Stage;
  * @author mac
  */
 public class AskDeleteMovieController implements Initializable {
+    
+    MoviePlayerController mpc;
 
     @FXML
     private Button deletemoviebtn;
@@ -39,10 +41,10 @@ public class AskDeleteMovieController implements Initializable {
     }    
 
     @FXML
-    private void clickDeleteMoviebtn(ActionEvent event) {
-       
-        
+    private void clickDeleteMoviebtn(ActionEvent event) {       
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        mpc.deleteMovie();
+        mpc.refresh();
         stage.close();
     }
 
@@ -51,6 +53,10 @@ public class AskDeleteMovieController implements Initializable {
         
         Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
+    }
+    
+     public void setMoviePlayerController(MoviePlayerController mpc){
+    this.mpc=mpc;
     }
     
 }

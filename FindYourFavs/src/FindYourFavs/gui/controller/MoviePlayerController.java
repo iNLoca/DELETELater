@@ -94,6 +94,7 @@ public class MoviePlayerController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddMovie.fxml"));
         Parent root = loader.load();
         AskAddMovieController ctrl = loader.getController();
+        ctrl.setMoviePlayerController(this);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -103,17 +104,17 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickdeletemovie(ActionEvent event) throws IOException {
-        /*
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
         Parent root = loader.load();
         AskDeleteMovieController ctrl = loader.getController();
+        ctrl.setMoviePlayerController(this);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.show();*/
-        deleteMovie();
-        refresh();
+        stage.show();
+        
     }
 
     @FXML
@@ -132,17 +133,16 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickdeletecategory(ActionEvent event) throws IOException {
-        /*
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
         AskDeleteCategoryController ctrl = loader.getController();
+        ctrl.setMoviePlayerController(this);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.show();*/
-        deleteCategory();
-        refresh();
+        stage.show();
     }
 
     @FXML
@@ -198,12 +198,12 @@ public class MoviePlayerController implements Initializable {
     }
 
     //deletes a movie from the database       
-    private void deleteMovie() {
+    public void deleteMovie() {
         manager.deleteMovieById(tableview.getSelectionModel().getSelectedItem().getId());
     }
 
     //deletes a category from the database
-    private void deleteCategory() {
+    public void deleteCategory() {
         manager.deleteCategoryById(categoriesView.getSelectionModel().getSelectedItem().getId());
     }
 

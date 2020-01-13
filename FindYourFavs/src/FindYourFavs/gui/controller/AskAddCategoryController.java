@@ -29,6 +29,7 @@ public class AskAddCategoryController implements Initializable {
     
     Manager manager = new Manager();
     MoviePlayerController mpc;
+    
     @FXML
     private AnchorPane addcategory;
     @FXML
