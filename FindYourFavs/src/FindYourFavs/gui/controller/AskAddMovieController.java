@@ -55,6 +55,10 @@ public class AskAddMovieController implements Initializable {
     private TextField imdbrating;
     @FXML
     private TextField lastviewd;
+    @FXML
+    private ChoiceBox<String> choiceboxcat2;
+    @FXML
+    private ChoiceBox<String> choiceboxcat3;
 
     /**
      * Initializes the controller class.
@@ -62,10 +66,10 @@ public class AskAddMovieController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        
+        //choiceboxcat.getItems(categoriesView.setItems(categoryLst));
 
         //getItems returns the ObservableList object which u can add items to. 
-        choiceboxcat.getItems().add("Categories");
+        
         choiceboxcat.getItems().add("Action");
         choiceboxcat.getItems().add("Animation");
         choiceboxcat.getItems().add("Comedy");
@@ -76,9 +80,10 @@ public class AskAddMovieController implements Initializable {
         choiceboxcat.getItems().add("Thriller");
         choiceboxcat.getItems().add("War");
         choiceboxcat.getItems().add("Western");
+        choiceboxcat.getItems().add("Categories");
 
         //Set value 
-        choiceboxcat.setValue("Categories");
+        
         choiceboxcat.setValue("Action");
         choiceboxcat.setValue("Comedy");
         choiceboxcat.setValue("Crime");
@@ -88,7 +93,61 @@ public class AskAddMovieController implements Initializable {
         choiceboxcat.setValue("Thriller");
         choiceboxcat.setValue("War");
         choiceboxcat.setValue("Western");
+        choiceboxcat.setValue("Categories");
 
+        
+        
+        choiceboxcat2.getItems().add("Action");
+        choiceboxcat2.getItems().add("Animation");
+        choiceboxcat2.getItems().add("Comedy");
+        choiceboxcat2.getItems().add("Crime");
+        choiceboxcat2.getItems().add("Drama");
+        choiceboxcat2.getItems().add("Film-Noir");
+        choiceboxcat2.getItems().add("Horror");
+        choiceboxcat2.getItems().add("Thriller");
+        choiceboxcat2.getItems().add("War");
+        choiceboxcat2.getItems().add("Western");
+        choiceboxcat2.getItems().add("Categories");
+
+        //Set value 
+        
+        choiceboxcat2.setValue("Action");
+        choiceboxcat2.setValue("Comedy");
+        choiceboxcat2.setValue("Crime");
+        choiceboxcat2.setValue("Drama");
+        choiceboxcat2.setValue("Film-Noir");
+        choiceboxcat2.setValue("Horror");
+        choiceboxcat2.setValue("Thriller");
+        choiceboxcat2.setValue("War");
+        choiceboxcat2.setValue("Western");
+        choiceboxcat2.setValue("Categories");
+        
+        
+        
+        choiceboxcat3.getItems().add("Action");
+        choiceboxcat3.getItems().add("Animation");
+        choiceboxcat3.getItems().add("Comedy");
+        choiceboxcat3.getItems().add("Crime");
+        choiceboxcat3.getItems().add("Drama");
+        choiceboxcat3.getItems().add("Film-Noir");
+        choiceboxcat3.getItems().add("Horror");
+        choiceboxcat3.getItems().add("Thriller");
+        choiceboxcat3.getItems().add("War");
+        choiceboxcat3.getItems().add("Western");
+        choiceboxcat3.getItems().add("Categories");
+
+        //Set value 
+        
+        choiceboxcat3.setValue("Action");
+        choiceboxcat3.setValue("Comedy");
+        choiceboxcat3.setValue("Crime");
+        choiceboxcat3.setValue("Drama");
+        choiceboxcat3.setValue("Film-Noir");
+        choiceboxcat3.setValue("Horror");
+        choiceboxcat3.setValue("Thriller");
+        choiceboxcat3.setValue("War");
+        choiceboxcat3.setValue("Western");
+        choiceboxcat3.setValue("Categories");
     }
 
     @FXML
@@ -127,7 +186,7 @@ public class AskAddMovieController implements Initializable {
 
     @FXML
     private void clickshowCategories(MouseEvent event) {
-        //choiceboxcat.getAccessibleText();   
+        
     }
     
      public void setMoviePlayerController(MoviePlayerController mpc){
