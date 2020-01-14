@@ -107,7 +107,7 @@ public class AskAddMovieController implements Initializable {
          movieLst = manager.getAllMovies();
         
         for (Movie movie : movieLst) {
-            if(movie.getName().equals(tittle.getText())) {
+            if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())) {
                 add=false;
             }
         }
