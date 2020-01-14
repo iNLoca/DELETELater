@@ -89,9 +89,9 @@ public class MoviePlayerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        
+    /*    
         Alert();
-     
+
       
       searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
              //tableview.getItems().clear();
@@ -99,6 +99,47 @@ public class MoviePlayerController implements Initializable {
               
               });
       
+
+        
+        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
+            Movie m = tableview.getSelectionModel().getSelectedItem();
+
+            tableview.getItems().clear();
+        
+        });
+
+        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
+            currentListSelection = tableview.getSelectionModel();
+        });
+
+        movietittle.setCellValueFactory((param) -> {
+
+            return new SimpleStringProperty(param.getValue().getName());
+        });
+        
+        tableview.getItems().clear();
+        tableview.getItems().addAll(manager.getAllMovies());
+   
+    
+        /*
+        categoriesColumn.setCellValueFactory((param) -> {
+
+            return new SimpleStringProperty(param.getValue().getCategory());
+
+        }); 
+        categoriesView.getItems().clear();
+        categoriesView.getItems().addAll(manager.getAllCategories());
+        
+        
+        
+       searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
+             tableview.getItems().clear();
+             tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
+              
+              });
+        */
+       
+
         refresh();
         
 
@@ -217,14 +258,6 @@ public class MoviePlayerController implements Initializable {
         manager.deleteCategoryById(categoriesView.getSelectionModel().getSelectedItem().getId());
     }
 
-    private void displayChosenCategory() {
-        if (categoriesView.getSelectionModel().getSelectedItem() == null) {
-            lblChosenCategory.setText("No category chosen yet");
-        } else {
-            lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
-        }
-    }
-
     public String returnNameOfMovie() {
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
@@ -243,7 +276,7 @@ public class MoviePlayerController implements Initializable {
         ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         categoriesView.setItems(categoryLst);
-        displayChosenCategory();
+     
     }
     
     
@@ -251,6 +284,11 @@ public class MoviePlayerController implements Initializable {
     private void clickSearchbarField(ActionEvent event) {
         
          
+    }
+
+    @FXML
+    private void chosenCategory(MouseEvent event) {
+        lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
     }
     
 }
