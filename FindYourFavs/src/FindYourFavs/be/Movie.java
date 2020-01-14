@@ -5,8 +5,6 @@
  */
 package FindYourFavs.be;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -20,12 +18,12 @@ public class Movie {
     private int IMDBRating;
     private String fileLink;
     private int lastView;
-    private String category;
-    List <Movie> movieList = new ArrayList<>();
+    
+    
     public Movie() {
        
          
-     this.movieList = movieList;
+   
        
     }
 
@@ -39,12 +37,11 @@ public class Movie {
         this.name=name;
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
-       
+        
         
     }
 
     public Movie(String string) { 
-         this.name = name;
          
     }
 
@@ -99,6 +96,7 @@ public class Movie {
     }
     
     
+    
     public Movie (int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView){
         this.id=id;
         this.name=name;
@@ -106,7 +104,7 @@ public class Movie {
         this.IMDBRating=IMDBRating;
         this.fileLink=fileLink;
         this.lastView=lastView;
-        
+       
     }
     public Movie (String name, int personalRating, int IMDBRating){
         
@@ -122,13 +120,6 @@ public class Movie {
     public String toString() {
         return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + IMDBRating;
         //for some reason IMDBRating shows the year aka lastViewed data.
-    }
-
-    public List <Movie> getmovieList() {
-        return movieList;
-    }
-    public void setmovieList(){
-    this.movieList = movieList;
     }
 
 }

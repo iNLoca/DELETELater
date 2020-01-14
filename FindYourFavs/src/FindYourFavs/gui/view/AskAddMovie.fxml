@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="askaddmovie" prefHeight="400.0" prefWidth="304.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF; -fx-border-color: #000000; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.AskAddMovieController">
+<AnchorPane id="AnchorPane" fx:id="askaddmovie" prefHeight="496.0" prefWidth="304.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF; -fx-border-color: #000000; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.AskAddMovieController">
    <children>
       <Label layoutX="108.0" layoutY="14.0" text="Add Movie">
          <font>
@@ -21,16 +21,16 @@
          </effect>
       </Label>
       <Label layoutX="31.0" layoutY="81.0" prefHeight="17.0" prefWidth="41.0" text="Title:" />
-      <Label layoutX="30.0" layoutY="216.0" text="User Rating:" />
-      <Label layoutX="32.0" layoutY="170.0" text="IMDB Rating:" />
-      <Label layoutX="30.0" layoutY="262.0" text="Last Viewed: " />
+      <Label layoutX="28.0" layoutY="300.0" text="User Rating:" />
+      <Label layoutX="29.0" layoutY="257.0" text="IMDB Rating:" />
+      <Label layoutX="27.0" layoutY="342.0" text="Last Viewed: " />
       <Label layoutX="30.0" layoutY="127.0" text="Category:" />
-      <Label layoutX="30.0" layoutY="305.0" text="File: " />
-      <Button fx:id="addmoviebtn" layoutX="70.0" layoutY="352.0" mnemonicParsing="false" onAction="#clickAddMoviebtn" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #44308c#44308c; -fx-border-color: #000000; -fx-border-width: 2;" text="Add" textFill="#aa99ea">
+      <Label layoutX="46.0" layoutY="387.0" text="File: " />
+      <Button fx:id="addmoviebtn" layoutX="59.0" layoutY="439.0" mnemonicParsing="false" onAction="#clickAddMoviebtn" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #44308c#44308c; -fx-border-color: #000000; -fx-border-width: 2;" text="Add" textFill="#aa99ea">
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button fx:id="cancelmovie" layoutX="167.0" layoutY="352.0" mnemonicParsing="false" onAction="#clickCancelMovieButton" style="-fx-background-color: #44308c#44308c #44308c#44308c; -fx-border-color: #000000; -fx-border-width: 2;" text="Cancel" textFill="#aa99ea">
+      <Button fx:id="cancelmovie" layoutX="175.0" layoutY="439.0" mnemonicParsing="false" onAction="#clickCancelMovieButton" style="-fx-background-color: #44308c#44308c #44308c#44308c; -fx-border-color: #000000; -fx-border-width: 2;" text="Cancel" textFill="#aa99ea">
          <effect>
             <DropShadow />
          </effect></Button>
@@ -38,7 +38,7 @@
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField fx:id="usrrating" layoutX="116.0" layoutY="211.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="usrrating" layoutX="118.0" layoutY="295.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
@@ -46,17 +46,27 @@
          <effect>
             <DropShadow />
          </effect></ChoiceBox>
-      <TextField fx:id="imdbrating" layoutX="116.0" layoutY="165.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="imdbrating" layoutX="118.0" layoutY="252.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField fx:id="lastviewd" layoutX="116.0" layoutY="257.0" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="lastviewd" layoutX="118.0" layoutY="337.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <JFXTextField fx:id="addfilelink" layoutX="77.0" layoutY="300.0" prefHeight="27.0" prefWidth="151.0">
+      <JFXTextField fx:id="addfilelink" layoutX="113.0" layoutY="382.0" prefHeight="27.0" prefWidth="151.0">
          <effect>
             <DropShadow />
          </effect></JFXTextField>
+      <ChoiceBox fx:id="choiceboxcat2" layoutX="118.0" layoutY="163.0" onMouseClicked="#clickshowCategories" prefHeight="27.0" prefWidth="140.0" style="-fx-background-color: #5c34a1#5c34a1 #5c34a1#5c34a1;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </ChoiceBox>
+      <ChoiceBox fx:id="choiceboxcat3" layoutX="116.0" layoutY="202.0" onMouseClicked="#clickshowCategories" prefHeight="27.0" prefWidth="140.0" style="-fx-background-color: #5c34a1#5c34a1 #5c34a1#5c34a1;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </ChoiceBox>
    </children>
 </AnchorPane>

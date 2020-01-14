@@ -17,15 +17,15 @@ import java.util.List;
 //This filter searches for name, but we need it to search for specific IMDBRating which is an int dum dum dum... + category
 public class SearchMovies {
     
-    public static List<Movie>searchMovies(List<Movie>movieList,String filter){
+    public static List<Movie>searchMovies(List<Movie>movieLst,String filter){
       
         filter=filter.toLowerCase();
         List<Movie>filteredMovies = new ArrayList();
         
-        for(Movie m: movieList){
+        for(Movie m: movieLst){
          if(filter.length() <= m.getName().length() && filter.equals(m.getName().toLowerCase().substring(0, filter.length())))
             {
-                   
+           filteredMovies.addAll(movieLst);
             }
  
         }
