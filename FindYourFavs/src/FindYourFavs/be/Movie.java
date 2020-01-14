@@ -32,12 +32,12 @@ public class Movie {
       
     }
 
-    public Movie(int id, String name, int personalRating, int IMDBRating,String filelink) {
+    public Movie(int id, String name, int personalRating, int IMDBRating) {
         this.id=id;
         this.name=name;
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
-        this.fileLink =filelink;
+        
         
     }
 
