@@ -91,7 +91,7 @@ public class MoviePlayerController implements Initializable {
 
         
         Alert();
-      /*  
+        
         tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
             Movie m = tableview.getSelectionModel().getSelectedItem();
 
@@ -122,14 +122,14 @@ public class MoviePlayerController implements Initializable {
         categoriesView.getItems().addAll(manager.getAllCategories());
         */
         
-      /*  
+        
        searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
              tableview.getItems().clear();
              tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
               
               });
         
- */
+ 
         refresh();
         
 

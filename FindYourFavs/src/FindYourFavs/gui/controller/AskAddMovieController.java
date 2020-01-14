@@ -6,13 +6,11 @@
 package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Category;
-import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,8 +32,6 @@ public class AskAddMovieController implements Initializable {
     Manager manager = new Manager();
         MoviePlayerController mpc;
         int userrating;
-       List<Movie> movieLst;
-       boolean add=true;
 
     @FXML
     private Button cancelmovie;
@@ -104,14 +100,9 @@ public class AskAddMovieController implements Initializable {
         else{
         userrating = parseInt(usrrating.getText()) ;
         }
-        movieLst = manager.getAllMovies();
         
-        for (Movie movie : movieLst) {
-            if(movie.getName().equals(tittle.getText())) {
-                add=false;
-            }
-        }
-        if(add) manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
+        
+        manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
         mpc.refresh();
         stage.close();
     }
