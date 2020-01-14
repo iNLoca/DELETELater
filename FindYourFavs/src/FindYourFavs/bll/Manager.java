@@ -64,6 +64,13 @@ public class Manager {
     public void addNewUsrRating(int idOfMovie, String text) {
          dal.addNewUsrRating(idOfMovie,text);
     }
+
+    public List<Movie> getAllMoviesWithFilter(String filterText) {
+        
+        return dal.getAllSongsWithFilter(filterText);
+        
+        
+    }
     
 
 

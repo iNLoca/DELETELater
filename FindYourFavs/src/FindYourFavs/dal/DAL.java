@@ -241,4 +241,23 @@ public class DAL {
         }
        
 }
+    public List<Movie> getAllSongsWithFilter(String filterText) {
+        List<Movie> allMovies = new ArrayList<>();
+        String sql = "SELECT * FROM Movie WHERE Movie.name LIKE ? "; //OR Movie.category LIKE ?";
+
+        try (Connection con = ds.getConnection()) {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, "%" + filterText + "%");
+           // pstmt.setString(2, "%" + filterText + "%");
+            ResultSet ds = pstmt.executeQuery();
+            while (ds.next()) {
+                Movie movie = new Movie(ds.getString("name")); //, ds.getString("category")
+                allMovies.add(movie);
+            }
+            return allMovies;
+        } catch (SQLException ex) {
+            System.out.println("Exception " + ex);
+            return null;
+        }
+    }
 }

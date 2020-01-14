@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -15,7 +16,7 @@
 <AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="635.0" style="-fx-background-color: #7D79BF#7D79BF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.MoviePlayerController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Label layoutX="246.0" layoutY="14.0" prefHeight="28.0" prefWidth="146.0" text="FindYourFaves">
+      <Label layoutX="33.0" layoutY="15.0" prefHeight="28.0" prefWidth="146.0" text="FindYourFaves">
          <font>
             <Font name="Avenir Next Bold" size="19.0" />
          </font>
@@ -23,7 +24,7 @@
             <InnerShadow />
          </effect>
       </Label>
-      <Label layoutX="233.0" layoutY="42.0" prefHeight="17.0" prefWidth="171.0" text="&quot;It's the same just different&quot;">
+      <Label layoutX="33.0" layoutY="46.0" prefHeight="17.0" prefWidth="171.0" text="&quot;It's the same just different&quot;">
          <font>
             <Font name="Myanmar MN" size="13.0" />
          </font>
@@ -134,5 +135,11 @@
          <effect>
             <DropShadow />
          </effect></Button>
+      <ImageView fitHeight="39.0" fitWidth="36.0" layoutX="586.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../icons/Search-512.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="searchbarField" layoutX="442.0" layoutY="23.0" onAction="#clickSearchbarField" prefHeight="27.0" prefWidth="146.0" />
     </children>
 </AnchorPane>

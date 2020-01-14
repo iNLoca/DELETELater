@@ -8,12 +8,19 @@ package FindYourFavs.gui.controller;
 import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
+import FindYourFavs.bll.util.SearchMovies;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.EventObject;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,8 +32,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -67,6 +76,12 @@ public class MoviePlayerController implements Initializable {
     private TableView<Category> categoriesView;
     @FXML
     private TableColumn<Category, String> categoriesColumn;
+    @FXML
+    private Button playmovie;
+    @FXML
+    private TextField searchbarField;
+    
+    private SelectionModel<Movie> currentListSelection;
 
     /**
      * Initializes the controller class.
@@ -76,16 +91,47 @@ public class MoviePlayerController implements Initializable {
 
         
         Alert();
+        
+        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
+            Movie m = tableview.getSelectionModel().getSelectedItem();
 
+            tableview.getItems().clear();
+        
+        });
+
+        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
+            currentListSelection = tableview.getSelectionModel();
+        });
+
+        movietittle.setCellValueFactory((param) -> {
+
+            return new SimpleStringProperty(param.getValue().getName());
+        });
+        
+        tableview.getItems().clear();
+        tableview.getItems().addAll(manager.getAllMovies());
+   
+    
         /*
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("REMINDER");
-        alert.setHeaderText(null);
-        alert.setContentText("The current movie has last been viewed 2 years ago and has a user rating of lesss than 6 stars. Remember to delete it. ");
-        alert.showAndWait();
-*/
+        categoriesColumn.setCellValueFactory((param) -> {
 
+            return new SimpleStringProperty(param.getValue().getCategory());
+
+        }); 
+        categoriesView.getItems().clear();
+        categoriesView.getItems().addAll(manager.getAllCategories());
+        */
+        
+        
+       searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
+             tableview.getItems().clear();
+             tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
+              
+              });
+        
+ 
         refresh();
+        
 
     }
 
@@ -174,15 +220,7 @@ public class MoviePlayerController implements Initializable {
     public void Alert(){
     
      manager.AlertData();
-        
-       /*
-        String message; 
-        
-        message = "Remember to delete old movies.";
-        
-        message+= "message";
-      */       
-       
+           
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("REMINDER");
         alert.setHeaderText(null);
@@ -238,5 +276,9 @@ public class MoviePlayerController implements Initializable {
         categoriesView.setItems(categoryLst);
         displayChosenCategory();
     }
+    
+    @FXML
+    private void clickSearchbarField(ActionEvent event) {
+    }
+    
 }
-
