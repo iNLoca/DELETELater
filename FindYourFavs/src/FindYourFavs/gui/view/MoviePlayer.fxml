@@ -135,7 +135,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <ImageView fitHeight="39.0" fitWidth="36.0" layoutX="586.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="searchButton" fitHeight="39.0" fitWidth="36.0" layoutX="586.0" layoutY="18.0" onMouseClicked="#searchMovieBtn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../icons/Search-512.png" />
          </image>

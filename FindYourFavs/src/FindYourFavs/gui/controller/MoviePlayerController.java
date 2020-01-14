@@ -37,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -47,6 +48,8 @@ public class MoviePlayerController implements Initializable {
 
     Manager manager = new Manager();
     Category category;
+    ObservableList<Movie> movieLst;
+    ObservableList<Category> categoryLst;
 
     @FXML
     private Label label;
@@ -82,15 +85,16 @@ public class MoviePlayerController implements Initializable {
     private TextField searchbarField;
     
     private SelectionModel<Movie> currentListSelection;
+    @FXML
+    private ImageView searchButton;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-    /*    
-        Alert();
+/*
+           Alert();
 
       
       searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
@@ -121,7 +125,7 @@ public class MoviePlayerController implements Initializable {
         tableview.getItems().addAll(manager.getAllMovies());
    
     
-        /*
+        
         categoriesColumn.setCellValueFactory((param) -> {
 
             return new SimpleStringProperty(param.getValue().getCategory());
@@ -137,9 +141,9 @@ public class MoviePlayerController implements Initializable {
              tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
               
               });
-        */
+        
        
-
+*/
         refresh();
         
 
@@ -267,13 +271,13 @@ public class MoviePlayerController implements Initializable {
 
     public void refresh() {
 
-        ObservableList<Movie> movieLst = FXCollections.observableArrayList(manager.getAllMovies());
+        movieLst = FXCollections.observableArrayList(manager.getAllMovies());
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
         tableview.setItems(movieLst);
 
-        ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
+        categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         categoriesView.setItems(categoryLst);
      
@@ -282,13 +286,23 @@ public class MoviePlayerController implements Initializable {
     
     @FXML
     private void clickSearchbarField(ActionEvent event) {
-        
-         
+          
     }
 
     @FXML
     private void chosenCategory(MouseEvent event) {
         lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
+    }
+
+    @FXML
+    private void searchMovieBtn(MouseEvent event) {
+        
+        String query = searchbarField.getText();
+        if(query!=null){
+        movieLst = FXCollections.observableArrayList(manager.getAllMoviesWithFilter(query));
+        tableview.setItems(movieLst);
+        }
+        else refresh();
     }
     
 }

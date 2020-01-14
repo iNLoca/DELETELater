@@ -242,22 +242,34 @@ public class DAL {
        
 }
     public List<Movie> getAllMoviesWithFilter(String filterText) {
-        List<Movie> allMovies = new ArrayList<>();
-        String sql = "SELECT * FROM Movie WHERE Movie.name LIKE ? "; //OR Movie.category LIKE ?";
+        try ( Connection con = ds.getConnection()) {
 
-        try (Connection con = ds.getConnection()) {
+            List<Movie> allMovies = new ArrayList<>();
+            String sql = "SELECT * FROM Movies WHERE name LIKE ? ";
+
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, "%" + filterText + "%");
-           // pstmt.setString(2, "%" + filterText + "%");
+
             ResultSet ds = pstmt.executeQuery();
             while (ds.next()) {
-                Movie movie = new Movie(ds.getString("name")); //, ds.getString("category")
+                int id = ds.getInt("id");
+                String name = ds.getString("name");
+                int personalrating = ds.getInt("personalrating");
+                int imdbrating = ds.getInt("imdbrating");
+                String filelink = ds.getString("filelink");
+                int lastview = ds.getInt("lastview");
+                Movie movie = new Movie(id, name, personalrating, imdbrating, filelink, lastview);
                 allMovies.add(movie);
             }
             return allMovies;
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            System.out.println("Exception " + ex);
-            return null;
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
-}
+    }
+        
+
+   
