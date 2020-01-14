@@ -67,7 +67,7 @@ public class Manager {
 
     public List<Movie> getAllMoviesWithFilter(String filterText) {
         
-        return dal.getAllSongsWithFilter(filterText);
+        return dal.getAllMoviesWithFilter(filterText);
         
         
     }

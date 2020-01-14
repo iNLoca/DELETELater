@@ -43,8 +43,7 @@ public class Movie {
         
     }
 
-    public Movie(String string) { //, String string0
-         //this.category = category;
+    public Movie(String string) { 
          this.name = name;
          
     }
@@ -123,13 +122,7 @@ public class Movie {
         //for some reason IMDBRating shows the year aka lastViewed data.
     }
 
-    public String getCategory() {
-        return category;
-    }
-    public  String setCategory(String category){
-        return this.category= category;
-    }
-        public List <Movie> getmovieList() {
+    public List <Movie> getmovieList() {
         return movieList;
     }
     public void setmovieList(){

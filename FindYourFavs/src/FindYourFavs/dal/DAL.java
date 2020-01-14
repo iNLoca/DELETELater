@@ -241,7 +241,7 @@ public class DAL {
         }
        
 }
-    public List<Movie> getAllSongsWithFilter(String filterText) {
+    public List<Movie> getAllMoviesWithFilter(String filterText) {
         List<Movie> allMovies = new ArrayList<>();
         String sql = "SELECT * FROM Movie WHERE Movie.name LIKE ? "; //OR Movie.category LIKE ?";
 

@@ -91,45 +91,14 @@ public class MoviePlayerController implements Initializable {
 
         
         Alert();
-        
-        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
-            Movie m = tableview.getSelectionModel().getSelectedItem();
-
-            tableview.getItems().clear();
-        
-        });
-
-        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
-            currentListSelection = tableview.getSelectionModel();
-        });
-
-        movietittle.setCellValueFactory((param) -> {
-
-            return new SimpleStringProperty(param.getValue().getName());
-        });
-        
-        tableview.getItems().clear();
-        tableview.getItems().addAll(manager.getAllMovies());
-   
-    
-        /*
-        categoriesColumn.setCellValueFactory((param) -> {
-
-            return new SimpleStringProperty(param.getValue().getCategory());
-
-        }); 
-        categoriesView.getItems().clear();
-        categoriesView.getItems().addAll(manager.getAllCategories());
-        */
-        
-        
-       searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
-             tableview.getItems().clear();
+     
+      
+      searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
+             //tableview.getItems().clear();
              tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
               
               });
-        
- 
+      
         refresh();
         
 
@@ -277,8 +246,11 @@ public class MoviePlayerController implements Initializable {
         displayChosenCategory();
     }
     
+    
     @FXML
     private void clickSearchbarField(ActionEvent event) {
+        
+         
     }
     
 }
