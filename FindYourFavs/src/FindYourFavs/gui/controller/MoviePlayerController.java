@@ -21,6 +21,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,8 +52,6 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Label label;
     @FXML
-    private TableView<Movie> tableview;
-    @FXML
     private Button addmovie;
     @FXML
     private Button deletemovie;
@@ -65,12 +64,6 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Button editrating;
     @FXML
-    private TableColumn<Movie, String> movietittle;
-    @FXML
-    private TableColumn<Movie, Integer> usrrating;
-    @FXML
-    private TableColumn<Movie, Integer> imdbrating;
-    @FXML
     private Label lblChosenCategory;
     @FXML
     private TableView<Category> categoriesView;
@@ -80,8 +73,17 @@ public class MoviePlayerController implements Initializable {
     private Button playmovie;
     @FXML
     private TextField searchbarField;
+    @FXML
+    private TableView<Movie> tableview;
+    @FXML
+    private TableColumn<Movie, String> movietittle;
+    @FXML
+    private TableColumn<Movie, Integer> usrrating;
+    @FXML
+    private TableColumn<Movie, Integer> imdbrating;
     
-    private SelectionModel<Movie> currentListSelection;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -89,57 +91,35 @@ public class MoviePlayerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-    /*    
-        Alert();
-
-      
-      searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
-             //tableview.getItems().clear();
-             tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
-              
-              });
-      
-
-        
-        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
-            Movie m = tableview.getSelectionModel().getSelectedItem();
-
-            tableview.getItems().clear();
-        
-        });
-
-        tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
-            currentListSelection = tableview.getSelectionModel();
-        });
-
-        movietittle.setCellValueFactory((param) -> {
-
-            return new SimpleStringProperty(param.getValue().getName());
-        });
-        
-        tableview.getItems().clear();
-        tableview.getItems().addAll(manager.getAllMovies());
-   
-    
-        /*
-        categoriesColumn.setCellValueFactory((param) -> {
-
-            return new SimpleStringProperty(param.getValue().getCategory());
-
-        }); 
-        categoriesView.getItems().clear();
-        categoriesView.getItems().addAll(manager.getAllCategories());
-        
-        
-        
-       searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
-             tableview.getItems().clear();
-             tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
-              
-              });
+      /*
+        movietittle.setCellValueFactory(cellData -> cellData.getValue().getName());
+         FilteredList<Movie>filteredMovies = new FilteredList<>(movieLst, m -> true);
+         
+         searchbarField.textProperty().addListener((observable, oldValue,newValue)->{
+           filteredMovies.setPredicate(movie ->{
+               if(newValue ==null || newValue.isEmpty()) {
+               return true;
+               
+            }
+               
+               String lowerCaseFilter = newValue.toLowerCase();
+               
+               if(movie.getClass().getName().toLowerCase().contains(lowerCaseFilter)){
+               return true;
+               }
+              return false; 
+               
+           });
+         
+         });
+         
+         SortedList<Movie>sortedData = new SortedList<>(filteredMovies);
+         
+         sortedData.comparatorProperty().bind(tableview.comparatorProperty());
+         
+         tableview.setItems(filteredMovies);
         */
-       
-
+        Alert();
         refresh();
         
 
@@ -151,7 +131,7 @@ public class MoviePlayerController implements Initializable {
         Parent root = loader.load();
         AskAddMovieController ctrl = loader.getController();
         ctrl.setMoviePlayerController(this);
-
+       
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
