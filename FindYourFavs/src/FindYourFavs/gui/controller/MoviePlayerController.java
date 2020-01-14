@@ -89,7 +89,7 @@ public class MoviePlayerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        
+        /*
         Alert();
         
         tableview.getSelectionModel().selectedItemProperty().addListener((observable) -> {
@@ -120,7 +120,7 @@ public class MoviePlayerController implements Initializable {
         }); 
         categoriesView.getItems().clear();
         categoriesView.getItems().addAll(manager.getAllCategories());
-        */
+        
         
         
        searchbarField.textProperty().addListener((observable, oldVal , newVal)-> {
@@ -128,7 +128,7 @@ public class MoviePlayerController implements Initializable {
              tableview.getItems().addAll(manager.getAllMoviesWithFilter(newVal));
               
               });
-        
+        */
  
         refresh();
         
@@ -248,13 +248,7 @@ public class MoviePlayerController implements Initializable {
         manager.deleteCategoryById(categoriesView.getSelectionModel().getSelectedItem().getId());
     }
 
-    private void displayChosenCategory() {
-        if (categoriesView.getSelectionModel().getSelectedItem() == null) {
-            lblChosenCategory.setText("No category chosen yet");
-        } else {
-            lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
-        }
-    }
+
 
     public String returnNameOfMovie() {
         return tableview.getSelectionModel().getSelectedItem().getName();
@@ -274,11 +268,16 @@ public class MoviePlayerController implements Initializable {
         ObservableList<Category> categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         categoriesView.setItems(categoryLst);
-        displayChosenCategory();
+
     }
     
     @FXML
     private void clickSearchbarField(ActionEvent event) {
+    }
+
+    @FXML
+    private void chosenCategory(MouseEvent event) {
+        lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
     }
     
 }
