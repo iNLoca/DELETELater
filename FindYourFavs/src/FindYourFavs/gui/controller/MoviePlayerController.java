@@ -10,6 +10,8 @@ import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import FindYourFavs.bll.util.SearchMovies;
 import com.jfoenix.controls.JFXTextField;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.EventObject;
@@ -342,6 +344,13 @@ public class MoviePlayerController implements Initializable {
         tableview.setItems(movieLst);
         }
         else refresh();
+    }
+
+    @FXML
+    private void playMovie(ActionEvent event) throws IOException {
+        Movie selectedMovie = tableview.getSelectionModel().getSelectedItem();
+        File movieFile = new File(selectedMovie.getFileLink());
+        Desktop.getDesktop().open(movieFile);
     }
     
 }
