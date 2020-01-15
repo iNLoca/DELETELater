@@ -9,6 +9,7 @@ import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
+import java.io.File;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
@@ -23,6 +24,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -59,6 +61,8 @@ public class AskAddMovieController implements Initializable {
     private ChoiceBox<String> choiceboxcat2;
     @FXML
     private ChoiceBox<String> choiceboxcat3;
+    @FXML
+    private Button choosemovie;
 
     /**
      * Initializes the controller class.
@@ -191,6 +195,15 @@ public class AskAddMovieController implements Initializable {
     
      public void setMoviePlayerController(MoviePlayerController mpc){
     this.mpc=mpc;
+    }
+
+    @FXML
+    private void clickChooseMovieButton(ActionEvent event) {
+        
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        File file = fileChooser.showOpenDialog(null);
+        
     }
 
 }

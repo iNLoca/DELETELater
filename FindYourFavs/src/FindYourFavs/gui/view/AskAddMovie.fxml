@@ -54,7 +54,7 @@
          <effect>
             <DropShadow />
          </effect></TextField>
-      <JFXTextField fx:id="addfilelink" layoutX="113.0" layoutY="382.0" prefHeight="27.0" prefWidth="151.0">
+      <JFXTextField fx:id="addfilelink" layoutX="90.0" layoutY="382.0" prefHeight="27.0" prefWidth="121.0">
          <effect>
             <DropShadow />
          </effect></JFXTextField>
@@ -68,5 +68,10 @@
             <DropShadow />
          </effect>
       </ChoiceBox>
+      <Button fx:id="choosemovie" layoutX="211.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickChooseMovieButton" style="-fx-background-color: #44308c#44308c #44308c#44308c; -fx-border-color: #000000; -fx-border-width: 2;" text="Choose" textFill="#aa99ea">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
