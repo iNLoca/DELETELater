@@ -13,6 +13,8 @@ import com.jfoenix.controls.JFXTextField;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.EventObject;
 import java.util.List;
@@ -33,6 +35,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.SelectionModel;
@@ -93,6 +96,16 @@ public class MoviePlayerController implements Initializable {
     private SelectionModel<Movie> currentListSelection;
     @FXML
     private ImageView searchButton;
+    @FXML
+    private Button linkbtn;
+    @FXML
+    private Button linkbtn2;
+    @FXML
+    private Button linkbtn3;
+    @FXML
+    private Button linkbtn4;
+    @FXML
+    private Button linkbtn5;
 
 
 
@@ -271,6 +284,42 @@ public class MoviePlayerController implements Initializable {
         //File movieFile = new File(selectedMovie.getFileLink());
         File movieFile = new File("/Users/mac/NetBeansProjects/FindYourFavs/FindYourFavs/src/FindYourFavs/Trailers/Iron_Man_2_Official_Trailer_1_2010_-_Marvel_Movie_HD.mp4");
         Desktop.getDesktop().open(movieFile);
+    }
+
+    @FXML
+    private void clicklinkbtn(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
+        
+        Hyperlink link = new Hyperlink();
+        link.setText("https://www.imdb.com/title/tt0371746/?ref_=fn_al_tt_1");
+        Desktop.getDesktop().browse(new URL(link.getText()).toURI());      
+    }
+
+    @FXML
+    private void clicklinkbtn2(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
+        Hyperlink link = new Hyperlink();
+        link.setText("https://www.imdb.com/title/tt1228705/");
+        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
+    }
+
+    @FXML
+    private void clicklinkbtn3(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
+        Hyperlink link = new Hyperlink();
+        link.setText("https://www.imdb.com/title/tt7286456/?ref_=fn_al_tt_1");
+        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
+    }
+
+    @FXML
+    private void clicklinkbtn4(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
+        Hyperlink link = new Hyperlink();
+        link.setText("https://www.imdb.com/title/tt0848228/?ref_=fn_al_tt_1");
+        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
+    }
+
+    @FXML
+    private void clicklinkbtn5(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
+        Hyperlink link = new Hyperlink();
+        link.setText("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
+        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
     }
     
 }
