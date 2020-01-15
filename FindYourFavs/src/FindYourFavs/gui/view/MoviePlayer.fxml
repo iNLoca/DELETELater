@@ -180,5 +180,10 @@
             <Font size="11.0" />
          </font>
       </Button>
+      <Button fx:id="showall" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#clickShowAllMovies" prefHeight="28.0" prefWidth="75.0" style="-fx-background-color: #000000;" text="Show All" textFill="#7d79bf">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
     </children>
 </AnchorPane>

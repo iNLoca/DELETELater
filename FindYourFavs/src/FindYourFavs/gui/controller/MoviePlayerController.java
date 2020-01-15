@@ -106,6 +106,8 @@ public class MoviePlayerController implements Initializable {
     private Button linkbtn4;
     @FXML
     private Button linkbtn5;
+    @FXML
+    private Button showall;
 
 
 
@@ -320,6 +322,10 @@ public class MoviePlayerController implements Initializable {
         Hyperlink link = new Hyperlink();
         link.setText("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
         Desktop.getDesktop().browse(new URL(link.getText()).toURI());
+    }
+
+    @FXML
+    private void clickShowAllMovies(ActionEvent event) {
     }
     
 }
