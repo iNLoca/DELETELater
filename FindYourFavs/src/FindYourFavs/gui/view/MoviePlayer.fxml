@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="488.0" prefWidth="635.0" style="-fx-background-color: #7D79BF#7D79BF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.MoviePlayerController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="679.0" style="-fx-background-color: #7D79BF#7D79BF; -fx-border-color: #000000; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.MoviePlayerController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Label layoutX="33.0" layoutY="15.0" prefHeight="28.0" prefWidth="146.0" text="FindYourFaves">
@@ -32,7 +32,7 @@
             <Glow />
          </effect>
       </Label>
-      <Button fx:id="addmovie" layoutX="547.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickaddmovie" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+      <Button fx:id="addmovie" layoutX="515.0" layoutY="425.0" mnemonicParsing="false" onAction="#clickaddmovie" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,7 +43,7 @@
                </effect>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="deletemovie" layoutX="584.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickdeletemovie" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+      <Button fx:id="deletemovie" layoutX="563.0" layoutY="426.0" mnemonicParsing="false" onAction="#clickdeletemovie" prefHeight="29.0" prefWidth="37.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -102,7 +102,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <TableView fx:id="tableview" layoutX="211.0" layoutY="105.0" prefHeight="321.0" prefWidth="400.0">
+      <TableView fx:id="tableview" layoutX="211.0" layoutY="105.0" prefHeight="321.0" prefWidth="390.0">
         <columns>
           <TableColumn fx:id="movietittle" prefWidth="207.0" text="Movies" />
           <TableColumn fx:id="usrrating" minWidth="0.0" prefWidth="91.0" text="User Rating" />
@@ -131,11 +131,11 @@
             <InnerShadow />
          </effect>
       </TableView>
-      <Button fx:id="playmovie" layoutX="378.0" layoutY="427.0" mnemonicParsing="false" onAction="#playMovie" style="-fx-background-color: #000000;" text="Play Movie" textFill="#946297">
+      <Button fx:id="playmovie" layoutX="341.0" layoutY="425.0" mnemonicParsing="false" onAction="#playMovie" style="-fx-background-color: #000000;" text="Play Movie" textFill="#946297">
          <effect>
             <DropShadow />
          </effect></Button>
-      <ImageView fx:id="searchButton" fitHeight="39.0" fitWidth="36.0" layoutX="586.0" layoutY="18.0" onMouseClicked="#searchMovieBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="searchButton" fitHeight="39.0" fitWidth="36.0" layoutX="638.0" layoutY="20.0" onMouseClicked="#searchMovieBtn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../icons/Search-512.png" />
          </image>
@@ -143,9 +143,42 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <TextField fx:id="searchbarField" layoutX="442.0" layoutY="23.0" onAction="#clickSearchbarField" prefHeight="27.0" prefWidth="146.0">
+      <TextField fx:id="searchbarField" layoutX="490.0" layoutY="24.0" onAction="#clickSearchbarField" prefHeight="27.0" prefWidth="146.0">
          <effect>
             <InnerShadow />
          </effect></TextField>
+      <Button fx:id="linkbtn" layoutX="600.0" layoutY="133.0" mnemonicParsing="false" onAction="#clicklinkbtn" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Label layoutX="601.0" layoutY="108.0" prefHeight="25.0" prefWidth="73.0" text="IMDB Links:">
+         <effect>
+            <InnerShadow />
+         </effect>
+         <font>
+            <Font name="Songti SC Black" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="linkbtn2" layoutX="600.0" layoutY="155.0" mnemonicParsing="false" onAction="#clicklinkbtn2" prefHeight="21.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="linkbtn3" layoutX="600.0" layoutY="177.0" mnemonicParsing="false" onAction="#clicklinkbtn3" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="linkbtn4" layoutX="600.0" layoutY="199.0" mnemonicParsing="false" onAction="#clicklinkbtn4" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+      <Button fx:id="linkbtn5" layoutX="600.0" layoutY="221.0" mnemonicParsing="false" onAction="#clicklinkbtn5" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
