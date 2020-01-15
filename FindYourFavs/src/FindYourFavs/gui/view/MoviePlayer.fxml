@@ -160,26 +160,6 @@
             <Font name="Songti SC Black" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="linkbtn2" layoutX="600.0" layoutY="155.0" mnemonicParsing="false" onAction="#clicklinkbtn2" prefHeight="21.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button fx:id="linkbtn3" layoutX="600.0" layoutY="177.0" mnemonicParsing="false" onAction="#clicklinkbtn3" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button fx:id="linkbtn4" layoutX="600.0" layoutY="199.0" mnemonicParsing="false" onAction="#clicklinkbtn4" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button fx:id="linkbtn5" layoutX="600.0" layoutY="221.0" mnemonicParsing="false" onAction="#clicklinkbtn5" prefHeight="17.0" prefWidth="59.0" style="-fx-background-color: #000000; -fx-border-color: #946297#946297; -fx-border-width: 1;" text="Link" textFill="#946297">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
       <Button fx:id="showall" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#clickShowAllMovies" prefHeight="28.0" prefWidth="75.0" style="-fx-background-color: #000000;" text="Show All" textFill="#7d79bf">
          <effect>
             <DropShadow />
