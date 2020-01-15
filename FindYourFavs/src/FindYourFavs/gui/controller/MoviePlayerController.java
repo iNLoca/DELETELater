@@ -244,6 +244,7 @@ public class MoviePlayerController implements Initializable {
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
+        lblChosenCategory.setText("No category chosen yet");
         tableview.setItems(movieLst);
 
         categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
@@ -299,6 +300,7 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clickShowAllMovies(ActionEvent event) {
+        refresh();
     }
     
 }
