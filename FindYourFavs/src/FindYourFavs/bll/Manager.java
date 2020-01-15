@@ -72,7 +72,9 @@ public class Manager {
         
     }
     
-
+    public List<Movie> MoviesFromSelectedCategory(int catID){
+    return dal.DisplayOnlyMoviesInCategory(catID);
+    }
 
    
 }
