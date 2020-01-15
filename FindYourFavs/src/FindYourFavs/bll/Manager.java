@@ -19,9 +19,9 @@ public class Manager {
     public List<Movie> movieList = new ArrayList();
     public List<Movie> ratings = new ArrayList();
 
-    public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
-        dal.addMovie(id, name, personalRating, IMDBRating, fileLink, lastView);
-    }
+/*    public void addMovie(int id, String name, int personalRating, int IMDBRating, int lastView, String fileLink) {
+        dal.addMovie(id, name, personalRating, IMDBRating, lastView, fileLink);
+    }*/
 
     public void addCategory(int id, String name) {
         dal.addCategory(id, name);
@@ -53,8 +53,8 @@ public class Manager {
         dal.addCategory(name);
     }
     
-    public void addMovie(String name, int personalrating, int imdbrating, int lastview){
-        dal.addMovie(name, personalrating, imdbrating, lastview);
+    public void addMovie(String name, int personalrating, int imdbrating, int lastview, String filelink){
+        dal.addMovie(name, personalrating, imdbrating, lastview, filelink);
     }
     
     public List<Movie>AlertData(){
@@ -65,14 +65,13 @@ public class Manager {
          dal.addNewUsrRating(idOfMovie,text);
     }
 
-    public List<Movie> getAllMoviesWithFilter(String filterText) {
-        
-        return dal.getAllMoviesWithFilter(filterText);
-        
-        
+    public List<Movie> getAllMoviesWithFilter(String filterText) {        
+        return dal.getAllMoviesWithFilter(filterText);       
     }
     
-
+    public List<Movie> MoviesFromSelectedCategory(int catID){
+    return dal.DisplayOnlyMoviesInCategory(catID);
+    }
 
    
 }

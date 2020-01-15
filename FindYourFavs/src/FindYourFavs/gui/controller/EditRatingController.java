@@ -7,6 +7,7 @@ package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
+import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
 import java.util.ResourceBundle;
@@ -27,10 +28,11 @@ import javafx.stage.Stage;
  */
 public class EditRatingController implements Initializable {
 
-     Manager manager;
-  MoviePlayerController mpc;
+    Manager manager;
+    MoviePlayerController mpc;
     private String PrintedRating;
     int rat;
+    
     @FXML
     private AnchorPane EditRating;
     @FXML
@@ -50,20 +52,22 @@ public class EditRatingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-           
+
     }
 
     @FXML
     private void clickEditRatingbtn(ActionEvent event) {
-        
 
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-        Manager.myManager.addNewUsrRating(movie.getId(), newRatingBox.getText());
+        if(parseInt(newRatingBox.getText())>=0 && parseInt(newRatingBox.getText())<=10){
+        Manager.myManager.addNewUsrRating(movie.getId(), newRatingBox.getText());    
+        }
+        else Manager.myManager.addNewUsrRating(movie.getId(), "0");    
         
+
         stage.close();
         mpc.refresh();
-        
+
     }
 
     @FXML
@@ -72,22 +76,20 @@ public class EditRatingController implements Initializable {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
-    
+
     private void getNewUsrRating() {
-   
+
     }
 
-
-
-  
     public void setMovie(Movie movie) {
-        this.movie=movie;
-        PrintedRating =Integer.toString(movie.getPersonalRating());
-          CurrRat.setText(PrintedRating);
-          
+        this.movie = movie;
+        PrintedRating = Integer.toString(movie.getPersonalRating());
+        CurrRat.setText(PrintedRating);
+
     }
-     public void setMoviePlayerController(MoviePlayerController mpc){
-    this.mpc=mpc;
+
+    public void setMoviePlayerController(MoviePlayerController mpc) {
+        this.mpc = mpc;
     }
 
 }

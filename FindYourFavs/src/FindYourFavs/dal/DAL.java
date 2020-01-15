@@ -179,15 +179,16 @@ public class DAL {
         }
     }
     
-    public void addMovie(String name, int personalrating, int imdbrating, int lastview){
+    public void addMovie(String name, int personalrating, int imdbrating, int lastview, String filelink){
          try ( Connection con = ds.getConnection()) {
-            String sql = "INSERT INTO Movies (name, personalrating, imdbrating, lastview) values (?,?,?,?)";
+            String sql = "INSERT INTO Movies (name, personalrating, imdbrating, lastview, filelink) values (?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             
             pstmt.setString(1, name);
             pstmt.setInt(2, personalrating);
             pstmt.setInt(3, imdbrating);
             pstmt.setInt(4, lastview);
+            pstmt.setString(5, filelink);
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
@@ -291,7 +292,33 @@ public class DAL {
         }
         return null;
     }*/
-    
+       public List<Movie> DisplayOnlyMoviesInCategory (int catId) {
+         try ( Connection con = ds.getConnection()) {
+            List<Movie> movieLst = new ArrayList();
+            String sql = "Select Movies.name,personalRating,imdbrating From Movies Join CatMovie On Movies.id= CatMovie.movieId Join Category On Category.id= CatMovie.categoryId WHERE categoryId= ? Order by Movies.id ";
+           
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, catId);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+            
+            while (rs.next()) {
+                
+                String name = rs.getString("name");
+                int personalRating = rs.getInt("personalRating");
+                int imdbrating = rs.getInt("imdbrating");
+                Movie movie = new Movie(name, personalRating,imdbrating);
+                movieLst.add(movie);
+            }
+              return movieLst;
+
+       } catch (SQLServerException sqlse) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return null;
+    }
     }
         
 

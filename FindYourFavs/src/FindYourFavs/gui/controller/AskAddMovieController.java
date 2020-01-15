@@ -29,8 +29,6 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
- * @author mac
  */
 public class AskAddMovieController implements Initializable {
     Manager manager = new Manager();
@@ -158,10 +156,7 @@ public class AskAddMovieController implements Initializable {
     private void clickAddMoviebtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         
-        
-        //
-        
-        if(usrrating.getText().isEmpty()){
+        if(usrrating.getText().isEmpty() || parseInt(usrrating.getText())<0 || parseInt(usrrating.getText())>10) {
             userrating=0;
         }
         else{
@@ -174,10 +169,9 @@ public class AskAddMovieController implements Initializable {
                 add=false;
             }
         }
-        if(add) manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()));
         
+       if(add) manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
         
-       
         mpc.refresh();
         stage.close();
     }
@@ -198,12 +192,13 @@ public class AskAddMovieController implements Initializable {
     }
 
     @FXML
-    private void clickChooseMovieButton(ActionEvent event) {
-        
+    private void clickChooseMovieButton(ActionEvent event) {        
         FileChooser fileChooser=new FileChooser();
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
-        
+        if(file!=null){
+            addfilelink.setText(file.getAbsolutePath());
+        }        
     }
 
 }
