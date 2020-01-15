@@ -69,7 +69,9 @@ public class Manager {
         return dal.getAllMoviesWithFilter(filterText);       
     }
     
-
+    public List<Movie> MoviesFromSelectedCategory(int catID){
+    return dal.DisplayOnlyMoviesInCategory(catID);
+    }
 
    
 }

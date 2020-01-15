@@ -265,6 +265,12 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private void chosenCategory(MouseEvent event) {
         lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
+         movieLst = FXCollections.observableArrayList(manager.MoviesFromSelectedCategory(categoriesView.getSelectionModel().getSelectedItem().getId()));
+        movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
+        usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
+        imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
+        tableview.setItems(movieLst);
+        
     }
 
     @FXML
