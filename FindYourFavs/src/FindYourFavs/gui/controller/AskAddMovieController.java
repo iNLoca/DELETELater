@@ -21,11 +21,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * FXML Controller class
@@ -43,7 +45,6 @@ public class AskAddMovieController implements Initializable {
     private Button addmoviebtn;
     @FXML
     private AnchorPane askaddmovie;
-    @FXML
     private ChoiceBox<String> choiceboxcat;
     @FXML
     private JFXTextField addfilelink;
@@ -55,19 +56,22 @@ public class AskAddMovieController implements Initializable {
     private TextField imdbrating;
     @FXML
     private TextField lastviewd;
-    @FXML
     private ChoiceBox<String> choiceboxcat2;
-    @FXML
     private ChoiceBox<String> choiceboxcat3;
     @FXML
     private Button choosemovie;
+    @FXML
+    private TextField imdblink;
+    @FXML
+    private TableColumn<?, ?> addmmoviecat;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
+        /*
         //choiceboxcat.getItems(categoriesView.setItems(categoryLst));
 
         //getItems returns the ObservableList object which u can add items to. 
@@ -150,6 +154,9 @@ public class AskAddMovieController implements Initializable {
         choiceboxcat3.setValue("War");
         choiceboxcat3.setValue("Western");
         choiceboxcat3.setValue("Categories");
+
+        */
+
     }
 
     @FXML
@@ -182,10 +189,6 @@ public class AskAddMovieController implements Initializable {
         stage.close();
     }
 
-    @FXML
-    private void clickshowCategories(MouseEvent event) {
-        
-    }
     
      public void setMoviePlayerController(MoviePlayerController mpc){
     this.mpc=mpc;
@@ -193,12 +196,25 @@ public class AskAddMovieController implements Initializable {
 
     @FXML
     private void clickChooseMovieButton(ActionEvent event) {        
+        
+        FileNameExtensionFilter exfilter = new FileNameExtensionFilter("mp4","mpeg4");
+        
         FileChooser fileChooser=new FileChooser();
+        
+        fileChooser.setFileFilter(exfilter);
+        
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
         if(file!=null){
             addfilelink.setText(file.getAbsolutePath());
-        }        
+        }  
+    }
+
+    @FXML
+    private void clickIMDBLink(ActionEvent event) {
+        
+        
+        
     }
 
 }
