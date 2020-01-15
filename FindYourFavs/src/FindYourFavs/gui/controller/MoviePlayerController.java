@@ -99,14 +99,6 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Button linkbtn;
     @FXML
-    private Button linkbtn2;
-    @FXML
-    private Button linkbtn3;
-    @FXML
-    private Button linkbtn4;
-    @FXML
-    private Button linkbtn5;
-    @FXML
     private Button showall;
 
 
@@ -299,38 +291,9 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void clicklinkbtn(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
-        
-        Hyperlink link = new Hyperlink();
-        link.setText("https://www.imdb.com/title/tt0371746/?ref_=fn_al_tt_1");
-        Desktop.getDesktop().browse(new URL(link.getText()).toURI());      
-    }
-
-    @FXML
-    private void clicklinkbtn2(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
-        Hyperlink link = new Hyperlink();
-        link.setText("https://www.imdb.com/title/tt1228705/");
-        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
-    }
-
-    @FXML
-    private void clicklinkbtn3(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
-        Hyperlink link = new Hyperlink();
-        link.setText("https://www.imdb.com/title/tt7286456/?ref_=fn_al_tt_1");
-        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
-    }
-
-    @FXML
-    private void clicklinkbtn4(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
-        Hyperlink link = new Hyperlink();
-        link.setText("https://www.imdb.com/title/tt0848228/?ref_=fn_al_tt_1");
-        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
-    }
-
-    @FXML
-    private void clicklinkbtn5(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
-        Hyperlink link = new Hyperlink();
-        link.setText("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
-        Desktop.getDesktop().browse(new URL(link.getText()).toURI());
+        Movie selectedMovie = tableview.getSelectionModel().getSelectedItem();
+        Hyperlink movieImdbLink = new Hyperlink("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
+        Desktop.getDesktop().browse(new URL(movieImdbLink.getText()).toURI());      
     }
 
     @FXML
