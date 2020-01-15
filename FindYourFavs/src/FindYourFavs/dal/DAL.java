@@ -269,6 +269,29 @@ public class DAL {
         }
         return null;
     }
+    
+ /*   public List<Category> getMoviesByCategory() {
+        try (Connection con = ds.getConnection()) {
+            String sql = "SELECT id, name FROM Category";
+            List<Category> categoryLst = new ArrayList();
+
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                Category category = new Category (id, name);
+                categoryLst.add(category);
+            }
+            return categoryLst;
+        } catch (SQLServerException sqlse) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }*/
+    
     }
         
 

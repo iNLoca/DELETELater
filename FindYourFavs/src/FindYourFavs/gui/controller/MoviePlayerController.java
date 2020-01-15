@@ -268,7 +268,8 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private void playMovie(ActionEvent event) throws IOException {
         Movie selectedMovie = tableview.getSelectionModel().getSelectedItem();
-        File movieFile = new File(selectedMovie.getFileLink());
+        //File movieFile = new File(selectedMovie.getFileLink());
+        File movieFile = new File("src\\FindYourFavs\\Trailers\\Iron_Man_2_Official_Trailer_1_2010_-_Marvel_Movie_HD.mp4");
         Desktop.getDesktop().open(movieFile);
     }
     

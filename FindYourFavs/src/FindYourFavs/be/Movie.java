@@ -111,9 +111,6 @@ public class Movie {
         this.name=name;
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
-        
-        
-
     }
 
     @Override
