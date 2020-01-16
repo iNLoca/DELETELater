@@ -7,6 +7,7 @@ package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
+import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
@@ -59,7 +60,7 @@ public class EditRatingController implements Initializable {
     private void clickEditRatingbtn(ActionEvent event) {
 
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-        if(parseInt(newRatingBox.getText())>=0 && parseInt(newRatingBox.getText())<=10){
+        if(parseFloat(newRatingBox.getText())>=0 && parseFloat(newRatingBox.getText())<=10){
         Manager.myManager.addNewUsrRating(movie.getId(), newRatingBox.getText());    
         }
         else Manager.myManager.addNewUsrRating(movie.getId(), "0");    
@@ -83,7 +84,7 @@ public class EditRatingController implements Initializable {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
-        PrintedRating = Integer.toString(movie.getPersonalRating());
+        PrintedRating = Float.toString(movie.getPersonalRating());
         CurrRat.setText(PrintedRating);
 
     }
