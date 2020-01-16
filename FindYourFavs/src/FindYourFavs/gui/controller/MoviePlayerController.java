@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Integer.parseInt;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -89,9 +90,6 @@ public class MoviePlayerController implements Initializable {
     private TableColumn<Movie, Integer> usrrating;
     @FXML
     private TableColumn<Movie, Integer> imdbrating;
-    
-    
-    
 
     private SelectionModel<Movie> currentListSelection;
     @FXML
@@ -100,6 +98,10 @@ public class MoviePlayerController implements Initializable {
     private Button linkbtn;
     @FXML
     private Button showall;
+    @FXML
+    private TextField ratinglbl;
+    @FXML
+    private Button searchbyratingbtn;
 
 
 
@@ -252,12 +254,6 @@ public class MoviePlayerController implements Initializable {
         categoriesView.setItems(categoryLst);
      
     }
-    
-    
-    @FXML
-    private void clickSearchbarField(ActionEvent event) {
-          
-    }
 
     @FXML
     private void chosenCategory(MouseEvent event) {
@@ -269,7 +265,7 @@ public class MoviePlayerController implements Initializable {
         tableview.setItems(movieLst);
         
     }
-
+    
     @FXML
     private void searchMovieBtn(MouseEvent event) {
         
@@ -304,6 +300,17 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private void clickShowAllMovies(ActionEvent event) {
         refresh();
+    }
+
+
+    @FXML
+    private void clickSearchByRatingBtn(ActionEvent event) {
+        String query = ratinglbl.getText();
+        if(query!=null){
+        movieLst = FXCollections.observableArrayList(manager.getFilteredMoviesByIMDB(query));
+        tableview.setItems(movieLst);
+        }
+        else refresh();        
     }
     
 }
