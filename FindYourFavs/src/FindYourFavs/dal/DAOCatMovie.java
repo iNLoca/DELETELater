@@ -54,9 +54,9 @@ public class DAOCatMovie {
               return movieLst;
 
        } catch (SQLServerException sqlse) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+            Logger.getLogger(DAOCatMovie.class.getName()).log(Level.SEVERE, null, sqlse);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCatMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
          return null;
     }
@@ -71,9 +71,9 @@ public class DAOCatMovie {
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCatMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCatMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

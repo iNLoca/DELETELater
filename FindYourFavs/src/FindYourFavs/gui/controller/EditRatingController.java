@@ -8,7 +8,6 @@ package FindYourFavs.gui.controller;
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import static java.lang.Float.parseFloat;
-import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
 import java.util.ResourceBundle;

@@ -46,9 +46,9 @@ public class DAOCategory {
             }
             return categoryLst;
         } catch (SQLServerException sqlse) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+            Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, sqlse);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -62,9 +62,9 @@ public class DAOCategory {
             p.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -77,9 +77,9 @@ public class DAOCategory {
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
