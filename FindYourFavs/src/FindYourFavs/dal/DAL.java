@@ -43,8 +43,8 @@ public class DAL {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                float personalRating = rs.getInt("personalRating");
-                float IMDBRating = rs.getInt("IMDBRating");
+                float personalRating = rs.getFloat("personalRating");
+                float IMDBRating = rs.getFloat("IMDBRating");
                 String filelink = rs.getString("filelink");
                 String imdbbrowser = rs.getString("imdbbrowser");
                 int lastView= rs.getInt("lastview");
@@ -91,8 +91,8 @@ public class DAL {
             PreparedStatement pstmt = con.prepareStatement(sql);
 
             pstmt.setString(1, name);
-            pstmt.setInt(2, personalRating);
-            pstmt.setInt(3, IMDBRating);
+            pstmt.setFloat(2, personalRating);
+            pstmt.setFloat(3, IMDBRating);
             pstmt.setString(4, fileLink);
             pstmt.setInt(5, lastView);
             pstmt.executeUpdate();
@@ -104,7 +104,7 @@ public class DAL {
         }
 
     }
-
+/*
     public void addCategory(int id, String name) {
 
         try ( Connection con = ds.getConnection()) {
@@ -121,14 +121,14 @@ public class DAL {
         }
 
     }
-
-    public void addPersonalRating(int id, int rating) {
+*/
+    public void addPersonalRating(int id, Float rating) {
 
         try ( Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Movies (personalrating) values (?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
-            pstmt.setInt(1, rating);
+            pstmt.setFloat(1, rating);
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
@@ -220,7 +220,7 @@ public class DAL {
             while (rs.next()) {
                 
                 String name = rs.getString("name");
-                int personalRating = rs.getInt("personalRating");
+                float personalRating = rs.getFloat("personalRating");
                 int lastview = rs.getInt("lastview");
                 
                 Movie movie = new Movie(name, personalRating,lastview);
@@ -265,8 +265,8 @@ public class DAL {
             while (ds.next()) {
                 int id = ds.getInt("id");
                 String name = ds.getString("name");
-                int personalrating = ds.getInt("personalrating");
-                int imdbrating = ds.getInt("imdbrating");
+                float personalrating = ds.getFloat("personalrating");
+                float imdbrating = ds.getFloat("imdbrating");
                 String filelink = ds.getString("filelink");
                 int lastview = ds.getInt("lastview");
                 Movie movie = new Movie(id, name, personalrating, imdbrating, filelink, lastview);
@@ -296,8 +296,8 @@ public class DAL {
             while (rs.next()) {
                 
                 String name = rs.getString("name");
-                int personalRating = rs.getInt("personalRating");
-                int imdbrating = rs.getInt("imdbrating");
+                float personalRating = rs.getFloat("personalRating");
+                float imdbrating = rs.getFloat("imdbrating");
                 Movie movie = new Movie(name, personalRating,imdbrating);
                 movieLst.add(movie);
             }
@@ -341,8 +341,8 @@ public class DAL {
             while (ds.next()) {
                 int id = ds.getInt("id");
                 String name = ds.getString("name");
-                int personalrating = ds.getInt("personalrating");
-                int imdbrating = ds.getInt("imdbrating");
+                float personalrating = ds.getFloat("personalrating");
+                float imdbrating = ds.getFloat("imdbrating");
                 String filelink = ds.getString("filelink");
                 int lastview = ds.getInt("lastview");
                 Movie movie = new Movie(id, name, personalrating, imdbrating, filelink, lastview);

@@ -13,7 +13,6 @@ import java.util.List;
 
 public class Manager {  
     public static Manager myManager = new Manager(); 
-
     DAL dal = new DAL();
     public List<Category> categoryList = new ArrayList();
     public List<Movie> movieList = new ArrayList();
@@ -23,9 +22,9 @@ public class Manager {
         dal.addMovie(id, name, personalRating, IMDBRating, lastView, fileLink);
     }*/
 
-    public void addCategory(int id, String name) {
-        dal.addCategory(id, name);
-    }
+//    public void addCategory(int id, String name) {
+//        dal.addCategory(id, name);
+//    }
 
     public List<Movie> getAllMovies() {
         movieList = dal.getAllMovies();
@@ -35,7 +34,7 @@ public class Manager {
     public List<Category> getAllCategories() {
         categoryList = dal.getAllCategories();
         return categoryList;
-        
+
     }    
     
     public void deleteMovieById(int id){
@@ -44,10 +43,6 @@ public class Manager {
     
     public void deleteCategoryById(int id){
         dal.deleteCategoryById(id);
-    }
-    
-    public void createCategory(){
-        
     }
 
     public void addCategory(String name) {

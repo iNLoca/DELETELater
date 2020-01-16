@@ -87,9 +87,9 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private TableColumn<Movie, String> movietittle;
     @FXML
-    private TableColumn<Movie, Integer> usrrating;
+    private TableColumn<Movie, Float> usrrating;
     @FXML
-    private TableColumn<Movie, Integer> imdbrating;
+    private TableColumn<Movie, Float> imdbrating;
 
     private SelectionModel<Movie> currentListSelection;
     @FXML
