@@ -7,77 +7,82 @@ package FindYourFavs.bll;
 
 import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
-import FindYourFavs.dal.DAL;
+import FindYourFavs.dal.DAOCatMovie;
+import FindYourFavs.dal.DAOCategory;
+import FindYourFavs.dal.DAOMovie;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Manager implements Interface {  
     
     public static Manager myManager = new Manager(); 
-    DAL dal = new DAL();
+
+    DAOMovie DAOM = new DAOMovie();
+    DAOCategory DAOC = new DAOCategory();
+    DAOCatMovie DAOCM = new DAOCatMovie();
     List<Category> categoryList = new ArrayList();
     List<Movie> movieList = new ArrayList();
 
     @Override
     public List<Movie> getAllMovies() {
-        movieList = dal.getAllMovies();
+        movieList = DAOM.getAllMovies();
         return movieList;
     }
     
     @Override
     public List<Category> getAllCategories() {
-        categoryList = dal.getAllCategories();
+        categoryList = DAOC.getAllCategories();
         return categoryList;
     }    
     
     @Override
     public void deleteMovieById(int id){
-        dal.deleteMovieById(id);
+        DAOM.deleteMovieById(id);
     }
     
     @Override
     public void deleteCategoryById(int id){
-        dal.deleteCategoryById(id);
+        DAOC.deleteCategoryById(id);
     }
 
     @Override
     public void addCategory(String name) {
-        dal.addCategory(name);
+        DAOC.addCategory(name);
     }
     
     @Override
     public void addMovie(String name, float personalrating, float imdbrating, int lastview, String filelink, String imdbbrowser){
-        dal.addMovie(name, personalrating, imdbrating, lastview, filelink, imdbbrowser);
+        DAOM.addMovie(name, personalrating, imdbrating, lastview, filelink, imdbbrowser);
     }
     
     @Override
     public List<Movie>AlertData(){
-       return dal.AlertData();
+       return DAOM.AlertData();
     }
 
     @Override
     public void addNewUsrRating(int idOfMovie, String text) {
-         dal.addNewUsrRating(idOfMovie,text);
+         DAOM.addNewUsrRating(idOfMovie,text);
     }
 
     @Override
     public List<Movie> getAllMoviesWithFilter(String filterText) {        
-        return dal.getAllMoviesWithFilter(filterText);       
+        return DAOM.getAllMoviesWithFilter(filterText);       
     }
     
     @Override
     public List<Movie> MoviesFromSelectedCategory(int catID){
-    return dal.DisplayOnlyMoviesInCategory(catID);
+    return DAOCM.DisplayOnlyMoviesInCategory(catID);
     }
     
     @Override
     public void addToCatMovie(int movieId, int categoryId){
-        dal.addToCatMovie(movieId, categoryId);
+        DAOCM.addToCatMovie(movieId, categoryId);
     }
 
     @Override
     public List<Movie> getFilteredMoviesByIMDB (String filterText){
-        return dal.getFilteredMoviesByIMDB(filterText);
+        return DAOM.getFilteredMoviesByIMDB(filterText);
     }
 
 }

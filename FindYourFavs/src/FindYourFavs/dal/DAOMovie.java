@@ -52,9 +52,9 @@ public class DAOMovie {
             }
             return movieLst;
         } catch (SQLServerException sqlse) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, sqlse);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -73,9 +73,9 @@ public class DAOMovie {
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,9 +89,9 @@ public class DAOMovie {
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -108,9 +108,9 @@ public class DAOMovie {
             p2.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -128,9 +128,9 @@ public class DAOMovie {
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -154,9 +154,9 @@ public class DAOMovie {
             }
             return movieLst;
         } catch (SQLServerException sqlse) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, sqlse);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -171,9 +171,9 @@ public class DAOMovie {
             pstmt.executeUpdate();
 
         } catch (SQLServerException sqlse) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, sqlse);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -200,9 +200,9 @@ public class DAOMovie {
             }
             return allMovies;
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -229,9 +229,9 @@ public class DAOMovie {
             }
             return allMovies;
         } catch (SQLServerException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
