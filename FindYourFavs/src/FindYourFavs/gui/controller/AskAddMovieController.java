@@ -197,7 +197,7 @@ public class AskAddMovieController implements Initializable {
 
 
        if (add) {
-            manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
+            manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText(),imdblink.getText());
             mpc.refresh();
              movieLst = manager.getAllMovies();      
             for (Movie movie : movieLst) {

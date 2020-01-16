@@ -180,9 +180,9 @@ public class DAL {
         }
     }
     
-    public void addMovie(String name, int personalrating, int imdbrating, int lastview, String filelink){
+    public void addMovie(String name, int personalrating, int imdbrating, int lastview, String filelink,String imdbbrowser){
          try ( Connection con = ds.getConnection()) {
-            String sql = "INSERT INTO Movies (name, personalrating, imdbrating, lastview, filelink) values (?,?,?,?,?)";
+            String sql = "INSERT INTO Movies (name, personalrating, imdbrating, lastview, filelink,imdbbrowser) values (?,?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             
             pstmt.setString(1, name);
@@ -190,6 +190,7 @@ public class DAL {
             pstmt.setInt(3, imdbrating);
             pstmt.setInt(4, lastview);
             pstmt.setString(5, filelink);
+            pstmt.setString(6, imdbbrowser);
             pstmt.executeUpdate();
 
         } catch (SQLServerException ex) {
