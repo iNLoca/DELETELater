@@ -35,6 +35,7 @@ public class Manager {
     public List<Category> getAllCategories() {
         categoryList = dal.getAllCategories();
         return categoryList;
+        
     }    
     
     public void deleteMovieById(int id){
@@ -71,6 +72,10 @@ public class Manager {
     
     public List<Movie> MoviesFromSelectedCategory(int catID){
     return dal.DisplayOnlyMoviesInCategory(catID);
+    }
+    
+    public void addToCatMovie(int movieId, int categoryId){
+        dal.addToCatMovie(movieId, categoryId);
     }
 
    
