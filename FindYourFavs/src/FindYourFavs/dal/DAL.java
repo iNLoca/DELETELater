@@ -318,14 +318,14 @@ public class DAL {
         
     }
        
-     /*  public List<Movie> getFilterMoviesByIMDB(int filterText) {
-        try ( Connection con = ds.getConnection()) {
+    public List<Movie> getFilteredMoviesByIMDB(String filterText) {
+      try ( Connection con = ds.getConnection()) {
 
             List<Movie> allMovies = new ArrayList<>();
             String sql = "SELECT * FROM Movies WHERE imdbrating >= ? ";
 
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, filterText);
+            pstmt.setString(1, filterText);
 
             ResultSet ds = pstmt.executeQuery();
             while (ds.next()) {
@@ -344,14 +344,9 @@ public class DAL {
         } catch (SQLException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;*/
-       
-       
-       
-       
-       
-       
+        return null;
     }
         
+}
 
    

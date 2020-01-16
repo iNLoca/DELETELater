@@ -78,5 +78,8 @@ public class Manager {
         dal.addToCatMovie(movieId, categoryId);
     }
 
+    public List<Movie> getFilteredMoviesByIMDB (String filterText){
+        return dal.getFilteredMoviesByIMDB(filterText);
+    }
    
 }
