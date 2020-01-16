@@ -31,6 +31,9 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <TextField fx:id="addcategoryfield" layoutX="100.0" layoutY="73.0" />
+      <TextField fx:id="addcategoryfield" layoutX="100.0" layoutY="73.0">
+         <effect>
+            <InnerShadow />
+         </effect></TextField>
    </children>
 </AnchorPane>

@@ -31,8 +31,6 @@ public class AddRatingController implements Initializable {
     private Button addbtn;
     @FXML
     private Button canceladdingratingbtn;
-    @FXML
-    private Label CurrMovie;
 
     /**
      * Initializes the controller class.

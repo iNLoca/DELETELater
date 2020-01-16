@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AddRating" prefHeight="211.0" prefWidth="334.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF; -fx-border-color: #000000 #000000; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.AddRatingController">
+<AnchorPane id="AnchorPane" fx:id="AddRating" prefHeight="182.0" prefWidth="334.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF; -fx-border-color: #000000 #000000; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.AddRatingController">
    <children>
       <Label layoutX="115.0" layoutY="22.0" prefHeight="29.0" prefWidth="103.0" text="Add Rating">
          <font>
@@ -19,16 +19,6 @@
          <effect>
             <InnerShadow />
          </effect>
-      </Label>
-      <Label layoutX="14.0" layoutY="94.0" text="Movie Selected:">
-         <font>
-            <Font name="Songti SC Black" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="137.0" text="Add Rating:">
-         <font>
-            <Font name="Songti SC Black" size="15.0" />
-         </font>
       </Label>
       <ImageView fitHeight="29.0" fitWidth="97.0" layoutX="122.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,7 +30,7 @@
             <Image url="@../../../icons/bookmark+documents+favorite+file+rating+star+icon-1320166969893569550.png" />
          </image>
       </ImageView>
-      <Button fx:id="addbtn" layoutX="218.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickAddRatingbtn" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: #7d79bf#7d79bf;" textFill="#7d79bf">
+      <Button fx:id="addbtn" layoutX="218.0" layoutY="131.0" mnemonicParsing="false" onAction="#clickAddRatingbtn" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: #7d79bf#7d79bf;" textFill="#7d79bf">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -55,7 +45,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="canceladdingratingbtn" layoutX="273.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickCancelAddingRatingbtn" prefHeight="29.0" prefWidth="39.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF #7D79BF#7D79BF #7D79BF#7D79BF;">
+      <Button fx:id="canceladdingratingbtn" layoutX="273.0" layoutY="131.0" mnemonicParsing="false" onAction="#clickCancelAddingRatingbtn" prefHeight="29.0" prefWidth="39.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -67,7 +57,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField layoutX="124.0" layoutY="135.0" prefHeight="25.0" prefWidth="80.0" />
-      <Label fx:id="CurrMovie" layoutX="129.0" layoutY="96.0" text="Label" />
+      <TextField layoutX="121.0" layoutY="91.0" prefHeight="29.0" prefWidth="83.0">
+         <effect>
+            <InnerShadow />
+         </effect></TextField>
    </children>
 </AnchorPane>
