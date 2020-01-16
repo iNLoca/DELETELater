@@ -35,7 +35,7 @@ public class DAL {
 
     public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
-            String sql = "SELECT id, name, personalRating, IMDBRating, imdbbrowser FROM Movies";
+            String sql = "SELECT id, name, personalRating, IMDBRating,filelink, imdbbrowser, lastview FROM Movies";
             List<Movie> movieLst = new ArrayList();
 
             Statement stmt = con.createStatement();
@@ -45,8 +45,11 @@ public class DAL {
                 String name = rs.getString("name");
                 float personalRating = rs.getInt("personalRating");
                 float IMDBRating = rs.getInt("IMDBRating");
+                String filelink = rs.getString("filelink");
                 String imdbbrowser = rs.getString("imdbbrowser");
-                Movie movie = new Movie(id, name, personalRating, IMDBRating, imdbbrowser);
+                int lastView= rs.getInt("lastview");
+                
+                Movie movie = new Movie(id, name, personalRating, IMDBRating,filelink, lastView, imdbbrowser);
                 movieLst.add(movie);
             }
             return movieLst;
@@ -138,10 +141,15 @@ public class DAL {
     public void deleteMovieById(int id) {
         try ( Connection con = ds.getConnection()) {
             String sql = "DELETE FROM Movies WHERE id=?";
-            PreparedStatement p = con.prepareStatement(sql);
+            String sql2 = "DELETE FROM CatMovie Where movieId = ? ";
 
+            PreparedStatement p = con.prepareStatement(sql);
+            PreparedStatement p2 = con.prepareStatement(sql2);
             p.setInt(1, id);
+            p2.setInt(1, id);
             p.executeUpdate();
+            p2.executeUpdate();
+             
 
         } catch (SQLServerException ex) {
             Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);

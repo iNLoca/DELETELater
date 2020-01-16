@@ -128,6 +128,16 @@ public class Movie {
         this.IMDBRating=IMDBRating;
     }
 
+    public Movie(int id, String name, float personalRating, float IMDBRating, String fileLink, int lastView, String imdbbrowser) {
+        this.id = id;
+        this.name = name;
+        this.personalRating = personalRating;
+        this.IMDBRating = IMDBRating;
+        this.fileLink = fileLink;
+        this.lastView = lastView;
+        this.imdbbrowser = imdbbrowser;
+    }
+
     @Override
     public String toString() {
         return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + IMDBRating;

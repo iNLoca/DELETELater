@@ -278,7 +278,8 @@ public class MoviePlayerController implements Initializable {
 
     @FXML
     private void playMovie(ActionEvent event) throws IOException {
-       String currentFileLink = tableview.getSelectionModel().getSelectedItem().getFileLink();
+        Movie movie =tableview.getSelectionModel().getSelectedItem();
+       String currentFileLink = movie.getFileLink();
        File movieFile = new File(currentFileLink);
        if(movieFile.exists()){
        Desktop.getDesktop().open(movieFile);
