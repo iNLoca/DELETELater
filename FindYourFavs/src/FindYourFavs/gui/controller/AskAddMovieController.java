@@ -10,6 +10,7 @@ import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
 import java.io.File;
+import java.io.FileFilter;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
@@ -28,6 +29,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.util.List;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
  * FXML Controller class
@@ -197,17 +200,20 @@ public class AskAddMovieController implements Initializable {
     @FXML
     private void clickChooseMovieButton(ActionEvent event) {        
         
-        FileNameExtensionFilter exfilter = new FileNameExtensionFilter("mp4","mpeg4");
         
-        FileChooser fileChooser=new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         
-        fileChooser.setFileFilter(exfilter);
+       // List<String> extensions = List.of("mp4", "mpeg4");       
+        
+        ExtensionFilter filter = new FileChooser.ExtensionFilter("Filter only movies", "mp4", "mpeg4");
+        
         
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
         if(file!=null){
             addfilelink.setText(file.getAbsolutePath());
-        }  
+        } 
+       
     }
 
     @FXML
