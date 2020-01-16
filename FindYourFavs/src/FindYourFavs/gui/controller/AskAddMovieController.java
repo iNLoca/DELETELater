@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -78,9 +79,10 @@ public class AskAddMovieController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //catLst = FXCollections.observableArrayList(manager.getAllCategories());
-        //addmmoviecat.setCellValueFactory(new PropertyValueFactory<>("name"));
-        //catView.setItems(catLst);
+        catLst = FXCollections.observableArrayList(manager.getAllCategories());
+        addmmoviecat.setCellValueFactory(new PropertyValueFactory<>("name"));
+        catView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        catView.setItems(catLst);
         
         
         
@@ -190,18 +192,6 @@ public class AskAddMovieController implements Initializable {
             }
         }
 
-       if(add){ 
-           
-       manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
-       mpc.refresh();
-       movieLst = manager.getAllMovies();
-           for (Movie movie : movieLst) {
-               if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())) {
-                   catView.getSelectionModel().getSelectedItem();
-               }
-           }
-       }
-        mpc.refresh();
 
        if (add) {
             manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
@@ -209,10 +199,13 @@ public class AskAddMovieController implements Initializable {
              movieLst = manager.getAllMovies();      
             for (Movie movie : movieLst) {
                if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())){
-                /*   choiceboxcat.getSelectionModel().getSelectedItem()
-                   manager.addToCatMovie(movie.getId(),);*/
-                   
-               }
+                   catLst= catView.getSelectionModel().getSelectedItems();
+                   for (Category category : catLst) {
+                    manager.addToCatMovie(movie.getId(), category.getId()); 
+                       
+                   }
+                    
+                                                                                       }
             }
                      }
 
@@ -248,6 +241,7 @@ public class AskAddMovieController implements Initializable {
             addfilelink.setText(file.getAbsolutePath());
         }  
     }
+   
 
     @FXML
     private void clickIMDBLink(ActionEvent event) {
