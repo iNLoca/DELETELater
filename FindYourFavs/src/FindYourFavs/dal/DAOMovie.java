@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class DAOMovie {
 
     private SQLServerDataSource ds;
-
+    // set up connection to the Database
     public DAOMovie() {
         ds = new SQLServerDataSource();
         ds.setDatabaseName("RedbullMovCol");
@@ -30,7 +30,7 @@ public class DAOMovie {
         ds.setServerName("10.176.111.31");
         ds.setPortNumber(1433);
     }
-
+    //Method that returns from database all the movies from the Movies table into a list
     public List<Movie> getAllMovies() {
         
         try (Connection con = ds.getConnection()) {
@@ -59,8 +59,8 @@ public class DAOMovie {
         }
         return null;
     }
-
-    public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
+    // Method that recieves a movie object and its properties and adds it to the database inside the Movies table
+ /*   public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
 
         try (Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Movies (name,personalRating,IMDBRating,fileLink,lastView) values (?,?,?,?,?)";
@@ -78,27 +78,11 @@ public class DAOMovie {
         } catch (SQLException ex) {
             Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public void addPersonalRating(int id, Float rating) {
-
-        try ( Connection con = ds.getConnection()) {
-            String sql = "INSERT INTO Movies (personalrating) values (?)";
-            PreparedStatement pstmt = con.prepareStatement(sql);
-
-            pstmt.setFloat(1, rating);
-            pstmt.executeUpdate();
-
-        } catch (SQLServerException ex) {
-            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+    */
+  //Method that recieves an Id and deletes the movie that matches that Id in the Movies Table of the Database
     public void deleteMovieById(int id) {
         try ( Connection con = ds.getConnection()) {
-            String sql = "DELETE FROM Movies WHERE id=?";
+            String sql = "DELETE FROM Movies WHERE id = ? ";
             String sql2 = "DELETE FROM CatMovie Where movieId = ? ";
 
             PreparedStatement p = con.prepareStatement(sql);

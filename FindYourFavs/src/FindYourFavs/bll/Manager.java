@@ -15,12 +15,16 @@ import java.util.List;
 
 public class Manager implements Interface {
 
+    //Creating a new Instance for the Data Access Objects
     private DAOCategory DAOC = new DAOCategory();
     private DAOMovie DAOM = new DAOMovie();    
     private DAOCatMovie DAOCM = new DAOCatMovie();
+    //Creating two lists that we will use to refer to the ones recieved from the methods of the Data Access Layer
     private List<Category> categoryList = new ArrayList();
     private List<Movie> movieList = new ArrayList();
 
+    //Below we have all the methods which call the method with the same name found in the Data Access Objects, and return the same type (or void).
+    //The funcionality of each method is described by its name 
     @Override
     public List<Movie> getAllMovies() {
         movieList = DAOM.getAllMovies();

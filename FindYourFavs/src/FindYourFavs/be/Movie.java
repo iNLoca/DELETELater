@@ -76,8 +76,7 @@ public class Movie {
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
         this.fileLink=fileLink;
-        this.lastView=lastView;
-       
+        this.lastView=lastView;   
     }
     public Movie (String name, float personalRating, float IMDBRating){
         
@@ -85,6 +84,7 @@ public class Movie {
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
     }
+    
     public Movie (String name, float personalRating, int lastView,String imdbbrowser){
         this.name=name;
         this.personalRating=personalRating;

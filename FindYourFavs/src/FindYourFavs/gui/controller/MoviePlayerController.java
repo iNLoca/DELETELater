@@ -184,7 +184,8 @@ public class MoviePlayerController implements Initializable {
 
     //deletes a movie from the database       
     public void deleteMovie() {
-        manager.deleteMovieById(tableview.getSelectionModel().getSelectedItem().getId());
+        int a= tableview.getSelectionModel().getSelectedItem().getId(); 
+        manager.deleteMovieById(a);
     }
 
     //deletes a category from the database
