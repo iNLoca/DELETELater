@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.EventObject;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +24,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -37,6 +41,7 @@ public class AskAddMovieController implements Initializable {
         MoviePlayerController mpc;
         int userrating;
         List<Movie> movieLst;
+         ObservableList<Category>catLst;
         boolean add=true;
 
     @FXML
@@ -63,13 +68,21 @@ public class AskAddMovieController implements Initializable {
     @FXML
     private TextField imdblink;
     @FXML
-    private TableColumn<?, ?> addmmoviecat;
+    private TableColumn<Category, String> addmmoviecat;
+    @FXML
+    private TableView<Category> catView;
+   
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //catLst = FXCollections.observableArrayList(manager.getAllCategories());
+        //addmmoviecat.setCellValueFactory(new PropertyValueFactory<>("name"));
+        //catView.setItems(catLst);
+        
+        
         
         /*
         //choiceboxcat.getItems(categoriesView.setItems(categoryLst));
@@ -177,8 +190,17 @@ public class AskAddMovieController implements Initializable {
             }
         }
         
-       if(add) manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
-        
+       if(add){ 
+           
+       manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
+       mpc.refresh();
+       movieLst = manager.getAllMovies();
+           for (Movie movie : movieLst) {
+               if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())) {
+                   catView.getSelectionModel().getSelectedItem();
+               }
+           }
+       }
         mpc.refresh();
         stage.close();
     }
@@ -201,7 +223,7 @@ public class AskAddMovieController implements Initializable {
         
         FileChooser fileChooser=new FileChooser();
         
-        fileChooser.setFileFilter(exfilter);
+        //fileChooser.setFileFilter(exfilter);
         
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
