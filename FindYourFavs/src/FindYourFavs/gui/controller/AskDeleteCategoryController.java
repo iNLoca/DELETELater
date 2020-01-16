@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  */
 public class AskDeleteCategoryController implements Initializable {
 
-    MoviePlayerController mpc;
+   private MoviePlayerController mpc;
 
     @FXML
     private Button deletebtn;

@@ -23,8 +23,8 @@ import javafx.stage.Stage;
  */
 public class AskAddCategoryController implements Initializable {
 
-    Manager manager = new Manager();
-    MoviePlayerController mpc;
+    private Manager manager = new Manager();
+    private MoviePlayerController mpc;
 
     @FXML
     private AnchorPane addcategory;

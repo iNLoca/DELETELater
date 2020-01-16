@@ -28,8 +28,8 @@ import javafx.stage.Stage;
 public class EditRatingController implements Initializable {
     
     private Movie movie;
-    Manager manager= new Manager();
-    MoviePlayerController mpc;
+    private Manager manager= new Manager();
+    private MoviePlayerController mpc;
     private String PrintedRating;
     
     @FXML

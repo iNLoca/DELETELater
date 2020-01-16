@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 public class AskDeleteMovieController implements Initializable {
 
-    MoviePlayerController mpc;
+    private MoviePlayerController mpc;
 
     @FXML
     private Button deletemoviebtn;

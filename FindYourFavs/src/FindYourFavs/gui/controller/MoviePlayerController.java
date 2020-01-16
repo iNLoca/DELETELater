@@ -41,10 +41,10 @@ import javafx.stage.Stage;
  */
 public class MoviePlayerController implements Initializable {
 
-    Manager manager = new Manager();
-    Category category;
-    ObservableList<Movie> movieLst;
-    ObservableList<Category> categoryLst;
+    private Manager manager = new Manager();
+    private Category category;
+    private ObservableList<Movie> movieLst;
+    private ObservableList<Category> categoryLst;
 
     @FXML
     private Label label;

@@ -15,11 +15,11 @@ import java.util.List;
 
 public class Manager implements Interface {
 
-    DAOCategory DAOC = new DAOCategory();
-    DAOMovie DAOM = new DAOMovie();    
-    DAOCatMovie DAOCM = new DAOCatMovie();
-    List<Category> categoryList = new ArrayList();
-    List<Movie> movieList = new ArrayList();
+    private DAOCategory DAOC = new DAOCategory();
+    private DAOMovie DAOM = new DAOMovie();    
+    private DAOCatMovie DAOCM = new DAOCatMovie();
+    private List<Category> categoryList = new ArrayList();
+    private List<Movie> movieList = new ArrayList();
 
     @Override
     public List<Movie> getAllMovies() {

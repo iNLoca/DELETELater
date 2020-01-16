@@ -38,12 +38,12 @@ import java.util.List;
  */
 public class AskAddMovieController implements Initializable {
 
-    Manager manager = new Manager();
-    MoviePlayerController mpc;
-    float userrating;
-    List<Movie> movieLst;
-    ObservableList<Category> catLst;
-    boolean add = true;
+    private Manager manager = new Manager();
+    private MoviePlayerController mpc;
+    private float userrating;
+    private List<Movie> movieLst;
+    private ObservableList<Category> catLst;
+    private boolean add = true;
 
     @FXML
     private Button cancelmovie;

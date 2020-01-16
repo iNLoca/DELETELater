@@ -101,7 +101,7 @@ public class Movie {
         this.lastView = lastView;
         this.imdbbrowser = imdbbrowser;
     }
-     public Movie() {
+    public Movie() {
     }
 
     public Movie(float personalRating) {
@@ -115,8 +115,6 @@ public class Movie {
         this.IMDBRating=IMDBRating;       
     }
 
-    public Movie(String string) {     
-    }
 
     public Movie(int id, String name, float personalRating, float IMDBRating, String imdbbrowser) {
         this.id=id;
@@ -131,7 +129,4 @@ public class Movie {
     public String toString() {
         return name + " with"  + " " +  "personal rating: " + personalRating + " and" + " last view: " + lastView+"\n";
     }
-    
-    
-
 }
