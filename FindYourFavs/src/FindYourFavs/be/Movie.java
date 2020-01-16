@@ -14,8 +14,8 @@ public class Movie {
     
     private int id;
     private String name;
-    private int personalRating;
-    private int IMDBRating;
+    private float personalRating;
+    private float IMDBRating;
     private String fileLink;
     private int lastView;
     private String imdbbrowser;
@@ -28,12 +28,12 @@ public class Movie {
        
     }
 
-    public Movie(int personalRating) {
+    public Movie(float personalRating) {
       this.personalRating=personalRating;
       
     }
 
-    public Movie(int id, String name, int personalRating, int IMDBRating) {
+    public Movie(int id, String name, float personalRating, float IMDBRating) {
         this.id=id;
         this.name=name;
         this.personalRating=personalRating;
@@ -44,7 +44,7 @@ public class Movie {
          
     }
 
-    public Movie(int id, String name, int personalRating, int IMDBRating, String imdbbrowser) {
+    public Movie(int id, String name, float personalRating, float IMDBRating, String imdbbrowser) {
         this.id=id;
         this.name=name;
         this.personalRating=personalRating;
@@ -70,19 +70,19 @@ public class Movie {
         this.name = name;
     }
 
-    public int getPersonalRating() {
+    public float getPersonalRating() {
         return personalRating;
     }
 
-    public void setPersonalRating(int personalRating) {
+    public void setPersonalRating(float personalRating) {
         this.personalRating = personalRating;
     }
 
-    public int getIMDBRating() {
+    public float getIMDBRating() {
         return IMDBRating;
     }
 
-    public void setIMDBRating(int IMDBRating) {
+    public void setIMDBRating(float IMDBRating) {
         this.IMDBRating = IMDBRating;
     }
 
@@ -112,7 +112,7 @@ public class Movie {
     
       
     
-    public Movie (int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView){
+    public Movie (int id, String name, float personalRating, float IMDBRating, String fileLink, int lastView){
         this.id=id;
         this.name=name;
         this.personalRating=personalRating;
@@ -121,7 +121,7 @@ public class Movie {
         this.lastView=lastView;
        
     }
-    public Movie (String name, int personalRating, int IMDBRating){
+    public Movie (String name, float personalRating, float IMDBRating){
         
         this.name=name;
         this.personalRating=personalRating;
