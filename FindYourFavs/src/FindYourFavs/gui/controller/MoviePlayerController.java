@@ -7,8 +7,8 @@ package FindYourFavs.gui.controller;
 
 import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
+import FindYourFavs.bll.Interface;
 import FindYourFavs.bll.Manager;
-import FindYourFavs.bll.bllimp;
 import FindYourFavs.bll.util.SearchMovies;
 import com.jfoenix.controls.JFXTextField;
 import java.awt.Desktop;
@@ -104,7 +104,8 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Button searchbyratingbtn;
 
-private bllimp implInf; 
+//private bllimp implInf; 
+private Interface inter; 
 
     /**
      * Initializes the controller class.
@@ -112,7 +113,7 @@ private bllimp implInf;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
+        inter = new Manager() {};
 
         Alert();
 
@@ -247,9 +248,9 @@ private bllimp implInf;
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
-        lblChosenCategory.setText("No category chosen yet");
         tableview.setItems(movieLst);
-
+        
+        lblChosenCategory.setText("No category chosen yet");
         categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         categoriesView.setItems(categoryLst);
