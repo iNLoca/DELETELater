@@ -35,7 +35,7 @@ public class DAL {
 
     public List<Movie> getAllMovies() {
         try ( Connection con = ds.getConnection()) {
-            String sql = "SELECT id,name,personalRating,IMDBRating FROM Movies";
+            String sql = "SELECT id, name, personalRating, IMDBRating, imdbbrowser FROM Movies";
             List<Movie> movieLst = new ArrayList();
 
             Statement stmt = con.createStatement();
@@ -45,7 +45,8 @@ public class DAL {
                 String name = rs.getString("name");
                 int personalRating = rs.getInt("personalRating");
                 int IMDBRating = rs.getInt("IMDBRating");
-                Movie movie = new Movie(id, name, personalRating, IMDBRating);
+                String imdbbrowser = rs.getString("imdbbrowser");
+                Movie movie = new Movie(id, name, personalRating, IMDBRating, imdbbrowser);
                 movieLst.add(movie);
             }
             return movieLst;

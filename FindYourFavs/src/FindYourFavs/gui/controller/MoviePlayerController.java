@@ -283,18 +283,18 @@ public class MoviePlayerController implements Initializable {
        File movieFile = new File(currentFileLink);
        if(movieFile.exists()){
        Desktop.getDesktop().open(movieFile);
-       }
-       
-        
+       }       
         //File movieFile = new File("src\\\\FindYourFavs\\\\Trailers\\\\Iron_Man_2_Official_Trailer_1_2010_-_Marvel_Movie_HD.mp4");
         //File movieFile = new File("/Users/mac/NetBeansProjects/FindYourFavs/FindYourFavs/src/FindYourFavs/Trailers/Iron_Man_2_Official_Trailer_1_2010_-_Marvel_Movie_HD.mp4");
     }
 
     @FXML
     private void clicklinkbtn(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
-        Movie selectedMovie = tableview.getSelectionModel().getSelectedItem();
-        Hyperlink movieImdbLink = new Hyperlink("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
-        Desktop.getDesktop().browse(new URL(movieImdbLink.getText()).toURI());      
+        String selectedMovieBrowser = tableview.getSelectionModel().getSelectedItem().getImdbbrowser();
+       // Hyperlink movieImdbLink = new Hyperlink("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
+       
+       
+        Desktop.getDesktop().browse(new URL(selectedMovieBrowser).toURI());      
     }
 
     @FXML

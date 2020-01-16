@@ -18,6 +18,7 @@ public class Movie {
     private int IMDBRating;
     private String fileLink;
     private int lastView;
+    private String imdbbrowser;
     
     
     public Movie() {
@@ -36,13 +37,19 @@ public class Movie {
         this.id=id;
         this.name=name;
         this.personalRating=personalRating;
-        this.IMDBRating=IMDBRating;
-        
-        
+        this.IMDBRating=IMDBRating;       
     }
 
     public Movie(String string) { 
          
+    }
+
+    public Movie(int id, String name, int personalRating, int IMDBRating, String imdbbrowser) {
+        this.id=id;
+        this.name=name;
+        this.personalRating=personalRating;
+        this.IMDBRating=IMDBRating;
+        this.imdbbrowser=imdbbrowser;
     }
 
 
@@ -94,8 +101,16 @@ public class Movie {
     public void setLastView(int lastView) {
         this.lastView = lastView;
     }
+
+    public String getImdbbrowser() {
+        return imdbbrowser;
+    }
+
+    public void setImdbbrowser(String imdbbrowser) {
+        this.imdbbrowser = imdbbrowser;
+    }
     
-    
+      
     
     public Movie (int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView){
         this.id=id;
@@ -118,5 +133,7 @@ public class Movie {
         return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + IMDBRating;
         //for some reason IMDBRating shows the year aka lastViewed data.
     }
+    
+    
 
 }
