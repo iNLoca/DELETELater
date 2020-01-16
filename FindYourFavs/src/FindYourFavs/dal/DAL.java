@@ -43,8 +43,8 @@ public class DAL {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                int personalRating = rs.getInt("personalRating");
-                int IMDBRating = rs.getInt("IMDBRating");
+                float personalRating = rs.getInt("personalRating");
+                float IMDBRating = rs.getInt("IMDBRating");
                 String imdbbrowser = rs.getString("imdbbrowser");
                 Movie movie = new Movie(id, name, personalRating, IMDBRating, imdbbrowser);
                 movieLst.add(movie);
@@ -180,14 +180,14 @@ public class DAL {
         }
     }
     
-    public void addMovie(String name, int personalrating, int imdbrating, int lastview, String filelink,String imdbbrowser){
+    public void addMovie(String name, float personalrating, float imdbrating, int lastview, String filelink,String imdbbrowser){
          try ( Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Movies (name, personalrating, imdbrating, lastview, filelink,imdbbrowser) values (?,?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             
             pstmt.setString(1, name);
-            pstmt.setInt(2, personalrating);
-            pstmt.setInt(3, imdbrating);
+            pstmt.setFloat(2, personalrating);
+            pstmt.setFloat(3, imdbrating);
             pstmt.setInt(4, lastview);
             pstmt.setString(5, filelink);
             pstmt.setString(6, imdbbrowser);
