@@ -129,7 +129,7 @@ public class Movie {
     // To string Method that overrides the existing one and allows us to correctly print the Movie Object with the variales name, personalrating and lastview
     @Override
     public String toString() {
-        return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + lastView;
+        return name + " with"  + " " +  "personal rating: " + personalRating + " and" + " last view: " + lastView+"\n";
     }
     
     
