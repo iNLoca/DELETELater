@@ -11,6 +11,7 @@ import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.io.FileFilter;
+import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
@@ -43,7 +44,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 public class AskAddMovieController implements Initializable {
     Manager manager = new Manager();
         MoviePlayerController mpc;
-        int userrating;
+        float userrating;
         List<Movie> movieLst;
          ObservableList<Category>catLst;
         boolean add=true;
@@ -93,11 +94,11 @@ public class AskAddMovieController implements Initializable {
     private void clickAddMoviebtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         
-        if(usrrating.getText().isEmpty() || parseInt(usrrating.getText())<0 || parseInt(usrrating.getText())>10) {
+        if(usrrating.getText().isEmpty() || parseFloat(usrrating.getText())<0 || parseFloat(usrrating.getText())>10) {
             userrating=0;
         }
         else{
-        userrating = parseInt(usrrating.getText()) ;
+        userrating = parseFloat(usrrating.getText()) ;
         }
          movieLst = manager.getAllMovies();
         
@@ -109,7 +110,7 @@ public class AskAddMovieController implements Initializable {
 
 
        if (add) {
-            manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText(),imdblink.getText());
+            manager.addMovie(tittle.getText(), userrating, parseFloat(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText(),imdblink.getText());
             mpc.refresh();
              movieLst = manager.getAllMovies();      
             for (Movie movie : movieLst) {

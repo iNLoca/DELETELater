@@ -54,7 +54,7 @@ public class Manager {
         dal.addCategory(name);
     }
     
-    public void addMovie(String name, int personalrating, int imdbrating, int lastview, String filelink, String imdbbrowser){
+    public void addMovie(String name, float personalrating, float imdbrating, int lastview, String filelink, String imdbbrowser){
         dal.addMovie(name, personalrating, imdbrating, lastview, filelink, imdbbrowser);
     }
     
