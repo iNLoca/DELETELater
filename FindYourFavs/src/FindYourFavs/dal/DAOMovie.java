@@ -32,7 +32,8 @@ public class DAOMovie {
     }
 
     public List<Movie> getAllMovies() {
-        try ( Connection con = ds.getConnection()) {
+        
+        try (Connection con = ds.getConnection()) {
             String sql = "SELECT id, name, personalRating, IMDBRating,filelink, imdbbrowser, lastview FROM Movies";
             List<Movie> movieLst = new ArrayList();
 
@@ -61,7 +62,7 @@ public class DAOMovie {
 
     public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
 
-        try ( Connection con = ds.getConnection()) {
+        try (Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Movies (name,personalRating,IMDBRating,fileLink,lastView) values (?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
@@ -115,7 +116,8 @@ public class DAOMovie {
     }
 
     public void addMovie(String name, float personalrating, float imdbrating, int lastview, String filelink, String imdbbrowser) {
-        try ( Connection con = ds.getConnection()) {
+        
+        try (Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Movies (name, personalrating, imdbrating, lastview, filelink,imdbbrowser) values (?,?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
@@ -137,7 +139,7 @@ public class DAOMovie {
 
     public List<Movie> AlertData() {
 
-        try ( Connection con = ds.getConnection()) {
+        try (Connection con = ds.getConnection()) {
             String sql = "SELECT name,personalRating,lastview FROM Movies WHERE personalRating<6 AND lastview<2018";
             List<Movie> movieLst = new ArrayList();
 
@@ -162,7 +164,8 @@ public class DAOMovie {
     }
 
     public void addNewUsrRating(int idOfMovie, String newUsrRating) {
-        try ( Connection con = ds.getConnection()) {
+        
+        try (Connection con = ds.getConnection()) {
             String sql = "UPDATE Movies SET personalrating = ? WHERE id = ? ";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
@@ -179,8 +182,9 @@ public class DAOMovie {
     }
 
     public List<Movie> getAllMoviesWithFilter(String filterText) {
-        try ( Connection con = ds.getConnection()) {
-
+        
+        try (Connection con = ds.getConnection()) {
+            
             List<Movie> allMovies = new ArrayList<>();
             String sql = "SELECT * FROM Movies WHERE name LIKE ? ";
 
@@ -208,7 +212,8 @@ public class DAOMovie {
     }
 
     public List<Movie> getFilteredMoviesByIMDB(String filterText) {
-        try ( Connection con = ds.getConnection()) {
+        
+        try (Connection con = ds.getConnection()) {
 
             List<Movie> allMovies = new ArrayList<>();
             String sql = "SELECT * FROM Movies WHERE imdbrating >= ? ";

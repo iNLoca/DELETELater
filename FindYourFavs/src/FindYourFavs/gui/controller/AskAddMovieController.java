@@ -37,12 +37,13 @@ import java.util.List;
  * FXML Controller class
  */
 public class AskAddMovieController implements Initializable {
+
     Manager manager = new Manager();
-        MoviePlayerController mpc;
-        float userrating;
-        List<Movie> movieLst;
-         ObservableList<Category>catLst;
-        boolean add=true;
+    MoviePlayerController mpc;
+    float userrating;
+    List<Movie> movieLst;
+    ObservableList<Category> catLst;
+    boolean add = true;
 
     @FXML
     private Button cancelmovie;
@@ -50,7 +51,6 @@ public class AskAddMovieController implements Initializable {
     private Button addmoviebtn;
     @FXML
     private AnchorPane askaddmovie;
-    private ChoiceBox<String> choiceboxcat;
     @FXML
     private JFXTextField addfilelink;
     @FXML
@@ -61,8 +61,6 @@ public class AskAddMovieController implements Initializable {
     private TextField imdbrating;
     @FXML
     private TextField lastviewd;
-    private ChoiceBox<String> choiceboxcat2;
-    private ChoiceBox<String> choiceboxcat3;
     @FXML
     private Button choosemovie;
     @FXML
@@ -71,7 +69,6 @@ public class AskAddMovieController implements Initializable {
     private TableColumn<Category, String> addmmoviecat;
     @FXML
     private TableView<Category> catView;
-   
 
     /**
      * Initializes the controller class.
@@ -82,43 +79,38 @@ public class AskAddMovieController implements Initializable {
         addmmoviecat.setCellValueFactory(new PropertyValueFactory<>("name"));
         catView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         catView.setItems(catLst);
-        
     }
 
     @FXML
     private void clickAddMoviebtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-        
-        if(usrrating.getText().isEmpty() || parseFloat(usrrating.getText())<0 || parseFloat(usrrating.getText())>10) {
-            userrating=0;
+
+        if (usrrating.getText().isEmpty() || parseFloat(usrrating.getText()) < 0 || parseFloat(usrrating.getText()) > 10) {
+            userrating = 0;
+        } else {
+            userrating = parseFloat(usrrating.getText());
         }
-        else{
-        userrating = parseFloat(usrrating.getText()) ;
-        }
-         movieLst = manager.getAllMovies();
-        
+        movieLst = manager.getAllMovies();
+
         for (Movie movie : movieLst) {
-            if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())) {
-                add=false;
+            if (movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())) {
+                add = false;
             }
         }
 
-
-       if (add) {
-            manager.addMovie(tittle.getText(), userrating, parseFloat(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText(),imdblink.getText());
+        if (add) {
+            manager.addMovie(tittle.getText(), userrating, parseFloat(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText(), imdblink.getText());
             mpc.refresh();
-             movieLst = manager.getAllMovies();      
+            movieLst = manager.getAllMovies();
             for (Movie movie : movieLst) {
-               if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())){
-                   catLst= catView.getSelectionModel().getSelectedItems();
-                   for (Category category : catLst) {
-                    manager.addToCatMovie(movie.getId(), category.getId()); 
-                       
-                   }
-                    
-                                                                                       }
+                if (movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())) {
+                    catLst = catView.getSelectionModel().getSelectedItems();
+                    for (Category category : catLst) {
+                        manager.addToCatMovie(movie.getId(), category.getId());
+                    }
+                }
             }
-                     }
+        }
 
         stage.close();
     }
@@ -129,34 +121,26 @@ public class AskAddMovieController implements Initializable {
         stage.close();
     }
 
-    
-     public void setMoviePlayerController(MoviePlayerController mpc){
-    this.mpc=mpc;
+    public void setMoviePlayerController(MoviePlayerController mpc) {
+        this.mpc = mpc;
     }
 
     @FXML
-    private void clickChooseMovieButton(ActionEvent event) {        
- 
+    private void clickChooseMovieButton(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-    
+
         FileChooser.ExtensionFilter exFilterAll = new FileChooser.ExtensionFilter("Filter Files", "*.mp4", "*.mpeg4");
-        
+
         fileChooser.getExtensionFilters().addAll(exFilterAll);
 
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
-        if(file!=null){
+        if (file != null) {
             addfilelink.setText(file.getAbsolutePath());
-        } 
-       
+        }
     }
-   
-
     @FXML
     private void clickIMDBLink(ActionEvent event) {
-        
-        
-        
-    }
 
+    }
 }

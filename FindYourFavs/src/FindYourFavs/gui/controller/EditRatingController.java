@@ -23,15 +23,14 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
- * @author mac
  */
-public class EditRatingController implements Initializable {
 
+public class EditRatingController implements Initializable {
+    
+    private Movie movie;
     Manager manager;
     MoviePlayerController mpc;
     private String PrintedRating;
-    int rat;
     
     @FXML
     private AnchorPane EditRating;
@@ -39,17 +38,15 @@ public class EditRatingController implements Initializable {
     private Button editbtn;
     @FXML
     private Button cancelratingbtn;
-
     @FXML
     private TextField newRatingBox;
-
     @FXML
     private Label CurrRat;
-    private Movie movie;
-
+  
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -57,35 +54,27 @@ public class EditRatingController implements Initializable {
 
     @FXML
     private void clickEditRatingbtn(ActionEvent event) {
-
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
-        if(parseFloat(newRatingBox.getText())>=0 && parseFloat(newRatingBox.getText())<=10){
-        Manager.myManager.addNewUsrRating(movie.getId(), newRatingBox.getText());    
+        if (parseFloat(newRatingBox.getText()) >= 0 && parseFloat(newRatingBox.getText()) <= 10) {
+            Manager.myManager.addNewUsrRating(movie.getId(), newRatingBox.getText());
+        } else {
+            Manager.myManager.addNewUsrRating(movie.getId(), "0");
         }
-        else Manager.myManager.addNewUsrRating(movie.getId(), "0");    
-        
 
         stage.close();
         mpc.refresh();
-
     }
 
     @FXML
     private void clickCancelRatingbtn(ActionEvent event) {
-
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
-    }
-
-    private void getNewUsrRating() {
-
     }
 
     public void setMovie(Movie movie) {
         this.movie = movie;
         PrintedRating = Float.toString(movie.getPersonalRating());
         CurrRat.setText(PrintedRating);
-
     }
 
     public void setMoviePlayerController(MoviePlayerController mpc) {

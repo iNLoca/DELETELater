@@ -39,7 +39,6 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  */
-
 public class MoviePlayerController implements Initializable {
 
     Manager manager = new Manager();
@@ -90,22 +89,18 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Button searchbyratingbtn;
 
-//private bllimp implInf; 
-private Interface inter; 
+    private Interface inter;
 
     /**
      * Initializes the controller class.
      */
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         inter = new Manager();
 
         Alert();
 
-        refresh();        
-
+        refresh();
     }
 
     @FXML
@@ -114,7 +109,7 @@ private Interface inter;
         Parent root = loader.load();
         AskAddMovieController ctrl = loader.getController();
         ctrl.setMoviePlayerController(this);
-       
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -122,7 +117,7 @@ private Interface inter;
     }
 
     @FXML
-    private void clickdeletemovie(ActionEvent event) throws IOException {        
+    private void clickdeletemovie(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
         Parent root = loader.load();
         AskDeleteMovieController ctrl = loader.getController();
@@ -131,7 +126,7 @@ private Interface inter;
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.show();        
+        stage.show();
     }
 
     @FXML
@@ -148,7 +143,7 @@ private Interface inter;
     }
 
     @FXML
-    private void clickdeletecategory(ActionEvent event) throws IOException {        
+    private void clickdeletecategory(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
         AskDeleteCategoryController ctrl = loader.getController();
@@ -173,25 +168,18 @@ private Interface inter;
         stage.setScene(scene);
         stage.show();
     }
-    
-    public void Alert(){    
-     manager.AlertData();
-           
+
+    public void Alert() {
+        manager.AlertData();
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("REMINDER");
         alert.setHeaderText(null);
-        alert.setContentText("Remember to delete old movies! The following movies are with user rating less than 6 stars and last viewed more than 2 years ago:"
+        alert.setContentText("Remember to delete old movies! The following movies \n"
+                + "are with user rating less than 6 stars and last viewed more than 2 years ago:"
                 + manager.AlertData().toString());
-        
-        
-        
-        alert.showAndWait();
-    
-    }
 
-    public float get() {
-        float rtng = tableview.getSelectionModel().getSelectedItem().getPersonalRating();
-        return rtng;
+        alert.showAndWait();
     }
 
     //deletes a movie from the database       
@@ -207,23 +195,22 @@ private Interface inter;
     public String returnNameOfMovie() {
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
-    public Movie returnMovie(){
+
+    public Movie returnMovie() {
         return tableview.getSelectionModel().getSelectedItem();
     }
 
     public void refresh() {
-
         movieLst = FXCollections.observableArrayList(manager.getAllMovies());
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
         tableview.setItems(movieLst);
-        
+
         lblChosenCategory.setText("No category chosen yet");
         categoryLst = FXCollections.observableArrayList(manager.getAllCategories());
         categoriesColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         categoriesView.setItems(categoryLst);
-     
     }
 
     @FXML
@@ -233,36 +220,34 @@ private Interface inter;
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
-        tableview.setItems(movieLst);        
+        tableview.setItems(movieLst);
     }
-    
+
     @FXML
     private void searchMovieBtn(MouseEvent event) {
-        
         String query = searchbarField.getText();
-        if(query!=null){
-        movieLst = FXCollections.observableArrayList(manager.getAllMoviesWithFilter(query));
-        tableview.setItems(movieLst);
+        if (query != null) {
+            movieLst = FXCollections.observableArrayList(manager.getAllMoviesWithFilter(query));
+            tableview.setItems(movieLst);
+        } else {
+            refresh();
         }
-        else refresh();
     }
 
     @FXML
     private void playMovie(ActionEvent event) throws IOException {
-        Movie movie =tableview.getSelectionModel().getSelectedItem();
-       String currentFileLink = movie.getFileLink();
-       File movieFile = new File(currentFileLink);
-       if(movieFile.exists()){
-       Desktop.getDesktop().open(movieFile);
-       }       
-        //File movieFile = new File("src\\\\FindYourFavs\\\\Trailers\\\\Iron_Man_2_Official_Trailer_1_2010_-_Marvel_Movie_HD.mp4");
-        //File movieFile = new File("/Users/mac/NetBeansProjects/FindYourFavs/FindYourFavs/src/FindYourFavs/Trailers/Iron_Man_2_Official_Trailer_1_2010_-_Marvel_Movie_HD.mp4");
+        Movie movie = tableview.getSelectionModel().getSelectedItem();
+        String currentFileLink = movie.getFileLink();
+        File movieFile = new File(currentFileLink);
+        if (movieFile.exists()) {
+            Desktop.getDesktop().open(movieFile);
+        }
     }
 
     @FXML
     private void clicklinkbtn(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
         String selectedMovieBrowser = tableview.getSelectionModel().getSelectedItem().getImdbbrowser();
-        Desktop.getDesktop().browse(new URL(selectedMovieBrowser).toURI());      
+        Desktop.getDesktop().browse(new URL(selectedMovieBrowser).toURI());
     }
 
     @FXML
@@ -270,15 +255,15 @@ private Interface inter;
         refresh();
     }
 
-
     @FXML
     private void clickSearchByRatingBtn(ActionEvent event) {
         String query = ratinglbl.getText();
-        if(query!=null){
-        movieLst = FXCollections.observableArrayList(manager.getFilteredMoviesByIMDB(query));
-        tableview.setItems(movieLst);
+        if (query != null) {
+            movieLst = FXCollections.observableArrayList(manager.getFilteredMoviesByIMDB(query));
+            tableview.setItems(movieLst);
+        } else {
+            refresh();
         }
-        else refresh();        
     }
-    
+
 }

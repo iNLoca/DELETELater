@@ -18,11 +18,9 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
- * @author mac
  */
 public class AskDeleteCategoryController implements Initializable {
-    
+
     MoviePlayerController mpc;
 
     @FXML
@@ -35,15 +33,15 @@ public class AskDeleteCategoryController implements Initializable {
     /**
      * Initializes the controller class.
      */
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+    }
 
     @FXML
     private void clickDeleteCategorybtn(ActionEvent event) {
-        
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         mpc.deleteCategory();
         mpc.refresh();
         stage.close();
@@ -51,13 +49,11 @@ public class AskDeleteCategoryController implements Initializable {
 
     @FXML
     private void clickCancelCategorybtn(ActionEvent event) {
-        
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
-    
-     public void setMoviePlayerController(MoviePlayerController mpc){
-    this.mpc=mpc;
+
+    public void setMoviePlayerController(MoviePlayerController mpc) {
+        this.mpc = mpc;
     }
-    
 }

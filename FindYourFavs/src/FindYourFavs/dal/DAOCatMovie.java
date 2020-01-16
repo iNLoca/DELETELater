@@ -31,7 +31,8 @@ public class DAOCatMovie {
     }
     
     public List<Movie> DisplayOnlyMoviesInCategory (int catId) {
-         try ( Connection con = ds.getConnection()) {
+        
+         try (Connection con = ds.getConnection()) {
             List<Movie> movieLst = new ArrayList();
             String sql = "SELECT Movies.name,personalRating,imdbrating FROM MOVIES \n"+
                     "JOIN CatMovie ON Movies.id = CatMovie.movieId \n"+
@@ -62,7 +63,8 @@ public class DAOCatMovie {
     }
     
     public void addToCatMovie(int movieId, int categoryId){
-         try ( Connection con = ds.getConnection()) {
+        
+         try (Connection con = ds.getConnection()) {
             String sql = "INSERT INTO CatMovie (movieId, categoryId) values (?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             

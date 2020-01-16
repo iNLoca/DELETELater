@@ -19,7 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DAOCategory {
-    
+
     private SQLServerDataSource ds;
 
     public DAOCategory() {
@@ -30,8 +30,9 @@ public class DAOCategory {
         ds.setServerName("10.176.111.31");
         ds.setPortNumber(1433);
     }
-    
+
     public List<Category> getAllCategories() {
+
         try ( Connection con = ds.getConnection()) {
             String sql = "SELECT id, name FROM Category";
             List<Category> categoryLst = new ArrayList();
@@ -41,7 +42,7 @@ public class DAOCategory {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                Category category = new Category (id, name);
+                Category category = new Category(id, name);
                 categoryLst.add(category);
             }
             return categoryLst;
@@ -52,8 +53,9 @@ public class DAOCategory {
         }
         return null;
     }
-    
-       public void deleteCategoryById(int id) {
+
+    public void deleteCategoryById(int id) {
+
         try ( Connection con = ds.getConnection()) {
             String sql = "DELETE FROM Category WHERE id=?";
             PreparedStatement p = con.prepareStatement(sql);
@@ -68,8 +70,9 @@ public class DAOCategory {
         }
     }
 
-         public void addCategory(String name) {
-       try ( Connection con = ds.getConnection()) {
+    public void addCategory(String name) {
+        
+        try (Connection con = ds.getConnection()) {
             String sql = "INSERT INTO Category (name) values (?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
@@ -82,5 +85,5 @@ public class DAOCategory {
             Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

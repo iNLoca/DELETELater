@@ -9,9 +9,6 @@ import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import java.util.List;
 
-/**
- *
- */
 public interface Interface {
     
     public List<Movie> getAllMovies();

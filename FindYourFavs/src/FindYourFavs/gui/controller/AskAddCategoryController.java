@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  */
-
 public class AskAddCategoryController implements Initializable {
 
     Manager manager = new Manager();
@@ -39,9 +38,9 @@ public class AskAddCategoryController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
 
     @FXML
