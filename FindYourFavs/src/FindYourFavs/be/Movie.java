@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FindYourFavs.be;
 
-
-/**
- *
- * @author rtlop
- */
+// In this class we set up the movie properties 
 public class Movie {
     
     private int id;
@@ -20,40 +12,7 @@ public class Movie {
     private int lastView;
     private String imdbbrowser;
     
-    
-    public Movie() {
-       
-         
-   
-       
-    }
-
-    public Movie(float personalRating) {
-      this.personalRating=personalRating;
-      
-    }
-
-    public Movie(int id, String name, float personalRating, float IMDBRating) {
-        this.id=id;
-        this.name=name;
-        this.personalRating=personalRating;
-        this.IMDBRating=IMDBRating;       
-    }
-
-    public Movie(String string) { 
-         
-    }
-
-    public Movie(int id, String name, float personalRating, float IMDBRating, String imdbbrowser) {
-        this.id=id;
-        this.name=name;
-        this.personalRating=personalRating;
-        this.IMDBRating=IMDBRating;
-        this.imdbbrowser=imdbbrowser;
-    }
-
-
-
+// Getters and setters for all of the variables    
     public int getId() {
         return id;
     }
@@ -110,8 +69,7 @@ public class Movie {
         this.imdbbrowser = imdbbrowser;
     }
     
-      
-    
+    //Different constructors depending on what we needed in the different instances of this class
     public Movie (int id, String name, float personalRating, float IMDBRating, String fileLink, int lastView){
         this.id=id;
         this.name=name;
@@ -127,6 +85,11 @@ public class Movie {
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
     }
+    public Movie (String name, float personalRating, int lastView){
+        this.name=name;
+        this.personalRating=personalRating;
+        this.lastView=lastView;
+    }
 
     public Movie(int id, String name, float personalRating, float IMDBRating, String fileLink, int lastView, String imdbbrowser) {
         this.id = id;
@@ -137,11 +100,35 @@ public class Movie {
         this.lastView = lastView;
         this.imdbbrowser = imdbbrowser;
     }
+     public Movie() {
+    }
 
+    public Movie(float personalRating) {
+      this.personalRating=personalRating;
+    }
+
+    public Movie(int id, String name, float personalRating, float IMDBRating) {
+        this.id=id;
+        this.name=name;
+        this.personalRating=personalRating;
+        this.IMDBRating=IMDBRating;       
+    }
+
+    public Movie(String string) {     
+    }
+
+    public Movie(int id, String name, float personalRating, float IMDBRating, String imdbbrowser) {
+        this.id=id;
+        this.name=name;
+        this.personalRating=personalRating;
+        this.IMDBRating=IMDBRating;
+        this.imdbbrowser=imdbbrowser;
+    }
+
+    // To string Method that overrides the existing one and allows us to correctly print the Movie Object with the variales name, personalrating and lastview
     @Override
     public String toString() {
-        return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + IMDBRating;
-        //for some reason IMDBRating shows the year aka lastViewed data.
+        return name + "\b with"  + "  " +  "personalRating=" + personalRating + "\n and" + " lastView= " + lastView;
     }
     
     
