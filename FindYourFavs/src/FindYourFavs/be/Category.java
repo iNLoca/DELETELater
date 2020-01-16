@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FindYourFavs.be;
 
-
+//In this class we set up the category properties 
 public class Category {
     private int id;
     private String name;
-
-    public Category() {   
-    }
-
+    
+//Getters and Setters for Id and Name
     public int getId() {
         return id;
     }
@@ -29,16 +23,13 @@ public class Category {
         this.name = name;
     }
     
+// Empty constructor
+    public Category() {   
+    }
+    
+// Full constructor    
     public Category (int id, String name){
         this.id=id;
         this.name=name;
     }
-    
-//    public boolean equals (Object o) {
-//        Category c = (Category) o;
-//        if (c.getName() == this.name) {
-//            return true;
-//        }
-//        return false;
-//    }
 }

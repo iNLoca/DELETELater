@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 public class EditRatingController implements Initializable {
     
     private Movie movie;
-    Manager manager;
+    Manager manager= new Manager();
     MoviePlayerController mpc;
     private String PrintedRating;
     
@@ -56,9 +56,9 @@ public class EditRatingController implements Initializable {
     private void clickEditRatingbtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         if (parseFloat(newRatingBox.getText()) >= 0 && parseFloat(newRatingBox.getText()) <= 10) {
-            Manager.myManager.addNewUsrRating(movie.getId(), newRatingBox.getText());
+            manager.addNewUsrRating(movie.getId(), newRatingBox.getText());
         } else {
-            Manager.myManager.addNewUsrRating(movie.getId(), "0");
+            manager.addNewUsrRating(movie.getId(), "0");
         }
 
         stage.close();

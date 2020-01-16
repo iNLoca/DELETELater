@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package FindYourFavs.bll;
 
 import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import java.util.List;
 
+//Interface for the Manager Class
 public interface Interface {
     
     public List<Movie> getAllMovies();

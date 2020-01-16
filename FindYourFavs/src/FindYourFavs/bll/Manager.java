@@ -15,8 +15,6 @@ import java.util.List;
 
 public class Manager implements Interface {
 
-    public static Manager myManager = new Manager();
-
     DAOCategory DAOC = new DAOCategory();
     DAOMovie DAOM = new DAOMovie();    
     DAOCatMovie DAOCM = new DAOCatMovie();
