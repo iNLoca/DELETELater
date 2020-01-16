@@ -151,7 +151,7 @@ public class DAOMovie {
                 float personalRating = rs.getFloat("personalRating");
                 int lastview = rs.getInt("lastview");
 
-                Movie movie = new Movie(name, personalRating, lastview);
+                Movie movie = new Movie(name, personalRating, lastview, " ");
                 movieLst.add(movie);
             }
             return movieLst;

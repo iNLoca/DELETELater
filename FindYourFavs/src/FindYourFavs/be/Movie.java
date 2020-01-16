@@ -85,10 +85,11 @@ public class Movie {
         this.personalRating=personalRating;
         this.IMDBRating=IMDBRating;
     }
-    public Movie (String name, float personalRating, int lastView){
+    public Movie (String name, float personalRating, int lastView,String imdbbrowser){
         this.name=name;
         this.personalRating=personalRating;
         this.lastView=lastView;
+        this.imdbbrowser = imdbbrowser;
     }
 
     public Movie(int id, String name, float personalRating, float IMDBRating, String fileLink, int lastView, String imdbbrowser) {
