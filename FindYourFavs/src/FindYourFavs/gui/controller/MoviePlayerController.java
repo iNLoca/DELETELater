@@ -8,6 +8,7 @@ package FindYourFavs.gui.controller;
 import FindYourFavs.be.Category;
 import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
+import FindYourFavs.bll.bllimp;
 import FindYourFavs.bll.util.SearchMovies;
 import com.jfoenix.controls.JFXTextField;
 import java.awt.Desktop;
@@ -103,7 +104,7 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private Button searchbyratingbtn;
 
-
+private bllimp implInf; 
 
     /**
      * Initializes the controller class.
