@@ -270,32 +270,13 @@ public class DAL {
         }
         return null;
     }
-    
- /*   public List<Category> getMoviesByCategory() {
-        try (Connection con = ds.getConnection()) {
-            String sql = "SELECT id, name FROM Category";
-            List<Category> categoryLst = new ArrayList();
-
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                Category category = new Category (id, name);
-                categoryLst.add(category);
-            }
-            return categoryLst;
-        } catch (SQLServerException sqlse) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, sqlse);
-        } catch (SQLException ex) {
-            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }*/
        public List<Movie> DisplayOnlyMoviesInCategory (int catId) {
          try ( Connection con = ds.getConnection()) {
             List<Movie> movieLst = new ArrayList();
-            String sql = "Select Movies.name,personalRating,imdbrating From Movies Join CatMovie On Movies.id= CatMovie.movieId Join Category On Category.id= CatMovie.categoryId WHERE categoryId= ? Order by Movies.id ";
+            String sql = "SELECT Movies.name,personalRating,imdbrating FROM MOVIES \n"+
+                    "JOIN CatMovie ON Movies.id = CatMovie.movieId \n"+
+                    "JOIN Category ON Category.id = CatMovie.categoryId \n"+
+                    "WHERE categoryId = ? Order by Movies.id";
            
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, catId);
@@ -319,7 +300,53 @@ public class DAL {
         }
          return null;
     }
+       
+       public void addToCatMovie(int movieId, int categoryId){
+         try ( Connection con = ds.getConnection()) {
+            String sql = "INSERT INTO CatMovie (movieId, categoryId) values (?,?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            
+            pstmt.setInt(1, movieId);
+            pstmt.setInt(2, categoryId);
+            pstmt.executeUpdate();
+
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+       
+    public List<Movie> getFilteredMoviesByIMDB(String filterText) {
+      try ( Connection con = ds.getConnection()) {
+
+            List<Movie> allMovies = new ArrayList<>();
+            String sql = "SELECT * FROM Movies WHERE imdbrating >= ? ";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, filterText);
+
+            ResultSet ds = pstmt.executeQuery();
+            while (ds.next()) {
+                int id = ds.getInt("id");
+                String name = ds.getString("name");
+                int personalrating = ds.getInt("personalrating");
+                int imdbrating = ds.getInt("imdbrating");
+                String filelink = ds.getString("filelink");
+                int lastview = ds.getInt("lastview");
+                Movie movie = new Movie(id, name, personalrating, imdbrating, filelink, lastview);
+                allMovies.add(movie);
+            }
+            return allMovies;
+        } catch (SQLServerException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
         
+}
 
    

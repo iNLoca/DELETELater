@@ -180,9 +180,18 @@ public class AskAddMovieController implements Initializable {
             }
         }
         
-       if(add) manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
-        
-        mpc.refresh();
+       if (add) {
+            manager.addMovie(tittle.getText(), userrating, parseInt(imdbrating.getText()), parseInt(lastviewd.getText()), addfilelink.getText());
+            mpc.refresh();
+             movieLst = manager.getAllMovies();      
+            for (Movie movie : movieLst) {
+               if(movie.getName().toLowerCase().equals(tittle.getText().toLowerCase())){
+                /*   choiceboxcat.getSelectionModel().getSelectedItem()
+                   manager.addToCatMovie(movie.getId(),);*/
+                   
+               }
+            }
+                     }
         stage.close();
     }
 
@@ -207,6 +216,10 @@ public class AskAddMovieController implements Initializable {
         
         ExtensionFilter filter = new FileChooser.ExtensionFilter("Filter only movies", "mp4", "mpeg4");
         
+
+
+       // fileChooser.setFileFilter(exfilter);
+
         
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
