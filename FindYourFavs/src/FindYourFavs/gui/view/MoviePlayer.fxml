@@ -16,15 +16,15 @@
 <AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="679.0" style="-fx-background-color: #7D79BF#7D79BF; -fx-border-color: #000000; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FindYourFavs.gui.controller.MoviePlayerController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Label layoutX="33.0" layoutY="15.0" prefHeight="28.0" prefWidth="146.0" text="FindYourFaves">
+      <Label layoutX="8.0" layoutY="4.0" prefHeight="39.0" prefWidth="171.0" text="FindYourFaves">
          <font>
-            <Font name="Avenir Next Bold" size="19.0" />
+            <Font name="Avenir Next Bold" size="23.0" />
          </font>
          <effect>
             <InnerShadow />
          </effect>
       </Label>
-      <Label layoutX="33.0" layoutY="46.0" prefHeight="17.0" prefWidth="171.0" text="&quot;It's the same just different&quot;">
+      <Label layoutX="21.0" layoutY="41.0" prefHeight="17.0" prefWidth="171.0" text="&quot;It's the same just different&quot;">
          <font>
             <Font name="Myanmar MN" size="13.0" />
          </font>
@@ -152,22 +152,41 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Label layoutX="601.0" layoutY="108.0" prefHeight="25.0" prefWidth="73.0" text="IMDB Links:">
-         <effect>
-            <InnerShadow />
-         </effect>
+      <Label layoutX="601.0" layoutY="108.0" prefHeight="25.0" prefWidth="73.0" text="IMDB Links:" textFill="#000000de">
          <font>
             <Font name="Songti SC Black" size="13.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Label>
       <Button fx:id="showall" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#clickShowAllMovies" prefHeight="28.0" prefWidth="75.0" style="-fx-background-color: #000000;" text="Show All" textFill="#7d79bf">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="ratinglbl" layoutX="537.0" layoutY="57.0" prefHeight="25.0" prefWidth="52.0" />
-      <Button fx:id="searchbyratingbtn" layoutX="600.0" layoutY="57.0" mnemonicParsing="false" onAction="#clickSearchByRatingBtn" prefHeight="25.0" prefWidth="36.0" text="Button" />
-      <Label layoutX="406.0" layoutY="30.0" text="Filter by title:" />
-      <Label layoutX="406.0" layoutY="61.0" text="Filter by IMDB rating:" />
+      <TextField fx:id="ratinglbl" layoutX="541.0" layoutY="65.0" prefHeight="27.0" prefWidth="97.0">
+         <effect>
+            <InnerShadow />
+         </effect></TextField>
+      <Button fx:id="searchbyratingbtn" layoutX="636.0" layoutY="59.0" mnemonicParsing="false" onAction="#clickSearchByRatingBtn" prefHeight="30.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/Search-512.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="406.0" layoutY="30.0" text="Search title:">
+         <effect>
+            <InnerShadow />
+         </effect></Label>
+      <Label layoutX="409.0" layoutY="70.0" text="Search IMDB rating:">
+         <effect>
+            <InnerShadow />
+         </effect></Label>
     </children>
 </AnchorPane>
