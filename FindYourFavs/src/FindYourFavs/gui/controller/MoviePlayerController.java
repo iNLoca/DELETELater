@@ -52,6 +52,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  */
+
 public class MoviePlayerController implements Initializable {
 
     Manager manager = new Manager();
@@ -69,8 +70,6 @@ public class MoviePlayerController implements Initializable {
     private Button addcategory;
     @FXML
     private Button deletecategory;
-    @FXML
-    private Button addrating;
     @FXML
     private Button editrating;
     @FXML
@@ -110,15 +109,15 @@ private Interface inter;
     /**
      * Initializes the controller class.
      */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        inter = new Manager() {};
+        inter = new Manager();
 
         Alert();
 
-        refresh();
-        
+        refresh();        
 
     }
 
@@ -136,8 +135,7 @@ private Interface inter;
     }
 
     @FXML
-    private void clickdeletemovie(ActionEvent event) throws IOException {
-        
+    private void clickdeletemovie(ActionEvent event) throws IOException {        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
         Parent root = loader.load();
         AskDeleteMovieController ctrl = loader.getController();
@@ -146,8 +144,7 @@ private Interface inter;
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.show();
-        
+        stage.show();        
     }
 
     @FXML
@@ -161,28 +158,14 @@ private Interface inter;
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML
-    private void clickdeletecategory(ActionEvent event) throws IOException {
-        
+    private void clickdeletecategory(ActionEvent event) throws IOException {        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
         AskDeleteCategoryController ctrl = loader.getController();
         ctrl.setMoviePlayerController(this);
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    private void clickAddRating(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AddRating.fxml"));
-        Parent root = loader.load();
-        AddRatingController ctrler = loader.getController();
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -204,8 +187,7 @@ private Interface inter;
         stage.show();
     }
     
-    public void Alert(){
-    
+    public void Alert(){    
      manager.AlertData();
            
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -22,14 +22,13 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
- * @author mac
  */
+
 public class AskAddCategoryController implements Initializable {
-    
+
     Manager manager = new Manager();
     MoviePlayerController mpc;
-    
+
     @FXML
     private AnchorPane addcategory;
     @FXML
@@ -42,24 +41,26 @@ public class AskAddCategoryController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {    
-    }    
+    public void initialize(URL url, ResourceBundle rb) {
+    }
 
     @FXML
     private void clickCancelCategorybtn(ActionEvent event) {
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
 
     @FXML
     private void clickAddCategorybtn(ActionEvent event) {
-        Stage stage = (Stage)((Node)((EventObject) event).getSource()).getScene().getWindow();        
+        Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         manager.addCategory(addcategoryfield.getText());
         mpc.refresh();
         stage.close();
     }
-    public void setMoviePlayerController(MoviePlayerController mpc){
-    this.mpc=mpc;
+
+    public void setMoviePlayerController(MoviePlayerController mpc) {
+        this.mpc = mpc;
     }
 }

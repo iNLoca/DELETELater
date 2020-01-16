@@ -79,22 +79,11 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="addrating" layoutX="107.0" layoutY="429.0" mnemonicParsing="false" onAction="#clickAddRating" prefHeight="27.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
-         <graphic>
-            <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../icons/add.png" />
-               </image>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="editrating" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#clickEditRating" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #000000;" text="Edit Rating" textFill="#7d79bf">
+      <Button fx:id="editrating" layoutX="45.0" layoutY="430.0" mnemonicParsing="false" onAction="#clickEditRating" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #000000;" text="Edit Rating" textFill="#7d79bf">
          <effect>
             <DropShadow />
          </effect></Button>
-      <ImageView fitHeight="27.0" fitWidth="85.0" layoutX="16.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="85.0" layoutX="47.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../icons/01-512.png" />
          </image>
@@ -160,7 +149,7 @@
             <DropShadow />
          </effect>
       </Label>
-      <Button fx:id="showall" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#clickShowAllMovies" prefHeight="28.0" prefWidth="75.0" style="-fx-background-color: #000000;" text="Show All" textFill="#7d79bf">
+      <Button fx:id="showall" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickShowAllMovies" prefHeight="28.0" prefWidth="75.0" style="-fx-background-color: #000000;" text="Show All" textFill="#7d79bf">
          <effect>
             <DropShadow />
          </effect>
