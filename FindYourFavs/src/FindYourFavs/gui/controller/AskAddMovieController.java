@@ -10,12 +10,10 @@ import FindYourFavs.be.Movie;
 import FindYourFavs.bll.Manager;
 import com.jfoenix.controls.JFXTextField;
 import java.io.File;
-import java.io.FileFilter;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.util.EventObject;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,13 +28,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.util.List;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
  * FXML Controller class
