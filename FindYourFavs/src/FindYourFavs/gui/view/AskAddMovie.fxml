@@ -61,12 +61,12 @@
          </effect>
       </Button>
       <Label layoutX="36.0" layoutY="390.0" text="IMDB Link:" />
-      <TextField fx:id="imdblink" layoutX="116.0" layoutY="385.0" onAction="#clickIMDBLink" prefHeight="27.0" prefWidth="140.0">
+      <TextField fx:id="imdblink" layoutX="116.0" layoutY="385.0" prefHeight="27.0" prefWidth="140.0">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <TableView fx:id= "catView" layoutX="104.0" layoutY="103.0" prefHeight="138.0" prefWidth="164.0">
+      <TableView fx:id="catView" layoutX="104.0" layoutY="103.0" prefHeight="138.0" prefWidth="164.0">
         <columns>
           <TableColumn fx:id="addmmoviecat" prefWidth="184.0" text="Categories" />
         </columns>

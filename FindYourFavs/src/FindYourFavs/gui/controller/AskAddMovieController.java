@@ -139,8 +139,4 @@ public class AskAddMovieController implements Initializable {
             addfilelink.setText(file.getAbsolutePath());
         }
     }
-    @FXML
-    private void clickIMDBLink(ActionEvent event) {
-
-    }
 }
