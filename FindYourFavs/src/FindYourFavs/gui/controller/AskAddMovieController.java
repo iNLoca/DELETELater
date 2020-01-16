@@ -228,22 +228,13 @@ public class AskAddMovieController implements Initializable {
 
     @FXML
     private void clickChooseMovieButton(ActionEvent event) {        
-        
-        
+ 
         FileChooser fileChooser = new FileChooser();
+    
+        FileChooser.ExtensionFilter exFilterAll = new FileChooser.ExtensionFilter("Filter Files", "*.mp4", "*.mpeg4");
         
-       // List<String> extensions = List.of("mp4", "mpeg4");       
-        
-        ExtensionFilter filter = new FileChooser.ExtensionFilter("Filter only movies", "mp4", "mpeg4");
-        
+        fileChooser.getExtensionFilters().addAll(exFilterAll);
 
-
-        //fileChooser.setFileFilter(exfilter);
-
-
-       // fileChooser.setFileFilter(exfilter);
-
-        
         fileChooser.setTitle("Open Resource File");
         File file = fileChooser.showOpenDialog(null);
         if(file!=null){

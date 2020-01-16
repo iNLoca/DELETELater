@@ -119,7 +119,7 @@
          <effect>
             <DropShadow color="#591bab" />
          </effect></Label>
-      <Label fx:id="lblChosenCategory" layoutX="366.0" layoutY="80.0" prefHeight="25.0" prefWidth="215.0">
+      <Label fx:id="lblChosenCategory" layoutX="331.0" layoutY="80.0" prefHeight="21.0" prefWidth="185.0">
          <font>
             <Font name="Songti SC Black" size="16.0" />
          </font></Label>
@@ -135,7 +135,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <ImageView fx:id="searchButton" fitHeight="39.0" fitWidth="36.0" layoutX="638.0" layoutY="20.0" onMouseClicked="#searchMovieBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="searchButton" fitHeight="30.0" fitWidth="36.0" layoutX="642.0" layoutY="12.0" onMouseClicked="#searchMovieBtn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../icons/Search-512.png" />
          </image>
@@ -143,7 +143,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <TextField fx:id="searchbarField" layoutX="490.0" layoutY="24.0" prefHeight="27.0" prefWidth="146.0">
+      <TextField fx:id="searchbarField" layoutX="490.0" layoutY="17.0" prefHeight="27.0" prefWidth="146.0">
          <effect>
             <InnerShadow />
          </effect></TextField>
@@ -165,11 +165,11 @@
             <DropShadow />
          </effect>
       </Button>
-      <TextField fx:id="ratinglbl" layoutX="541.0" layoutY="65.0" prefHeight="27.0" prefWidth="97.0">
+      <TextField fx:id="ratinglbl" layoutX="534.0" layoutY="49.0" prefHeight="27.0" prefWidth="97.0">
          <effect>
             <InnerShadow />
          </effect></TextField>
-      <Button fx:id="searchbyratingbtn" layoutX="636.0" layoutY="59.0" mnemonicParsing="false" onAction="#clickSearchByRatingBtn" prefHeight="30.0" prefWidth="36.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+      <Button fx:id="searchbyratingbtn" layoutX="634.0" layoutY="43.0" mnemonicParsing="false" onAction="#clickSearchByRatingBtn" prefHeight="39.0" prefWidth="45.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
             <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -180,11 +180,11 @@
                </effect>
             </ImageView>
          </graphic></Button>
-      <Label layoutX="406.0" layoutY="30.0" text="Search title:">
+      <Label layoutX="416.0" layoutY="22.0" text="Search title:">
          <effect>
             <InnerShadow />
          </effect></Label>
-      <Label layoutX="409.0" layoutY="70.0" text="Search IMDB rating:">
+      <Label layoutX="412.0" layoutY="54.0" text="Search IMDB rating:">
          <effect>
             <InnerShadow />
          </effect></Label>
