@@ -262,8 +262,7 @@ public class MoviePlayerController implements Initializable {
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
         usrrating.setCellValueFactory(new PropertyValueFactory<>("personalRating"));
         imdbrating.setCellValueFactory(new PropertyValueFactory<>("IMDBRating"));
-        tableview.setItems(movieLst);
-        
+        tableview.setItems(movieLst);        
     }
     
     @FXML
@@ -291,9 +290,6 @@ public class MoviePlayerController implements Initializable {
     @FXML
     private void clicklinkbtn(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
         String selectedMovieBrowser = tableview.getSelectionModel().getSelectedItem().getImdbbrowser();
-       // Hyperlink movieImdbLink = new Hyperlink("https://www.imdb.com/title/tt11355390/?ref_=fn_al_tt_2");
-       
-       
         Desktop.getDesktop().browse(new URL(selectedMovieBrowser).toURI());      
     }
 
