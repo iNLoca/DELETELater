@@ -54,22 +54,22 @@
                </effect>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="addcategory" layoutX="133.0" layoutY="95.0" mnemonicParsing="false" onAction="#clickaddcategory" prefHeight="21.0" prefWidth="37.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+      <Button fx:id="addcategory" layoutX="99.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickaddcategory" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
-            <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../icons/trash.png" />
+                  <Image url="@../../../icons/add.png" />
                </image>
                <effect>
                   <DropShadow />
                </effect>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="deletecategory" layoutX="98.0" layoutY="95.0" mnemonicParsing="false" onAction="#clickdeletecategory" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
+      <Button fx:id="deletecategory" layoutX="130.0" layoutY="93.0" mnemonicParsing="false" onAction="#clickdeletecategory" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #7D79BF#7D79BF #7D79BF#7D79BF;">
          <graphic>
-            <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../icons/add.png" />
+                  <Image url="@../../../icons/trash.png" />
                </image>
                <effect>
                   <DropShadow />
