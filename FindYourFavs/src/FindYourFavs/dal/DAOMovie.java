@@ -59,26 +59,7 @@ public class DAOMovie {
         }
         return null;
     }
-    // Method that recieves a movie object and its properties and adds it to the database inside the Movies table
- /*   public void addMovie(int id, String name, int personalRating, int IMDBRating, String fileLink, int lastView) {
-
-        try (Connection con = ds.getConnection()) {
-            String sql = "INSERT INTO Movies (name,personalRating,IMDBRating,fileLink,lastView) values (?,?,?,?,?)";
-            PreparedStatement pstmt = con.prepareStatement(sql);
-
-            pstmt.setString(1, name);
-            pstmt.setFloat(2, personalRating);
-            pstmt.setFloat(3, IMDBRating);
-            pstmt.setString(4, fileLink);
-            pstmt.setInt(5, lastView);
-            pstmt.executeUpdate();
-
-        } catch (SQLServerException ex) {
-            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    */
+    
   //Method that recieves an Id and deletes the movie that matches that Id in the Movies Table of the Database
     public void deleteMovieById(int id) {
         try ( Connection con = ds.getConnection()) {
@@ -98,7 +79,8 @@ public class DAOMovie {
             Logger.getLogger(DAOMovie.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+// Method that recieves a movie object and its properties and adds it to the database inside the Movies table
     public void addMovie(String name, float personalrating, float imdbrating, int lastview, String filelink, String imdbbrowser) {
         
         try (Connection con = ds.getConnection()) {
@@ -120,7 +102,8 @@ public class DAOMovie {
         }
 
     }
-
+    
+//Method used for the Initial Alert window of the program, returns a list of movies which match the conditions specified in the sql query
     public List<Movie> AlertData() {
 
         try (Connection con = ds.getConnection()) {
@@ -146,7 +129,9 @@ public class DAOMovie {
         }
         return null;
     }
-
+    
+//Method that updates the user rating of an existing movie (the update command is used in SQL as the personal rating is never null, if the user doesn`t give a rating to the movie, this
+    //is automatically set to 0.0
     public void addNewUsrRating(int idOfMovie, String newUsrRating) {
         
         try (Connection con = ds.getConnection()) {
@@ -164,7 +149,8 @@ public class DAOMovie {
         }
 
     }
-
+    
+// Method used when the filter is active, recieves the text from the search bar and selects from the database only those movies which name matches in any way the text received
     public List<Movie> getAllMoviesWithFilter(String filterText) {
         
         try (Connection con = ds.getConnection()) {
@@ -194,6 +180,7 @@ public class DAOMovie {
         }
         return null;
     }
+// Method used when the IMDBfilter is active, recieves the text from the IMDBbar and selects from the database only those movies which IMDBRating is bigger or equal to the one recieved
 
     public List<Movie> getFilteredMoviesByIMDB(String filterText) {
         

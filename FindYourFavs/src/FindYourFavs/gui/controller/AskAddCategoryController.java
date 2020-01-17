@@ -23,6 +23,7 @@ import javafx.stage.Stage;
  */
 public class AskAddCategoryController implements Initializable {
 
+    //Crates a new instance for the manager and an MoviePlayerController not initialized
     private Manager manager = new Manager();
     private MoviePlayerController mpc;
 
@@ -43,12 +44,13 @@ public class AskAddCategoryController implements Initializable {
         
     }
 
+    //Method that closes the window if the cancel button is pressed
     @FXML
     private void clickCancelCategorybtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
-
+    //Method that adds the category by using the existing method for this in the manager class, calls the refresh method from the MoviePlayerController class and then closes the window
     @FXML
     private void clickAddCategorybtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
@@ -56,7 +58,8 @@ public class AskAddCategoryController implements Initializable {
         mpc.refresh();
         stage.close();
     }
-
+    
+    //Method that sets the instance of the MoviePlayerController if called in its own class when opening the askAddCategory window
     public void setMoviePlayerController(MoviePlayerController mpc) {
         this.mpc = mpc;
     }

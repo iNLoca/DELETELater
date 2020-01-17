@@ -30,7 +30,7 @@ public class DAOCategory {
         ds.setServerName("10.176.111.31");
         ds.setPortNumber(1433);
     }
-
+//Method that retrieves all the categories from the Categories table and returns a List of category Type
     public List<Category> getAllCategories() {
 
         try ( Connection con = ds.getConnection()) {
@@ -53,7 +53,7 @@ public class DAOCategory {
         }
         return null;
     }
-
+//Method that recieves an ID from a category and performs the Delete command on SQL to the category that matches that ID
     public void deleteCategoryById(int id) {
 
         try ( Connection con = ds.getConnection()) {
@@ -69,7 +69,7 @@ public class DAOCategory {
             Logger.getLogger(DAOCategory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+//Method that recieves a string as a name of the category and adds it to the category database
     public void addCategory(String name) {
         
         try (Connection con = ds.getConnection()) {

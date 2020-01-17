@@ -27,6 +27,7 @@ import javafx.stage.Stage;
 
 public class EditRatingController implements Initializable {
     
+    //Creation of variales for this class
     private Movie movie;
     private Manager manager= new Manager();
     private MoviePlayerController mpc;
@@ -52,6 +53,7 @@ public class EditRatingController implements Initializable {
 
     }
 
+    //Method that executes the EditRating process. it also ensures that the rating recieved by the user is inside the allowed bounds, if not, the default value 0 is set
     @FXML
     private void clickEditRatingbtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
@@ -65,18 +67,21 @@ public class EditRatingController implements Initializable {
         mpc.refresh();
     }
 
+    //Method that cancels the Edit Rating process and closes the window
     @FXML
     private void clickCancelRatingbtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
 
+    //Method that sets the movie and gets its personal rating to display it
     public void setMovie(Movie movie) {
         this.movie = movie;
         PrintedRating = Float.toString(movie.getPersonalRating());
         CurrRat.setText(PrintedRating);
     }
 
+    //Method that sets the instance of the MoviePlayerController if called in its own class when opening the EditRating window
     public void setMoviePlayerController(MoviePlayerController mpc) {
         this.mpc = mpc;
     }

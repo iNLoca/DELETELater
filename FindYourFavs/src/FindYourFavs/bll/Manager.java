@@ -24,7 +24,7 @@ public class Manager implements Interface {
     private List<Movie> movieList = new ArrayList();
 
     //Below we have all the methods which call the method with the same name found in the Data Access Objects, and return the same type (or void).
-    //The funcionality of each method is described by its name 
+    //The funcionality of each method is described by its name, we are calling methods in DAOC, DAOM and DAOCM
     @Override
     public List<Movie> getAllMovies() {
         movieList = DAOM.getAllMovies();

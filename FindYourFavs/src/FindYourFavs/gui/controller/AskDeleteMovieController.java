@@ -40,6 +40,7 @@ public class AskDeleteMovieController implements Initializable {
         
     }
 
+    //Method that executes the deletion of the movie by calling the same method on the MoviePlayerController
     @FXML
     private void clickDeleteMoviebtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
@@ -48,12 +49,14 @@ public class AskDeleteMovieController implements Initializable {
         stage.close();
     }
 
+    //Method that cancels the deletion od the movie process and closes the window
     @FXML
     private void clickCancelMoviebtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
 
+    //Method that sets the instance of the MoviePlayerController if called in its own class when opening the askDeleteMovie window
     public void setMoviePlayerController(MoviePlayerController mpc) {
         this.mpc = mpc;
     }

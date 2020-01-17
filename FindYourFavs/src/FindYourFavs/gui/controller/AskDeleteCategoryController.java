@@ -39,6 +39,7 @@ public class AskDeleteCategoryController implements Initializable {
 
     }
 
+    //Method that executes the deletion of the category calling its method on the MoviePlayerController
     @FXML
     private void clickDeleteCategorybtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
@@ -47,12 +48,13 @@ public class AskDeleteCategoryController implements Initializable {
         stage.close();
     }
 
+    //Method that closes the deleteCategory window and cancels the deleting process
     @FXML
     private void clickCancelCategorybtn(ActionEvent event) {
         Stage stage = (Stage) ((Node) ((EventObject) event).getSource()).getScene().getWindow();
         stage.close();
     }
-
+    //Method that sets the instance of the MoviePlayerController if called in its own class when opening the askDeleteCategory window
     public void setMoviePlayerController(MoviePlayerController mpc) {
         this.mpc = mpc;
     }

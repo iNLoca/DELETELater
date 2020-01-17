@@ -30,6 +30,8 @@ public class DAOCatMovie {
         ds.setPortNumber(1433);
     }
     
+    //Method that receives a category ID, performs a Join table that allows to get movies by category and returns a list of movies that match the received category ID
+    
     public List<Movie> DisplayOnlyMoviesInCategory (int catId) {
         
          try (Connection con = ds.getConnection()) {
@@ -62,6 +64,8 @@ public class DAOCatMovie {
          return null;
     }
     
+    //Method that adds into the table Catmovie a movieId and categoryId so that these two values are associated to each other.
+    //this method is used when creating a new movie so that it has one or multiple categories.
     public void addToCatMovie(int movieId, int categoryId){
         
          try (Connection con = ds.getConnection()) {

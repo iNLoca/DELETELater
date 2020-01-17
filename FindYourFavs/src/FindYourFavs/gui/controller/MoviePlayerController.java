@@ -41,6 +41,7 @@ import javafx.stage.Stage;
  */
 public class MoviePlayerController implements Initializable {
 
+    //Creation of variales for this class
     private Manager manager = new Manager();
     private Category category;
     private ObservableList<Movie> movieLst;
@@ -95,6 +96,9 @@ public class MoviePlayerController implements Initializable {
      * Initializes the controller class.
      */
     @Override
+    
+    //Method that initializes the controller. the Alert and refresh method from this class are called
+    
     public void initialize(URL url, ResourceBundle rb) {
         inter = new Manager();
 
@@ -104,6 +108,7 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+    //Method that opens the addMovie window and calls the setMoviePlayerContoller method found on this class
     private void clickaddmovie(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddMovie.fxml"));
         Parent root = loader.load();
@@ -117,6 +122,7 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+     //Method that opens the DeleteMovie window and calls the setMoviePlayerContoller method found on this class
     private void clickdeletemovie(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteMovie.fxml"));
         Parent root = loader.load();
@@ -130,6 +136,7 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+     //Method that opens the addCategory window and calls the setMoviePlayerContoller method found on this class
     private void clickaddcategory(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskAddCategory.fxml"));
         Parent root = loader.load();
@@ -143,6 +150,7 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+     //Method that opens the deleteCategory window and calls the setMoviePlayerContoller method found on this class
     private void clickdeletecategory(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/AskDeleteCategory.fxml"));
         Parent root = loader.load();
@@ -156,6 +164,7 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+     //Method that opens the EditRating window and calls the setMoviePlayerContoller method found on this class
     private void clickEditRating(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FindYourFavs/gui/view/EditRating.fxml"));
         Parent root = loader.load();
@@ -168,7 +177,7 @@ public class MoviePlayerController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+     //Method related to the initial Alert of the program, sets up the information for the alert and then displays it
     public void Alert() {
         manager.AlertData();
 
@@ -192,15 +201,18 @@ public class MoviePlayerController implements Initializable {
     public void deleteCategory() {
         manager.deleteCategoryById(categoriesView.getSelectionModel().getSelectedItem().getId());
     }
-
+    
+    //returns the name of the selected movie in the table
     public String returnNameOfMovie() {
         return tableview.getSelectionModel().getSelectedItem().getName();
     }
-
+    
+    //returns the selected movie object in the table
     public Movie returnMovie() {
         return tableview.getSelectionModel().getSelectedItem();
     }
 
+    //Method that reads all the movies and categories contained in the Movies and Category tables of the database and fills the tableview and catView with them, respectively 
     public void refresh() {
         movieLst = FXCollections.observableArrayList(manager.getAllMovies());
         movietittle.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -215,6 +227,7 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+    //Method that sets the tableview with the movies that match a certain category and also sets the lblChosenCategory text to the chosen category
     private void chosenCategory(MouseEvent event) {
         lblChosenCategory.setText(categoriesView.getSelectionModel().getSelectedItem().getName());
         movieLst = FXCollections.observableArrayList(manager.MoviesFromSelectedCategory(categoriesView.getSelectionModel().getSelectedItem().getId()));
@@ -225,6 +238,8 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+     //Method that gets the text from the searchbarfield when the SearchMovieBtn is pressed and sets the tableview with the items that match the criteria in the database. this is achieved
+    //by using the method getAllMoviesWithFilter inside the manager class
     private void searchMovieBtn(MouseEvent event) {
         String query = searchbarField.getText();
         if (query != null) {
@@ -232,10 +247,12 @@ public class MoviePlayerController implements Initializable {
             tableview.setItems(movieLst);
         } else {
             refresh();
+            
         }
     }
 
     @FXML
+    //Method that gets the filelink from the selected movie and plays it
     private void playMovie(ActionEvent event) throws IOException {
         Movie movie = tableview.getSelectionModel().getSelectedItem();
         String currentFileLink = movie.getFileLink();
@@ -246,17 +263,21 @@ public class MoviePlayerController implements Initializable {
     }
 
     @FXML
+    //Method that gets the IMDBbrowser from the selected movie and opens it in an internet window
     private void clicklinkbtn(ActionEvent event) throws MalformedURLException, URISyntaxException, IOException {
         String selectedMovieBrowser = tableview.getSelectionModel().getSelectedItem().getImdbbrowser();
         Desktop.getDesktop().browse(new URL(selectedMovieBrowser).toURI());
     }
 
     @FXML
+    //Method that executes the refresh when the showall button movies is pressed
     private void clickShowAllMovies(ActionEvent event) {
         refresh();
     }
 
     @FXML
+    //Method that gets the text from the ratinglbl when the SearchByRatingBtn is pressed and sets the tableview with the items that match the criteria in the database. this is achieved
+    //by using the method getFilteredMoviesByIMDB inside the manager class
     private void clickSearchByRatingBtn(ActionEvent event) {
         String query = ratinglbl.getText();
         if (query != null) {
